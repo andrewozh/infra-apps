@@ -13,6 +13,21 @@ locals {
     }
   ]
 
+  groups = [
+    {
+      name = "admin"
+      policy_arns = [
+        "arn:aws:iam::aws:policy/AdministratorAccess"
+      ]
+    },
+    {
+      name = "dev"
+      policy_arns = [
+        "arn:aws:iam::aws:policy/ReadOnlyAccess"
+      ]
+    }
+  ]
+
   tags = {
     Account      = local.account_name
     Terragrunt   = "true"

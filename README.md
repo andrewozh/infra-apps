@@ -15,8 +15,16 @@ Using `Terragrunt` to provision infra
 cd andrewozh/_global/_global/iam_users
 terragrunt init
 terragrunt plan
-.terragrunt-cache/xKG1HgEPnmjWa1apB30ehm8u6_A/cpcBBarW3C8nzbYChjENQ88b6eE
-terraform import 'module.iam_user["andrew.ozhegov"].aws_iam_user.this[0]' andrew.ozhegov
-terraform import 'module.iam_user["andrew.ozhegov"].aws_iam_user_login_profile.this[0]' andrew.ozhegov
+terragrunt import 'module.iam_user["andrew.ozhegov"].aws_iam_user.this[0]' andrew.ozhegov
+terragrunt import 'module.iam_user["andrew.ozhegov"].aws_iam_user_login_profile.this[0]' andrew.ozhegov
 terragrunt apply
+```
+
+### groups
+
+* configuring same as users
+* required manual import of already existing group
+
+```
+terragrunt import 'module.iam_group["admin"].aws_iam_group.this[0]' admin
 ```
