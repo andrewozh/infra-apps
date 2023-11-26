@@ -32,3 +32,4 @@ terragrunt import 'module.iam_group["admin"].aws_iam_group.this[0]' admin
 ## vpc
 
 * using `terraform-aws-modules/vpc/aws` because it's awesome
+* vpc peering using `cloudposse/vpc-peering`
