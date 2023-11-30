@@ -21,7 +21,7 @@ locals {
 inputs = {
   name = "${local.env}-vpc"
 
-  enable_nat_gateway   = true
+  enable_nat_gateway   = false
   single_nat_gateway   = true
   enable_dns_hostnames = true
 

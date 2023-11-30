@@ -3,7 +3,7 @@ include "root" {
 }
 
 include "module" {
-  path   = "${dirname(find_in_parent_folders())}/_modules/vpc.hcl"
+  path   = "${dirname(find_in_parent_folders())}/_modules/vpc/terragrunt.hcl"
   expose = true
 }
 

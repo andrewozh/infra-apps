@@ -3,7 +3,7 @@ include "root" {
 }
 
 include "module" {
-  path   = "${dirname(find_in_parent_folders())}/_modules/vpc_peering.hcl"
+  path   = "${dirname(find_in_parent_folders())}/_modules/vpc/peering/terragrunt.hcl"
   expose = true
 }
 
