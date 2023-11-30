@@ -2,6 +2,26 @@
 
 Using `Terragrunt` to provision infra
 
+* how to merge shared tags with specific tags?
+
+## terragrunt
+
+* to create working infra set `avoid_billing` to `false` in `account.hcl` and set to `true` afterwords
+* run multiple modules at once (from dir with `account.hcl` to run all modules for account)
+
+```
+cd andrewozh
+terragrunt run-all plan
+```
+
+### todo
+
+* altinity
+
+## helm
+
+* replace with `jsonnet` or `cue`
+
 ## iam
 
 ### users
@@ -33,3 +53,37 @@ terragrunt import 'module.iam_group["admin"].aws_iam_group.this[0]' admin
 
 * using `terraform-aws-modules/vpc/aws` because it's awesome
 * vpc peering using `cloudposse/vpc-peering`
+
+## eks
+
+* cluster-autoscaler < `Karpetner` < AWS Fargate
+* vertical-pod-autoscaler vs `keda` (same ot not?)
+* Operator Lifecycle Manager
+* external-secrets
+* external-dns
+* argocd
+* terraform operator
+* alertnamager
+
+## secrets
+
+* vault
+
+## metrics
+
+* victoria metrics
+* prometheus-
+* grafana
+
+## logs
+
+* loki
+* elasticsearch
+
+## databases
+
+* kafka (managed - Amazon MSK, operator - strimzi)
+* postgres
+* redis
+* mongo
+* clickhouse
