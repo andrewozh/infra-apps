@@ -11,6 +11,8 @@ locals {
 
   env = local.environment_vars.locals.environment
 
+  avoid_billing = local.account_vars.locals.avoid_billing
+
   tags_all = merge(
     local.account_vars.locals.tags,
     local.region_vars.locals.tags,
@@ -21,7 +23,7 @@ locals {
 inputs = {
   name = "${local.env}-vpc"
 
-  enable_nat_gateway   = false
+  enable_nat_gateway   = local.avoid_billing ? false : true
   single_nat_gateway   = true
   enable_dns_hostnames = true
 

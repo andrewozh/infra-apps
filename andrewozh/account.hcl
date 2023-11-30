@@ -2,6 +2,10 @@ locals {
   account_name   = "andrewozh"
   aws_account_id = "066477712859"
 
+  # FEAT: avoid_billing: this param will disable creating paid reesources
+  avoid_billing = true
+  # avoid_billing = false
+
   users = [
     {
       name = "andrew.ozhegov"
