@@ -20,6 +20,12 @@ provider "aws" {
 EOF
 }
 
+generate "versions" {
+  path      = "terragrunt_versions.tf"
+  if_exists = "overwrite_terragrunt"
+  contents  = file("versions.tf")
+}
+
 remote_state {
   backend = "s3"
   config = {
