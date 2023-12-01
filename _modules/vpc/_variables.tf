@@ -24,11 +24,6 @@ variable "public_subnets" {
   type        = list(string)
 }
 
-variable "azs" {
-  description = "List of availability zones"
-  type        = list(string)
-}
-
 variable "tags_all" {
   description = "The key-value maps for tagging"
   type        = map(string)
