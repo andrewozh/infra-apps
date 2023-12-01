@@ -2,12 +2,15 @@ include "root" {
   path = find_in_parent_folders()
 }
 
-include "module" {
-  path   = "${dirname(find_in_parent_folders())}/_modules/vpc/peering/terragrunt.hcl"
-  expose = true
+terraform {
+  source = "${dirname(find_in_parent_folders())}/_modules/vpc/peering"
 }
 
 locals {
+  account_vars     = read_terragrunt_config(find_in_parent_folders("account.hcl"))
+  region_vars      = read_terragrunt_config(find_in_parent_folders("region.hcl"))
+  environment_vars = read_terragrunt_config(find_in_parent_folders("env.hcl"))
+
   dependency_vpc_this = "${dirname(find_in_parent_folders("env.hcl"))}/vpc"
   dependency_vpc_dev  = "${dirname(find_in_parent_folders("region.hcl"))}/dev/vpc"
 }
