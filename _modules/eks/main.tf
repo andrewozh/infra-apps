@@ -7,7 +7,7 @@ module "eks" {
   cluster_name    = var.cluster_name
   cluster_version = var.kubernetes_version
 
-  cluster_endpoint_public_access  = false
+  cluster_endpoint_public_access  = true
   cluster_endpoint_private_access = true
 
   cluster_enabled_log_types = [
@@ -108,8 +108,8 @@ module "eks" {
     }
   }
 
-  create_aws_auth_configmap = true
-  # manage_aws_auth_configmap = true
+  # create_aws_auth_configmap = true
+  manage_aws_auth_configmap = true
   aws_auth_roles = [
     # {
     #   rolearn  = var.github_role_arn
@@ -123,16 +123,11 @@ module "eks" {
     # },
   ]
   aws_auth_users = [
-    # {
-    #   userarn  = "arn:aws:iam::66666666666:user/user1"
-    #   username = "user1"
-    #   groups   = ["system:masters"]
-    # },
-    # {
-    #   userarn  = "arn:aws:iam::66666666666:user/user2"
-    #   username = "user2"
-    #   groups   = ["system:masters"]
-    # },
+    {
+      userarn  = "arn:aws:iam::066477712859:user/andrew.ozhegov"
+      username = "andrew.ozhegov"
+      groups   = ["system:masters"]
+    },
   ]
   # aws_auth_accounts = [
   #   "777777777777",
@@ -141,8 +136,3 @@ module "eks" {
 
   tags = var.tags
 }
-
-# data "aws_eks_cluster_auth" "aws_iam_authenticator" {
-#   name = module.eks.cluster_id
-# }
-
