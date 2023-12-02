@@ -13,5 +13,4 @@ updates:
       - "dependencies"
       - "terraform"
     reviewers:
-      - "username1"
-      - "username2"
+      - "andrewozh"

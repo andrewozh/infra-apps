@@ -4,7 +4,6 @@ Using `Terragrunt` to provision infra
 
 ## terragrunt
 
-* to create working infra set `avoid_billing` to `false` in `account.hcl` and set to `true` afterwords
 * run multiple modules at once (from dir with `account.hcl` to run all modules for account)
 
 ```
@@ -12,9 +11,20 @@ cd andrewozh
 terragrunt run-all plan
 ```
 
-### todo
-
 * altinity
+
+## infracost
+
+* to see coast value of current infra
+
+```
+brew install infracost
+infracost auth login
+infracost configure set api_key ico-XXX
+infracost breakdown --path .
+```
+
+* set `avoid_billing` to `true` in `account.hcl` and apply to remove paid resources
 
 ## helm
 
