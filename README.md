@@ -2,8 +2,6 @@
 
 Using `Terragrunt` to provision infra
 
-* how to merge shared tags with specific tags?
-
 ## terragrunt
 
 * to create working infra set `avoid_billing` to `false` in `account.hcl` and set to `true` afterwords

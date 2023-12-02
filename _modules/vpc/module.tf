@@ -4,7 +4,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.1.2"
 
-  name = "${var.env}-vpc"
+  name = "vpc-${var.env}"
 
   enable_nat_gateway   = var.avoid_billing ? false : true
   single_nat_gateway   = true
@@ -16,25 +16,25 @@ module "vpc" {
   azs             = data.aws_availability_zones.available.names
 
   public_subnet_tags = {
-    Name = "${var.env}-vpc-public"
+    Name = "sn-${var.env}-public"
   }
 
   private_subnet_tags = {
-    Name = "${var.env}-vpc-private"
+    Name = "sn-${var.env}-private"
   }
 
   public_route_table_tags = {
-    Name = "${var.env}-vpc-public"
+    Name = "rt-${var.env}-public"
   }
 
   private_route_table_tags = {
-    Name = "${var.env}-vpc-private"
+    Name = "rt-${var.env}-private"
   }
 
   tags = merge(
     var.tags_all,
     {
-      Name = "${var.env}-vpc"
+      Name = "vpc-${var.env}"
     },
   )
 }

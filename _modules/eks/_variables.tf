@@ -41,7 +41,7 @@ variable "main_instance_count" {
   default = 1
 }
 
-variable "tags" {
+variable "tags_all" {
   description = "The key-value maps for tagging"
   type        = map(string)
   default     = {}

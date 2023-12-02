@@ -134,5 +134,5 @@ module "eks" {
   #   "888888888888",
   # ]
 
-  tags = var.tags
+  tags = var.tags_all
 }
