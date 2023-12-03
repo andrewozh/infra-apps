@@ -1,3 +1,19 @@
+# Required for managing aws-auth from module definition
+
+data "aws_eks_cluster" "default" {
+  name = module.eks.cluster_name
+}
+
+data "aws_eks_cluster_auth" "default" {
+  name = module.eks.cluster_name
+}
+
+provider "kubernetes" {
+  host                   = data.aws_eks_cluster.default.endpoint
+  cluster_ca_certificate = base64decode(data.aws_eks_cluster.default.certificate_authority[0].data)
+  token                  = data.aws_eks_cluster_auth.default.token
+}
+
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "19.20.0"
@@ -112,14 +128,12 @@ module "eks" {
   manage_aws_auth_configmap = true
   aws_auth_roles = [
     # {
-    #   rolearn  = var.github_role_arn
-    #   username = "github-actions"
-    #   groups   = ["system:masters"]
-    # },
-    # {
-    #   rolearn  = "arn:aws:iam::66666666666:role/role1"
-    #   username = "role1"
-    #   groups   = ["system:masters"]
+    #   rolearn  = module.karpenter.role_arn
+    #   username = "system:node:{{EC2PrivateDNSName}}"
+    #   groups = [
+    #     "system:bootstrappers",
+    #     "system:nodes",
+    #   ]
     # },
   ]
   aws_auth_users = [
