@@ -1,16 +1,14 @@
-# Required for managing aws-auth from module definition
+module "eks_auth" {
+  source = "aidanmelen/eks-auth/aws"
+  version = "1.0.0"
 
-data "aws_eks_cluster" "default" {
-  name = var.cluster_name
+  eks    = module.eks
+
+  map_users = [
+    {
+      userarn  = "arn:aws:iam::066477712859:user/andrew.ozhegov"
+      username = "andrew.ozhegov"
+      groups   = ["system:masters"]
+    },
+  ]
 }
-
-data "aws_eks_cluster_auth" "default" {
-  name = var.cluster_name
-}
-
-provider "kubernetes" {
-  host                   = data.aws_eks_cluster.default.endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.default.certificate_authority[0].data)
-  token                  = data.aws_eks_cluster_auth.default.token
-}
-
