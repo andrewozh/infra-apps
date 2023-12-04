@@ -25,7 +25,7 @@ dependencies {
 }
 
 inputs = {
-  cluster_name             = "eks-${local.environment_vars.locals.environment}"
+  cluster_name             = local.environment_vars.locals.eks_cluster_name
   region                   = local.region_vars.locals.aws_region
   vpc_id                   = dependency.vpc.outputs.vpc_id
   subnets                  = dependency.vpc.outputs.private_subnets

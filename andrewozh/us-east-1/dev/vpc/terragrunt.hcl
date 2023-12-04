@@ -17,7 +17,9 @@ inputs = {
   private_subnets = ["10.1.0.0/19", "10.1.32.0/19", "10.1.64.0/19"]
   public_subnets  = ["10.1.96.0/19", "10.1.128.0/19", "10.1.160.0/19"]
 
-  env      = local.environment_vars.locals.environment
+  env          = local.environment_vars.locals.environment
+  cluster_name = local.environment_vars.locals.eks_cluster_name
+
   tags_all = merge(
     local.account_vars.locals.tags,
     local.region_vars.locals.tags,

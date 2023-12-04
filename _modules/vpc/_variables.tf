@@ -24,6 +24,12 @@ variable "public_subnets" {
   type        = list(string)
 }
 
+variable "cluster_name" {
+  description = "Name of EKS cluster to add subnet tags"
+  type        = string
+  default     = ""
+}
+
 variable "tags_all" {
   description = "The key-value maps for tagging"
   type        = map(string)

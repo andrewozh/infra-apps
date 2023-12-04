@@ -16,11 +16,15 @@ module "vpc" {
   azs             = data.aws_availability_zones.available.names
 
   public_subnet_tags = {
-    Name = "sn-${var.env}-public"
+    "Name"                                      = "sn-${var.env}-public"
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
+    "kubernetes.io/role/elb"                    = "1"
   }
 
   private_subnet_tags = {
-    Name = "sn-${var.env}-private"
+    "Name"                                      = "sn-${var.env}-private"
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
+    "kubernetes.io/role/elb"                    = "1"
   }
 
   public_route_table_tags = {

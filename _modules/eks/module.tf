@@ -1,11 +1,12 @@
 # Required for managing aws-auth from module definition
+# Comment data and provider before apply to create module.eks first
 
 data "aws_eks_cluster" "default" {
-  name = module.eks.cluster_name
+  name = var.cluster_name
 }
 
 data "aws_eks_cluster_auth" "default" {
-  name = module.eks.cluster_name
+  name = var.cluster_name
 }
 
 provider "kubernetes" {
