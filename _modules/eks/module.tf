@@ -1,18 +1,11 @@
-# Required for managing aws-auth from module definition
-# Comment data and provider before apply to create module.eks first
-
-data "aws_eks_cluster" "default" {
-  name = var.cluster_name
-}
-
-data "aws_eks_cluster_auth" "default" {
-  name = var.cluster_name
-}
-
 provider "kubernetes" {
-  host                   = data.aws_eks_cluster.default.endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.default.certificate_authority[0].data)
-  token                  = data.aws_eks_cluster_auth.default.token
+  host                   = module.eks.cluster_endpoint
+  cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
+  exec {
+    api_version = "client.authentication.k8s.io/v1beta1"
+    command     = "aws"
+    args        = ["--profile", "andrewozh", "eks", "get-token", "--cluster-name", module.eks.cluster_name]
+  }
 }
 
 module "eks" {
@@ -110,18 +103,24 @@ module "eks" {
     }
   }
 
+  node_security_group_tags  = {
+    "karpenter.sh/discovery" = var.cluster_name
+  }
+
+  eks_managed_node_group_defaults = {
+    iam_role_additional_policies = {
+      AmazonSSMManagedInstanceCore = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+    }
+  }
+
   eks_managed_node_groups = {
     main = {
-      disk_size      = 10
+      disk_size      = 50
       instance_types = [var.main_instance_type]
       min_size       = var.main_instance_count
       max_size       = var.main_instance_count
       desired_size   = var.main_instance_count
       capacity_type  = "ON_DEMAND"
-      # iam_role_additional_policies = concat(
-      #   ["arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"],
-      #   var.policy_arns
-      # )
     }
   }
 
@@ -144,10 +143,6 @@ module "eks" {
       groups   = ["system:masters"]
     },
   ]
-  # aws_auth_accounts = [
-  #   "777777777777",
-  #   "888888888888",
-  # ]
 
   tags = var.tags_all
 }
