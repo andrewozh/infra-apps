@@ -34,7 +34,7 @@ variable "policy_arns" {
 
 variable "main_instance_type" {
   type = string
-  default = "t3.large"
+  default = "t3.xlarge"
 }
 variable "main_instance_count" {
   type = number

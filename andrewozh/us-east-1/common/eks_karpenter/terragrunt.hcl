@@ -28,12 +28,12 @@ inputs = {
   avoid_billing = local.account_vars.locals.avoid_billing
 
   cluster_name           = local.environment_vars.locals.eks_cluster_name
-  cluster_endpoint       = dependency.eks.cluster_endpoint
-  cluster_ca_certificate = dependency.eks.cluster_ca_certificate
+  cluster_endpoint       = dependency.eks.outputs.cluster_endpoint
+  cluster_ca_certificate = dependency.eks.outputs.cluster_ca_certificate
 
-  irsa_oidc_provider_arn = dependency.eks.oidc_arn
-  iam_role_arn           = dependency.eks.node_group_iam_role_arn
-  iam_role_name          = dependency.eks.node_group_iam_role_name
+  irsa_oidc_provider_arn = dependency.eks.outputs.oidc_arn
+  iam_role_arn           = dependency.eks.outputs.node_group_iam_role_arn
+  iam_role_name          = dependency.eks.outputs.node_group_iam_role_name
 
   tags = merge(
     local.account_vars.locals.tags,
