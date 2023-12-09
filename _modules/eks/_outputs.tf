@@ -15,7 +15,10 @@ output "cluster_ca_certificate" {
   sensitive = true
 }
 
-output "ng_iam_role_name" {
+output "node_group_iam_role_name" {
   value = try(module.eks.eks_managed_node_groups.main.iam_role_name, "")
 }
 
+output "node_group_iam_role_arn" {
+  value = try(module.eks.eks_managed_node_groups.main.iam_role_arn, "")
+}
