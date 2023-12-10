@@ -64,14 +64,28 @@ terragrunt import 'module.iam_group["admin"].aws_iam_group.this[0]' admin
 
 ## eks
 
-* cluster-autoscaler < `Karpetner` < AWS Fargate
+### Karpetner
+
+autoscaling cluster nodes
+
+### ArgoCD
+
+* most simple implementation for now
+* access ui (`yq` required)
+
+```
+kubectl port-forward svc/argocd-server -n argocd 8080:80
+# login: admin
+# password:
+kubectl get secrets argocd-initial-admin-secret -o yaml -n argocd | yq .data.password | base64 --decode
+```
+
 * vertical-pod-autoscaler vs `keda` (same ot not?)
-* Operator Lifecycle Manager
 * external-secrets
 * external-dns
-* argocd
 * terraform operator
 * alertnamager
+* Operator Lifecycle Manager (OLM)
 
 ## secrets
 
