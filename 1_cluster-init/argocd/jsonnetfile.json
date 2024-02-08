@@ -1,0 +1,40 @@
+{
+  apiVersion: 'argoproj.io/v1alpha1',
+  kind: 'ApplicationSet',
+  metadata: {
+    name: 'guestbook',
+    namespace: 'argocd',
+  },
+  spec: {
+    generators: [
+      {
+        git: {
+          repoURL: 'https://github.com/argoproj-labs/applicationset.git',
+          revision: 'HEAD',
+          directories: [
+            {
+              path: 'examples/list-generator/guestbook/*',
+            },
+          ],
+        },
+      },
+    ],
+    template: {
+      metadata: {
+        name: '{{path.basename}}',
+      },
+      spec: {
+        project: 'default',
+        source: {
+          repoURL: 'https://github.com/argoproj-labs/applicationset.git',
+          targetRevision: 'HEAD',
+          path: '{{path}}',
+        },
+        destination: {
+          server: 'https://kubernetes.default.svc',
+          namespace: 'guestbook',
+        },
+      },
+    },
+  },
+}
