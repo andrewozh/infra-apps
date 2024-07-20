@@ -1,8 +1,11 @@
-.PHONY: homelab olm argocd init
-all: homelab olm argocd init
+.PHONY: homelab start stop olm argocd init
+all: homelab start stop olm argocd init
 
 homelab:
-	kind create cluster --config kind-homelab.yaml 
+	kind get clusters | grep homelab || kind create cluster --config kind-homelab.yaml
+
+start stop: homelab
+	podman ps -aq --filter "name=homelab" | xargs podman "$@"
 
 olm:
 	# https://github.com/argoproj-labs/argocd-operator/issues/945
