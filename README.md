@@ -1,11 +1,16 @@
 # infra-apps
 
-## 0_prerequisits
+## prerequisits
 
 * deploy `eks-common` using terraform in `infra-base`
 * update-kubeconfig
 
-## 1_cluster-init
+```bash
+make homelab
+```
 
-* deploy `olm`
-* run `init.sh`
+## init cluster
+
+```bash
+make init
+```
