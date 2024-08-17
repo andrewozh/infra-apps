@@ -1,0 +1,41 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: common
+spec:
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+    applicationsSync: create-update
+  goTemplate: true
+  generators:
+  - matrix:
+      generators:
+      - git:
+          repoURL: {{ .Values.repo }}
+          revision: main
+          directories:
+            - path: 'argo-apps-common/*'
+      - clusters: {}
+  template:
+    metadata:
+      name: '{{`{{.name}}`}}-{{`{{.path.basename }}`}}'
+      labels:
+        project: default
+        service: '{{`{{.path.basename}}`}}'
+        type: app
+    spec:
+      project: default
+      source:
+        repoURL: {{ .Values.repo }}
+        targetRevision: main
+        path: '{{`{{.path.path }}`}}'
+        helm:
+            releaseName: '{{`{{.path.basename}}`}}'
+            ignoreMissingValueFiles: true
+            valueFiles:
+            - ../global.yaml
+            - ../{{`{{.additionalValuesFile}}`}}
+            - ../{{`{{.name}}`}}.yaml
+      destination:
+        name: '{{`{{.name}}`}}'
+        namespace: '{{ `{{.namespace}}` }}'

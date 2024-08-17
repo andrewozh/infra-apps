@@ -1,0 +1,12 @@
+repo: https://github.com/andrewozh/infra-apps.git
+
+defaultExcludeDirs:
+  - '_chart/'
+
+clusters:
+  common:
+    excludeDirs:
+
+teams:
+  - ops
+  - dev

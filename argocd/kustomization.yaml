@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
 - ns.yaml
 - argo.yaml
-# - app.yaml
+- app.yaml
