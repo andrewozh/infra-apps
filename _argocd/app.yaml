@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/andrewozh/infra-apps.git
-    path: argocd/
+    path: _argocd/
     targetRevision: main
     helm:
       releaseName: argocd

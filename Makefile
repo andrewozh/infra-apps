@@ -15,9 +15,9 @@ olm: kctx
 	operator-sdk olm status || (operator-sdk olm install ; kubectl label namespace olm pod-security.kubernetes.io/enforce=baseline --overwrite)
 
 argocd: kctx olm
-	kubectl apply -k ./argocd/olm-catalog-source/
-	kubectl apply -k ./argocd/olm-subscription/
+	kubectl apply -k _argocd/olm-catalog-source/
+	kubectl apply -k _argocd/olm-subscription/
 	while ! kubectl get crd argocds.argoproj.io 2>/dev/null ; do sleep 1 ; done
-	kubectl apply -k ./argocd/
+	kubectl apply -k _argocd/
 
 init: argocd
