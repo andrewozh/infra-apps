@@ -11,3 +11,6 @@
 ```bash
 make init
 ```
+
+- [ ] appset common
+- [ ] argocd app of appsets
