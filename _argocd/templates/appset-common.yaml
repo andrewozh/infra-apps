@@ -10,11 +10,20 @@ spec:
   generators:
   - matrix:
       generators:
-      - git:
-          repoURL: {{ .Values.repo }}
-          revision: main
-          directories:
-            - path: 'argo-apps-common/*'
+      - merge:
+          mergeKeys:
+            - path.basenameNormalized
+          generators:
+            - git:
+                repoURL: {{ .Values.repo }}
+                revision: main
+                directories:
+                  - path: 'argo-apps-common/*/releases/*'
+            - git:
+                repoURL: {{ .Values.repo }}
+                revision: main
+                files:
+                  - path: 'argo-apps-common/*/releases/*/argo.yaml'
       - clusters: {}
   template:
     metadata:
@@ -28,7 +37,7 @@ spec:
       source:
         repoURL: {{ .Values.repo }}
         targetRevision: main
-        path: '{{`{{.path.path }}`}}'
+        path: '{{`{{index .path.segments 0}}`}}/{{`{{index .path.segments 1}}`}}/'
         helm:
             releaseName: '{{`{{.path.basename}}`}}'
             ignoreMissingValueFiles: true
