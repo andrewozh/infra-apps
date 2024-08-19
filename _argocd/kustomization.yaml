@@ -4,3 +4,4 @@ resources:
 - ns.yaml
 - argo.yaml
 - app.yaml
+- rbac.yaml
