@@ -6,8 +6,10 @@ help: ## Show this message
 	@echo
 	@grep -E '^[ a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-olm: ## Deploy Operator Lifecycle Manager
-	[ $(kubectl config current-context) != "kind-homelab" ] && exit 1
+kctx: ## Activate homelab kubecontext
+	kubectl config use-context kind-homelab
+
+olm: kctx ## Deploy Operator Lifecycle Manager
 	# https://github.com/argoproj-labs/argocd-operator/issues/945
 	operator-sdk olm status || (operator-sdk olm install ; kubectl label namespace olm pod-security.kubernetes.io/enforce=baseline --overwrite)
 
