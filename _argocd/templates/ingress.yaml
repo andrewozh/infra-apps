@@ -3,22 +3,25 @@ kind: Ingress
 metadata:
   name: argocd
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    # nginx.ingress.kubernetes.io/rewrite-target: /$2
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
   rules:
-  - http:
+  - host: argocd.home.lab
+    http:
       paths:
       - pathType: Prefix
-        path: "/argo(/|$)(.*)"
+        # path: "/argo(/|$)(.*)"
+        path: "/"
         backend:
           service:
             name: argocd-server
             port:
               number: 80
       - pathType: Prefix
-        path: "/argo(/|$)(.*)"
+        # path: "/argo(/|$)(.*)"
+        path: "/"
         backend:
           service:
             name: argocd-server
