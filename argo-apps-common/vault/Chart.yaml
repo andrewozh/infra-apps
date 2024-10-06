@@ -4,6 +4,6 @@ description: A virtual chart for vault
 name: vault
 version: 0.1.0
 dependencies:
-- name: hashicorp/vault
-  version: "0.28.1"
+- name: vault
+  version: 0.28.1
   repository: https://helm.releases.hashicorp.com
