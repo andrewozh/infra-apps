@@ -4,6 +4,6 @@ description: A virtual chart for vault
 name: vault
 version: 0.1.0
 dependencies:
-- name: vault-operator
-  version: "1.22.3"
-  repository: oci://ghcr.io/bank-vaults/helm-charts
+- name: hashicorp/vault
+  version: "0.28.1"
+  repository: https://helm.releases.hashicorp.com
