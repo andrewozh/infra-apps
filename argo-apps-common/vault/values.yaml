@@ -47,7 +47,7 @@ vault:
   injector:
     # True if you want to enable vault agent injection.
     # @default: global.enabled
-    enabled: "-"
+    enabled: false
 
     replicas: 1
 
