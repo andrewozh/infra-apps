@@ -1,2 +1,15 @@
 elasticsearch:
+  replicas: 1
+  minimumMasterNodes: 1
   esJavaOpts: "-Xmx128m -Xms128m" # example: "-Xmx1g -Xms1g"
+  resources:
+    requests:
+      cpu: "100m"
+      memory: "500Mi"
+    limits:
+      memory: "500Mi"
+  volumeClaimTemplate:
+    accessModes: ["ReadWriteOnce"]
+    resources:
+      requests:
+        storage: 5Gi
