@@ -51,11 +51,11 @@ kibana:
 
   resources:
     requests:
-      cpu: "100m"
-      memory: "500Mi"
+      cpu: "1000m"
+      memory: "2Gi"
     limits:
-      cpu: "100m"
-      memory: "500Mi"
+      cpu: "1000m"
+      memory: "2Gi"
 
   protocol: http
 
