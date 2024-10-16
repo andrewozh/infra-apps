@@ -1,6 +1,10 @@
 # argocd
 
-Requirements:
+## TODO
+
+- [ ] values order
+
+## Requirements
 
 * operator-sdk
 * kubeconfig
@@ -24,3 +28,30 @@ make
   - ingress for itself
   - applicationsets
   - etc in templates
+
+## [~] values order
+
+cloud: kind aws gcp acure
+account: main us eu
+env: common dev stage preprod prod
+
+`<cloud>-<acc/dc>-<env>`
+global
+cloud
+acc
+env
+cloud-acc
+cloud-env
+acc-env
+cloud-acc-env
+
+global.yaml
+kind.yaml
+main.yaml
+common.yaml
+kind-main.yaml
+kind-common.yaml
+main-common.yaml
+kind-main-common.yaml
+...
+
