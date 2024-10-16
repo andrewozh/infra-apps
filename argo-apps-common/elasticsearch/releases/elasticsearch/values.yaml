@@ -1,0 +1,2 @@
+elasticsearch:
+  esJavaOpts: "-Xmx128m -Xms128m" # example: "-Xmx1g -Xms1g"
