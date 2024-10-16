@@ -4,13 +4,15 @@
 
 - [~] helm appchart
 - [~] secrets -- vault external-secrets
-- [ ] observability -- prom vm grafana tempo (any other traces) alerts
+- [~] observability -- prom vm grafana tempo jaeger alertmanager
 - [ ] logs -- fluent elk loki
-- [ ] ingress -- nginx kong external-dns
+- [~] ingress -- nginx kong external-dns
+- [ ] service mesh -- istio
 - [ ] autoscaling -- cluster-autoscaling keda
 - [ ] databases -- postgres, kafka, redis, mongo, clickhouse
 - [ ] crossplane -- creating non-common eks (managed cloud resources dbs etc)
 - [ ] tools -- reloader
+- [ ] demo-app
 
 ## prerequisits
 
@@ -33,4 +35,16 @@ make init
 
 - vault
 - external-secrets
+
+## Monitoring
+
+- prometheus
+- grafana
+- alertmanager
+
+## Loging
+
+- fluent-bit -- lightweight daemonset (pods stdout logs)
+- elasicseach
+- kibana
 

@@ -34,6 +34,9 @@ EOF
 
 ## exmple PushSecret
 
+Usecase: some resource created in k8s store its secret in k8s-secret,
+and we use PushSecret to save it in Vault and be accessible outside of k8s
+
 ```bash
 # cat <<EOF | kubectl apply -f -
 apiVersion: external-secrets.io/v1alpha1
