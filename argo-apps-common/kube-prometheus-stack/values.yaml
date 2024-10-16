@@ -46,7 +46,7 @@ kube-prometheus-stack:
   ## Create default rules for monitoring the cluster
   ##
   defaultRules:
-    create: false
+    create: true
     rules:
       alertmanager: true
       etcd: true
@@ -270,7 +270,7 @@ kube-prometheus-stack:
 
     ## Deploy alertmanager
     ##
-    enabled: false
+    enabled: true
 
     ## Annotations for Alertmanager
     ##
@@ -4508,7 +4508,7 @@ kube-prometheus-stack:
       ## prometheus resource to be created with selectors based on values in the helm deployment,
       ## which will also match the PrometheusRule resources created
       ##
-      ruleSelectorNilUsesHelmValues: false
+      ruleSelectorNilUsesHelmValues: true
 
       ## PrometheusRules to be selected for target discovery.
       ## If {}, select all PrometheusRules
