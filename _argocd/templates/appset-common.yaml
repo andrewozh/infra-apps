@@ -39,8 +39,8 @@ spec:
             releaseName: '{{`{{.path.basename}}`}}'
             ignoreMissingValueFiles: true
             valueFiles:
-            - ../global.yaml
-            - ../{{`{{.additionalValuesFile}}`}}
+            - ../../global.yaml
+            - '/{{`{{.path.path}}`}}/values.yaml' # values for all ENVS for this release
             - ../{{`{{.name}}`}}.yaml
       destination:
         name: '{{`{{.name}}`}}'
