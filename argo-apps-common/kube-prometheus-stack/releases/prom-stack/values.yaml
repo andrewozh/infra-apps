@@ -20,6 +20,9 @@ kube-prometheus-stack:
   kubeProxy:
     enabled: false
 
+  commonLabels:
+    app.kubernetes.io/instance: prom-stack
+
   kube-state-metrics:
     fullnameOverride: "kube-state-metrics"
     releaseLabel: true
