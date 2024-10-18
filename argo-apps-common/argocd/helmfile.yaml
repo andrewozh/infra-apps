@@ -1,0 +1,11 @@
+releases:
+- name: argocd
+  chart: ./
+  missingFileHandler: Warn
+  namespace: argocd
+  values:
+    - ./values-override.yaml
+helmDefaults:
+  createNamespace: false
+  timeout: {{ .Values | get "helmUpgradeTimeout" 800 }}
+  atomic: true
