@@ -1,0 +1,35 @@
+# https://raw.githubusercontent.com/kubernetes/ingress-nginx/2cec24143d4b59a986560ff1e755adadd5d6bf4a/hack/manifest-templates/provider/kind/values.yaml
+ingress-nginx:
+  controller:
+    image:
+      runAsNonRoot: true
+      readOnlyRootFilesystem: false
+      allowPrivilegeEscalation: false
+      seccompProfile:
+        type: RuntimeDefault
+    extraArgs:
+      publish-status-address: localhost
+    service:
+      type: NodePort
+    hostPort:
+      enabled: true
+    publishService:
+      enabled: false
+    updateStrategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxUnavailable: 1
+    terminationGracePeriodSeconds: 0
+    nodeSelector:
+      ingress-ready: "true"
+    tolerations:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+        operator: Equal
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/control-plane
+        operator: Equal
+    allowSnippetAnnotations: false
+    watchIngressWithoutClass: true
+    metrics:
+      enabled: false
