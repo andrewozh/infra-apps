@@ -1,8 +1,9 @@
-# Monitoring stage
+# Monitoring stack
 
 prometheus + grafana + alertmanager
 
 ## TODO
 
-- [ ] list all required monitors
-- [ ] drop all unnecessary metrics
+- [x] prometheus-node-exporter
+- [ ] kube-state-metrics
+

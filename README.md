@@ -7,6 +7,7 @@
 - [~] observability -- prom vm grafana tempo jaeger alertmanager
 - [ ] logs -- fluent elk loki
 - [~] ingress -- nginx kong external-dns
+- [ ] cert-manager
 - [ ] service mesh -- istio
 - [ ] autoscaling -- cluster-autoscaling keda
 - [ ] databases -- postgres, kafka, redis, mongo, clickhouse
