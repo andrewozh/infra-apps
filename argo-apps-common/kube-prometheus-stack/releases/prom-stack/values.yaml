@@ -20,6 +20,9 @@ kube-prometheus-stack:
   kubeProxy:
     enabled: false
 
+  grafana:
+    defaultDashboardsEnabled: false
+
   kube-state-metrics:
     fullnameOverride: "kube-state-metrics"
     releaseLabel: true
@@ -54,8 +57,6 @@ kube-prometheus-stack:
             regex: kube_pod_status_scheduled
             sourceLabels:
               - __name__
-
-
 
   prometheus-node-exporter:
     extraArgs:
