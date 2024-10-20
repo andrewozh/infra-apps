@@ -1,51 +1,80 @@
 # infra-apps
 
-## TODO
-
-- [~] helm appchart
-- [~] secrets -- vault external-secrets
-- [~] observability -- prom vm grafana tempo jaeger alertmanager
-- [ ] logs -- fluent elk loki
-- [~] ingress -- nginx kong external-dns
-- [ ] cert-manager
-- [ ] service mesh -- istio
-- [ ] autoscaling -- cluster-autoscaling keda
-- [ ] databases -- postgres, kafka, redis, mongo, clickhouse
-- [ ] crossplane -- creating non-common eks (managed cloud resources dbs etc)
-- [ ] tools -- reloader
-- [ ] demo-app
-
 ## prerequisits
 
 * deploy `eks-common` using terragrunt in `[infra-base](https://github.com/andrewozh/infra-base)`
 * or deploy local homelab using `$ make homelab`
 * update-kubeconfig and use appropriate context
 
-## Architecture (#TODO)
-
 ## Bootstrap
 
-- olm
-- argocd
+- [+] argocd chart (better)
+- [+] olm + argocd
 
 ```bash
 make init
 ```
 
+## Architecture
+
+### [~] common-cluster
+
+- [x] basic helm appchart
+- [x] ingress -- nginx external-dns
+- [ ] cert-manager -- vault-pki or letsencrypt
+- [~] observability -- prom grafana alertmanager
+- [~] logs -- fluent-bit elasticsearch kibana 
+- [x] secrets -- vault external-secrets
+- [ ] crossplane -- creating non-common eks (managed cloud resources dbs etc)
+
+### [ ] staging cluster
+
+- [ ] argocd -- add cluster, appsets
+- [ ] ingress -- nginx external-dns
+- [ ] cert-manager -- vault-pki or letsencrypt
+- [ ] observability -- configure prom & alertmanager to common grafana
+- [ ] logs -- configure fluent-bit to common elastic
+- [ ] secrets -- configure external-secrets to common vault
+- [ ] service mesh -- istio
+- [ ] autoscaling -- cluster-autoscaling keda
+- [ ] databases -- postgres, kafka, redis, mongo, clickhouse
+- [ ] tools -- reloader
+- [ ] demo-app
+
+## Argocd
+
+- [ ] chart cloud-dc-env
+- [ ] universal applicationset
+- [ ] add clusters
+
+## Ingress + cert-manager
+
+- [x] nginx 
+- [ ] TLS via cert-manager and letsencrypt
+- [ ] external-dns
+- [ ] istio as ingress
+- [ ] kong
+
 ## Secrets
 
-- vault
-- external-secrets
+- [x] vault
+- [x] external-secrets
+- [ ] monitoring dash
 
 ## Monitoring
 
-- prometheus
-- grafana
-- alertmanager
+- [x] prometheus
+- [x] grafana
+- [~] grafana dashboards
+- [ ] alertmanager
+- [ ] victoriametrics
+- [ ] tempo
+- [ ] jaeger
 
 ## Loging
 
-- fluent-bit -- lightweight daemonset (pods stdout logs)
-- elasicseach
-- kibana
+- [x] elasicseach
+- [x] kibana
+- [~] fluent-bit -- lightweight daemonset (pods stdout logs)
+- [ ] loki
 
