@@ -58,6 +58,15 @@ kube-prometheus-stack:
             sourceLabels:
               - __name__
 
+    metricLabelsAllowlist:
+      - pods=[*]
+      - cronjobs=[*]
+      - jobs=[*]
+      - deployments=[*]
+      - statefulsets=[*]
+      - nodes=[*]
+
+
   prometheus-node-exporter:
     extraArgs:
       - --collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+)($|/)
