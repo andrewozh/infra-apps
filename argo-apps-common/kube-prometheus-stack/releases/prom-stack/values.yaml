@@ -7,8 +7,8 @@ kube-prometheus-stack:
   #   enabled: false
   kubeApiServer:
     enabled: false
-  kubelet:
-    enabled: false
+  # kubelet:
+  #   enabled: false
   kubeControllerManager:
     enabled: false
   coreDns:
