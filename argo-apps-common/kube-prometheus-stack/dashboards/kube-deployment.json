@@ -26,7 +26,6 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 741,
   "graphTooltip": 1,
-  "id": 30,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -1840,8 +1839,8 @@
       {
         "current": {
           "selected": true,
-          "text": "ingress-nginx",
-          "value": "ingress-nginx"
+          "text": "local-path-storage",
+          "value": "local-path-storage"
         },
         "datasource": {
           "type": "prometheus",
@@ -1871,8 +1870,8 @@
         "allValue": ".*",
         "current": {
           "selected": false,
-          "text": "ingress-nginx-controller",
-          "value": "ingress-nginx-controller"
+          "text": "local-path-provisioner",
+          "value": "local-path-provisioner"
         },
         "datasource": {
           "type": "prometheus",
@@ -1912,7 +1911,7 @@
           "type": "prometheus",
           "uid": "${Datasource}"
         },
-        "definition": "label_values(kube_pod_labels{namespace=\"$Namespace\", label_app_kubernetes_io_name=\"$Deployment\"},pod)",
+        "definition": "label_values(kube_pod_labels{namespace=\"$Namespace\", pod=~\"$Deployment-[a-z0-9]{6,12}-[a-z0-9]{5}\"},pod)",
         "hide": 0,
         "includeAll": true,
         "multi": true,
@@ -1920,7 +1919,7 @@
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(kube_pod_labels{namespace=\"$Namespace\", label_app_kubernetes_io_name=\"$Deployment\"},pod)",
+          "query": "label_values(kube_pod_labels{namespace=\"$Namespace\", pod=~\"$Deployment-[a-z0-9]{6,12}-[a-z0-9]{5}\"},pod)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,
@@ -1966,6 +1965,6 @@
   "timezone": "utc",
   "title": "Kubernetes Deployment metrics",
   "uid": "4w6vMUn4k",
-  "version": 6,
+  "version": 8,
   "weekStart": "monday"
 }
