@@ -1,0 +1,16 @@
+# cert-manager
+
+## self-signed CA for local use
+
+```bash
+openssl genrsa -out ca.key 4096
+openssl req -new -x509 -sha256 -days 365 -key ca.key -out ca.crt
+```
+
+```bash
+sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ca.crt
+```
+
+```bash
+kubectl create secret generic -n vault ca --from-literal=tls.crt=$(cat ca.crt | base64) --from-literal=tls.key=$(cat ca.key | base64)
+```
