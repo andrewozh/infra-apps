@@ -12,5 +12,5 @@ sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keyc
 ```
 
 ```bash
-kubectl create secret generic -n vault ca --from-literal=tls.crt=$(cat ca.crt | base64) --from-literal=tls.key=$(cat ca.key | base64)
+kubectl create secret generic -n vault ca --from-file=tls.crt=ca.crt --from-file=tls.key=ca.key
 ```
