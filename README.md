@@ -20,15 +20,15 @@ make init
 ### [~] common-cluster
 
 - [x] basic helm appchart
-- [x] ingress -- nginx external-dns
-- [ ] cert-manager -- vault-pki or letsencrypt (self-created: https://www.youtube.com/watch?v=IQ3G8Z1myMw)
+- [x] ingress -- nginx
+- [x] cert-manager -- local self-signed
 - [~] observability -- prom grafana alertmanager
 - [~] logs -- fluent-bit elasticsearch kibana 
 - [x] secrets -- vault external-secrets
-- [ ] crossplane -- creating non-common eks (managed cloud resources dbs etc)
 
 ### [ ] staging cluster
 
+- [ ] crossplane -- creating non-common eks (managed cloud resources dbs etc)
 - [ ] argocd -- add cluster, appsets
 - [ ] ingress -- nginx external-dns
 - [ ] cert-manager -- vault-pki or letsencrypt
