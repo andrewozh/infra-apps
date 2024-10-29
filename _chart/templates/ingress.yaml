@@ -1,10 +1,9 @@
 {{- if .Values.ingress.enabled -}}
+{{- $className := default "nginx" .Values.ingress.className }}
 {{- $fullName := include "chart.fullname" . -}}
 {{- $svcPort := .Values.service.port -}}
-{{- if and .Values.ingress.className (not (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion)) }}
-  {{- if not (hasKey .Values.ingress.annotations "kubernetes.io/ingress.class") }}
-  {{- $_ := set .Values.ingress.annotations "kubernetes.io/ingress.class" .Values.ingress.className}}
-  {{- end }}
+{{- if not (hasKey .Values.ingress.annotations "kubernetes.io/ingress.class") }}
+{{- $_ := set .Values.ingress.annotations "kubernetes.io/ingress.class" $className }}
 {{- end }}
 ---
 apiVersion: cert-manager.io/v1
@@ -32,7 +31,7 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  ingressClassName: {{ .Values.ingress.className }}
+  ingressClassName: {{ $className }}
   tls:
     - hosts:
         {{- range .Values.ingress.hosts }}

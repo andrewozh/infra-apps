@@ -1,3 +1,22 @@
+chart:
+  nameOverride: kube-prometheus-stack
+  kind: None
+  serviceAccount:
+    create: false
+  ingress:
+    enabled: true
+    hosts:
+      - host: prometheus.home.lab
+        paths:
+          - path: /
+            service: "prom-stack-kube-prometheus-prometheus"
+            port: 9090
+      - host: grafana.home.lab
+        paths:
+          - path: /
+            service: "prom-stack-grafana"
+            port: 80
+
 kube-prometheus-stack:
   # Default values for kube-prometheus-stack.
   # This is a YAML-formatted file.
