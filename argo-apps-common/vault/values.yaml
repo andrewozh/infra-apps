@@ -1,3 +1,17 @@
+chart:
+  nameOverride: vault
+  kind: None
+  serviceAccount:
+    create: false
+  ingress:
+    enabled: true
+    hosts:
+      - host: vault.home.lab
+        paths:
+          - path: /
+            service: vault
+            port: 8200
+
 vault:
   # Copyright (c) HashiCorp, Inc.
   # SPDX-License-Identifier: MPL-2.0
