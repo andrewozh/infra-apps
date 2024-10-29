@@ -1,3 +1,16 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: kibana-cert
+spec:
+  secretName: kibana-tls-secret
+  issuerRef:
+    name: cluster-issuer-nginx
+    kind: ClusterIssuer
+  dnsNames:
+    - kibana.home.lab
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -6,6 +19,10 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - kibana.home.lab
+    secretName: kibana-tls-secret
   rules:
   - host: kibana.home.lab
     http:
@@ -14,6 +31,6 @@ spec:
         path: "/"
         backend:
           service:
-            name: kibana-kibana
+            name: "{{ .Release.Name }}-kibana"
             port:
               number: 5601
