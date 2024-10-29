@@ -50,7 +50,7 @@ make init
 ## Ingress + cert-manager
 
 - [x] nginx 
-- [ ] TLS via cert-manager and letsencrypt
+- [~] TLS via cert-manager (self-signed, letsencrypt, aws)
 - [ ] external-dns
 - [ ] istio as ingress
 - [ ] kong

@@ -1,3 +1,18 @@
+chart:
+  nameOverride: kibana
+  kind: None
+  serviceAccount:
+    create: false
+  ingress:
+    enabled: true
+    className: "nginx"
+    hosts:
+      - host: kibana.home.lab
+        paths:
+          - path: /
+            service: kibana-kibana
+            port: 5601
+
 kibana:
   elasticsearchHosts: "https://elasticsearch-master:9200"
   elasticsearchCertificateSecret: elasticsearch-master-certs
