@@ -1,5 +1,7 @@
+## https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/configuration-file
 fluent-bit:
-  ## https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/configuration-file
+  esHost: elasticsearch-master.logging.svc.cluster.local
+  esPort: 9200
   config:
     service: |
       [SERVICE]
@@ -44,14 +46,16 @@ fluent-bit:
       [OUTPUT]
           Name es
           Match kube.*
-          Host elasticsearch-master
+          Host {{ .Values.esHost }}
+          Port {{ .Values.esPort }}
           Logstash_Format On
           Retry_Limit False
 
       [OUTPUT]
           Name es
           Match host.*
-          Host elasticsearch-master
+          Host {{ .Values.esHost }}
+          Port {{ .Values.esPort }}
           Logstash_Format On
           Logstash_Prefix node
           Retry_Limit False
