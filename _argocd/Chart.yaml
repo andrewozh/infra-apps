@@ -10,3 +10,7 @@ keywords:
 kubeVersion: '>=1.30.0-0'
 name: argo-appsets
 version: 0.0.1
+dependencies:
+  - name: chart
+    version: 0.1.0
+    repository: file://../_chart

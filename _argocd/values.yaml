@@ -1,12 +1,16 @@
 repo: https://github.com/andrewozh/infra-apps.git
 
-defaultExcludeDirs:
-  - '_chart/'
-
-clusters:
-  common:
-    excludeDirs:
-
-teams:
-  - ops
-  - dev
+chart:
+  nameOverride: argocd
+  kind: None
+  serviceAccount:
+    create: false
+  ingress:
+    enabled: true
+    className: "nginx"
+    hosts:
+      - host: argocd.home.lab
+        paths:
+          - path: /
+            service: argocd-server
+            port: 80
