@@ -1,6 +1,5 @@
 elasticsearch:
   replicas: 1
-  createCert: false
   minimumMasterNodes: 1
   esJavaOpts: "-Xmx128m -Xms128m" # example: "-Xmx1g -Xms1g"
   resources:
