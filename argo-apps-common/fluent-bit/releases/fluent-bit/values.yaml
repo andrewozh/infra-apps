@@ -1,6 +1,6 @@
 ## https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/configuration-file
 fluent-bit:
-  esHost: elasticsearch-master.logging.svc.cluster.local
+  esHost: elastic-stack-elasticsearch.logging.svc.cluster.local
   esPort: 9200
   config:
     service: |
