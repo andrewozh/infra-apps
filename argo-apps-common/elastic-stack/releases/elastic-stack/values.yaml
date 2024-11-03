@@ -1,0 +1,24 @@
+elasticsearch:
+  global:
+    kibanaEnabled: true
+  master:
+    masterOnly: false
+    replicaCount: 1
+    heapSize: 128m
+    resources:
+      requests:
+        cpu: "100m"
+        memory: "500Mi"
+      limits:
+        memory: "500Mi"
+    persistence:
+      enabled: true
+      accessModes:
+        - ReadWriteOnce
+      size: 5Gi
+  data:
+    replicaCount: 0
+  coordinating:
+    replicaCount: 0
+  ingest:
+    replicaCount: 0
