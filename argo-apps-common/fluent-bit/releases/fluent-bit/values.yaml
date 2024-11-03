@@ -50,6 +50,7 @@ fluent-bit:
           Port {{ .Values.esPort }}
           Logstash_Format On
           Retry_Limit False
+          Suppress_Type_Name On
 
       [OUTPUT]
           Name es
@@ -59,6 +60,7 @@ fluent-bit:
           Logstash_Format On
           Logstash_Prefix node
           Retry_Limit False
+          Suppress_Type_Name On
 
     ## https://docs.fluentbit.io/manual/pipeline/parsers
     customParsers: |
