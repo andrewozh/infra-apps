@@ -1,3 +1,18 @@
+chart:
+  nameOverride: kibana
+  kind: None
+  serviceAccount:
+    create: false
+  ingress:
+    enabled: true
+    className: "nginx"
+    hosts:
+      - host: kibana.home.lab
+        paths:
+          - path: /
+            service: elastic-stack-kibana
+            port: 5601
+
 # Copyright Broadcom, Inc. All Rights Reserved.
 # SPDX-License-Identifier: APACHE-2.0
 
