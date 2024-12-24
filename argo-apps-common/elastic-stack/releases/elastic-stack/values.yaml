@@ -28,6 +28,3 @@ elasticsearch:
       enabled: true
       namespace: "monitoring"
       jobLabel: "app.kubernetes.io/name"
-      honorLabels: true
-      labels:
-        release: prom-stack
