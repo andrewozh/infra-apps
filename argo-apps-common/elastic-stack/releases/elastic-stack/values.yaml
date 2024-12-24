@@ -27,3 +27,4 @@ elasticsearch:
     serviceMonitor:
       enabled: true
       namespace: "monitoring"
+      jobLabel: "app.kubernetes.io/name"
