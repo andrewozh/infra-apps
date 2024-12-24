@@ -2,6 +2,7 @@
 fluent-bit:
   esHost: elastic-stack-elasticsearch.logging.svc.cluster.local
   esPort: 9200
+  logLevel: debug
   config:
     service: |
       [SERVICE]
