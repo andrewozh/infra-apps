@@ -22,9 +22,20 @@ make init
 - [x] basic helm appchart
 - [x] ingress -- nginx
 - [x] cert-manager -- local self-signed
-- [~] observability -- prom grafana alertmanager
-- [~] logs -- fluent-bit elasticsearch kibana 
 - [x] secrets -- vault external-secrets
+- [x] observability -- prom grafana alertmanager
+- [=] logs -- fluent-bit elasticsearch kibana
+  [!] (es & kibana restarts, fluentbit retries warns)
+- [~] intercluster monitpring
+  * [=] k8s: nodes, pods, dp, ds, sts, pv
+
+  * [~] elastic stack: es, kibana
+  * [~] fluentbit
+
+  * [ ] prometheus stack: prom, alertmanager, grafana
+  * [ ] ingress
+  * [ ] vault + external-secrets + cert-manager
+  * [ ] argocd
 
 ### [ ] staging cluster
 
