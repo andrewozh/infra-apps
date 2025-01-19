@@ -21,6 +21,7 @@ fluent-bit:
       [INPUT]
           Name tail
           Path /var/log/containers/*.log
+          Exclude_Path /var/log/containers/fluent-bit*.log
           multiline.parser docker, cri
           Tag kube.*
           Mem_Buf_Limit 5MB
