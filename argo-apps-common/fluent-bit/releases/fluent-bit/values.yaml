@@ -2,6 +2,14 @@
 fluent-bit:
   esHost: elastic-stack-elasticsearch.logging.svc.cluster.local
   esPort: 9200
+
+  resources:
+    limits:
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
   logLevel: debug
   config:
     service: |
