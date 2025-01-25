@@ -4,10 +4,10 @@ elasticsearch:
   master:
     masterOnly: false
     replicaCount: 1
-    heapSize: 128m
+    heapSize: 512m
     resources:
       requests:
-        cpu: "100m"
+        cpu: "200m"
         memory: "1Gi"
       limits:
         memory: "1Gi"
