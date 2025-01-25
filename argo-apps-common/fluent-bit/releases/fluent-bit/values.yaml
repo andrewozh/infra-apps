@@ -10,7 +10,7 @@ fluent-bit:
       cpu: 100m
       memory: 128Mi
 
-  logLevel: debug
+  # logLevel: debug
   config:
     service: |
       [SERVICE]
