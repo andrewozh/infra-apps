@@ -28,3 +28,6 @@ elasticsearch:
       enabled: true
       namespace: "monitoring"
       jobLabel: "app.kubernetes.io/name"
+  kibana:
+    metrics:
+      enabled: true
