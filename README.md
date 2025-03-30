@@ -24,14 +24,15 @@ make init
 - [x] cert-manager -- local self-signed
 - [x] secrets -- vault external-secrets
 - [x] observability -- prom grafana alertmanager
-- [=] logs -- fluent-bit elasticsearch kibana
+- [~] logs -- fluent-bit elasticsearch kibana
   [!] (es & kibana restarts, fluentbit retries warns)
-- [~] intercluster monitpring
-  * [=] k8s: nodes, pods, dp, ds, sts, pv
-
-  * [~] elastic stack: es, kibana
-  * [~] fluentbit
-
+- [~] intercluster monitoring
+  * [=] k8s: +nodes, +dp,
+      +ds,
+      +sts,
+      -pv
+  * [x] elastic stack: +es, +kibana
+  * [x] fluentbit
   * [ ] prometheus stack: prom, alertmanager, grafana
   * [ ] ingress
   * [ ] vault + external-secrets + cert-manager
