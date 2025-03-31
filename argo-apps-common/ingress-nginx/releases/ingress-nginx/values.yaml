@@ -32,4 +32,6 @@ ingress-nginx:
     allowSnippetAnnotations: false
     watchIngressWithoutClass: true
     metrics:
-      enabled: false
+      enabled: true
+      serviceMonitor:
+        enabled: true
