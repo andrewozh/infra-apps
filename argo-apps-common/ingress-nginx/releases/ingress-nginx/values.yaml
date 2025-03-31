@@ -1,7 +1,6 @@
 # https://raw.githubusercontent.com/kubernetes/ingress-nginx/2cec24143d4b59a986560ff1e755adadd5d6bf4a/hack/manifest-templates/provider/kind/values.yaml
 ingress-nginx:
   controller:
-    replicaCount: 2
     image:
       runAsNonRoot: true
       readOnlyRootFilesystem: false
