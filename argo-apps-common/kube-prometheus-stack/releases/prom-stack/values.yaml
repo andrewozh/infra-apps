@@ -30,6 +30,8 @@ kube-prometheus-stack:
 
   grafana:
     defaultDashboardsEnabled: false
+    serviceMonitor:
+      enabled: false
 
   kube-state-metrics:
     fullnameOverride: "kube-state-metrics"

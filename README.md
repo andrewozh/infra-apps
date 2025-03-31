@@ -38,9 +38,9 @@ make init
       ! kibana (broken subchart -- enabling metrics no result)
   * [x] fluentbit
   * [~] prometheus stack: prom, alertmanager, grafana
-    prom metrics available
-    grafana metrics available
-    alertmanager metrics ?
+      + prom
+      - grafana -- disabled
+      - alertmanager -- disabled
   * [ ] ingress
   * [ ] vault + external-secrets + cert-manager
   * [ ] argocd
