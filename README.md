@@ -27,13 +27,20 @@ make init
 - [~] logs -- fluent-bit elasticsearch kibana
   [!] (es & kibana restarts, fluentbit retries warns)
 - [~] intercluster monitoring
-  * [=] k8s: +nodes, +dp,
-      +ds,
-      +sts,
-      -pv
-  * [x] elastic stack: +es, +kibana
+  * [x] k8s:
+      + nodes
+      + dp
+      + ds -- can't choose pod
+      + sts
+      ! pv -- kind do not support it
+  * [x] elastic stack:
+      + es
+      ! kibana (broken subchart -- enabling metrics no result)
   * [x] fluentbit
-  * [ ] prometheus stack: prom, alertmanager, grafana
+  * [~] prometheus stack: prom, alertmanager, grafana
+    prom metrics available
+    grafana metrics available
+    alertmanager metrics ?
   * [ ] ingress
   * [ ] vault + external-secrets + cert-manager
   * [ ] argocd
