@@ -51,6 +51,13 @@ fluent-bit:
           K8S-Logging.Parser On
           K8S-Logging.Exclude On
 
+      [FILTER]
+          Name nest
+          Match *
+          Operation flatten
+          Nested_under kubernetes.labels
+          Add_prefix kubernetes.labels.
+
     ## https://docs.fluentbit.io/manual/pipeline/outputs
     outputs: |
       [OUTPUT]
