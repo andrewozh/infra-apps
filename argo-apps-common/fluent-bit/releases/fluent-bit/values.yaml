@@ -52,11 +52,9 @@ fluent-bit:
           K8S-Logging.Exclude On
 
       [FILTER]
-          Name nest
-          Match *
-          Operation flatten
-          Nested_under kubernetes.labels
-          Add_prefix kubernetes.labels.
+          Name    modify
+          Match   *
+          Rename  kubernetes.labels.app kubernetes.labels.app_name
 
     ## https://docs.fluentbit.io/manual/pipeline/outputs
     outputs: |
