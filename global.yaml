@@ -1,1 +1,8 @@
 namespace: default
+
+clouds:
+  - name: local
+    accounts:
+      - name: main
+        environments:
+          - name: common

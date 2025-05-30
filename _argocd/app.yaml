@@ -13,6 +13,8 @@ spec:
     targetRevision: main
     helm:
       releaseName: argocd
+      valueFiles:
+        - ../global.yaml
   destination:
     name: 'in-cluster'
     namespace: argocd
