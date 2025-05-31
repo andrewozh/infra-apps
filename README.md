@@ -65,6 +65,7 @@ make init
 - [ ] chart cloud-dc-env
 - [ ] universal applicationset
 - [ ] add clusters
+- [ ] investigate argo teams and projects
 
 ## Ingress + cert-manager
 
