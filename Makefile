@@ -18,6 +18,10 @@ argocd-olm: kctx olm ## Deploy argocd via OLM
 	kubectl apply -k _argocd-infra/olm-subscription/
 	while ! kubectl get crd argocds.argoproj.io 2>/dev/null ; do sleep 1 ; done
 	kubectl apply -k _argocd-infra/
+
 argocd: kctx ## Deploy argocd as Helm Chart
+	kubectl create ns argocd || true
+	helmfile apply -f _argocd/helmfile.yaml
+	kubectl apply -k _argocd-infra/
 
 init: argocd ## Init cluster
