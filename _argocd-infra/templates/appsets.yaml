@@ -48,9 +48,16 @@ spec:
             releaseName: '{{`{{.path.basename}}`}}'
             ignoreMissingValueFiles: true
             valueFiles:
-            - ../../global.yaml
-            - '/{{`{{.path.path}}`}}/values.yaml' # values for all ENVS for this release
-            - ../{{`{{.name}}`}}.yaml
+            - /global.yaml
+            - '/{{- $cloud.name }}.yaml'
+            - '/{{- $account.name }}.yaml'
+            - '/{{- $environment.name }}.yaml'
+            - '/{{- $cloud.name }}-{{- $account.name }}.yaml'
+            - '/{{- $cloud.name }}-{{- $environment.name }}.yaml'
+            - '/{{- $account.name }}-{{- $environment.name }}.yaml'
+            - '/{{- $cloud.name }}-{{- $account.name }}-{{- $environment.name }}.yaml'
+            - '/{{`{{.path.path}}`}}/values.yaml'
+            - '/{{`{{.path.path}}`}}/releases/{{- $cloud.name }}-{{- $account.name }}-{{- $environment.name }}/values.yaml'
       destination:
         name: '{{`{{.name}}`}}'
         namespace: '{{ `{{.namespace}}` }}'

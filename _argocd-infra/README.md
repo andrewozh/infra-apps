@@ -2,7 +2,8 @@
 
 ## TODO
 
-- [ ] values order
+- [x] values order
+- [ ] exclude releases from clusters, bu placing `argo.yaml`
 
 ## Requirements
 
@@ -14,7 +15,6 @@
 ```bash
 make argocd
 ```
-
 
 ## OLM
 
@@ -35,30 +35,4 @@ make argocd-olm
   - ingress for itself
   - applicationsets
   - etc in templates
-
-## [~] values order
-
-cloud: kind aws gcp acure
-account: main us eu
-env: common dev stage preprod prod
-
-`<cloud>-<acc/dc>-<env>`
-global
-cloud
-acc
-env
-cloud-acc
-cloud-env
-acc-env
-cloud-acc-env
-
-global.yaml
-kind.yaml
-main.yaml
-common.yaml
-kind-main.yaml
-kind-common.yaml
-main-common.yaml
-kind-main-common.yaml
-...
 
