@@ -3,5 +3,6 @@ tmp/*
 *.tgz
 requirements.lock
 .secret
-argo-apps-common/**/Chart.lock
-argo-apps-common/**/charts
+**/Chart.lock
+**/charts
+.aider**

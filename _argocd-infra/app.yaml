@@ -9,12 +9,12 @@ spec:
   project: default
   source:
     repoURL: https://github.com/andrewozh/infra-apps.git
-    path: _argocd/
+    path: _argocd-infra/
     targetRevision: main
     helm:
       releaseName: argocd
       valueFiles:
         - ../global.yaml
   destination:
-    name: 'in-cluster'
+    name: "in-cluster"
     namespace: argocd

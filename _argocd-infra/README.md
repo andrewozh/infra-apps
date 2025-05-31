@@ -9,10 +9,17 @@
 * operator-sdk
 * kubeconfig
 
-## steps
+## argocd-chart + appset-chart
 
 ```bash
-make
+make argocd
+```
+
+
+## OLM
+
+```bash
+make argocd-olm
 ```
 
 1. deploy operator lifecycle manager itself
@@ -24,7 +31,7 @@ make
   - create argocd cluster
   - create `argocd` application
 
-4. then argocd application deploys current `_argocd` chart with:
+4. then argocd application deploys current `_argocd-infra` chart with:
   - ingress for itself
   - applicationsets
   - etc in templates

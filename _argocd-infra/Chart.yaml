@@ -4,11 +4,11 @@ description: A Helm chart for Argo CD infra applications
 home: https://github.com/argoproj/argo-helm
 icon: https://argo-cd.readthedocs.io/en/stable/assets/logo.png
 keywords:
-- argoproj
-- argocd
-- gitops
-kubeVersion: '>=1.30.0-0'
-name: argo-appsets
+  - argoproj
+  - argocd
+  - gitops
+kubeVersion: ">=1.30.0-0"
+name: argocd-infra
 version: 0.0.1
 dependencies:
   - name: chart
