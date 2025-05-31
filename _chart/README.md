@@ -2,4 +2,4 @@
 
 ## TODO
 
-- [ ] ingress
+- [x] cert + ingress

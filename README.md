@@ -47,7 +47,7 @@ make init
 
 ### [ ] staging cluster
 
-- [ ] crossplane -- creating non-common eks (managed cloud resources dbs etc)
+- [ ] kind
 - [ ] argocd -- add cluster, appsets
 - [ ] ingress -- nginx external-dns
 - [ ] cert-manager -- vault-pki or letsencrypt
@@ -58,12 +58,13 @@ make init
 - [ ] autoscaling -- cluster-autoscaling keda
 - [ ] databases -- postgres, kafka, redis, mongo, clickhouse
 - [ ] tools -- reloader
+- [ ] crossplane -- creating non-common eks (managed cloud resources dbs etc)
 - [ ] demo-app
 
 ## Argocd
 
-- [ ] chart cloud-dc-env
-- [ ] universal applicationset
+- [x] chart cloud-dc-env
+- [x] universal applicationset
 - [ ] add clusters
 - [ ] investigate argo teams and projects
 
