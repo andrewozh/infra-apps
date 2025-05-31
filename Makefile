@@ -1,5 +1,5 @@
-.PHONY: kctx olm argocd init
-all: kctx olm argocd init
+.PHONY: kctx olm argocd argocd-olm init
+all: kctx olm argocd argocd-olm init
 
 help: ## Show this message
 	@echo "Suggested commands:"
@@ -13,10 +13,11 @@ olm: kctx ## Deploy Operator Lifecycle Manager
 	# https://github.com/argoproj-labs/argocd-operator/issues/945
 	operator-sdk olm status || (operator-sdk olm install ; kubectl label namespace olm pod-security.kubernetes.io/enforce=baseline --overwrite)
 
-argocd: kctx olm ## Deploy argocd
-	kubectl apply -k _argocd/olm-catalog-source/
-	kubectl apply -k _argocd/olm-subscription/
+argocd-olm: kctx olm ## Deploy argocd via OLM
+	kubectl apply -k _argocd-infra/olm-catalog-source/
+	kubectl apply -k _argocd-infra/olm-subscription/
 	while ! kubectl get crd argocds.argoproj.io 2>/dev/null ; do sleep 1 ; done
-	kubectl apply -k _argocd/
+	kubectl apply -k _argocd-infra/
+argocd: kctx ## Deploy argocd as Helm Chart
 
 init: argocd ## Init cluster
