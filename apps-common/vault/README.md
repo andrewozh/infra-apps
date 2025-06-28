@@ -33,6 +33,6 @@ metadata:
   namespace: vault
 type: Opaque
 data:
-  token: $(echo -n 'xxx.XXXXXXXXXXXXXXXXXXXXXXXX' | base64)
+  token: $(cat .secret | base64)
 EOF
 ```

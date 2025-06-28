@@ -47,7 +47,7 @@ make init
 
 ### [ ] staging cluster
 
-- [ ] kind
+- [!] kind
 - [ ] argocd -- add cluster, appsets
 - [ ] ingress -- nginx external-dns
 - [ ] cert-manager -- vault-pki or letsencrypt

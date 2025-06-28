@@ -2,11 +2,11 @@
 
 prometheus + grafana + alertmanager
 
-## TODO
+## Dashboards TODO
 
 - [x] prometheus-node-exporter
-- [~] kube-state-metrics
+- [x] kube-state-metrics
 - [x] deployment metrics
-- [ ] statefulset
+- [x] statefulset
 - [x] daemonset
-- [ ] PVC
+- [?] PVC
