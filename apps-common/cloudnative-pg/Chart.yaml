@@ -1,0 +1,10 @@
+apiVersion: v2
+name: cloudnative-pg
+description: A Helm chart with cloudnative-pg
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+dependencies:
+  - name: cloudnative-pg
+    version: 0.24.0
+    repository: https://cloudnative-pg.github.io/charts
