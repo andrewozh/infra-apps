@@ -1,5 +1,9 @@
 # infra-platform
 
+## TODO
+
+- [ ] use [MkDocs](https://www.mkdocs.org) for docs like cloudnative-pg.io
+
 ## Schema
 
 - picture of cluster arch
