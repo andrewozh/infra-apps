@@ -67,9 +67,13 @@ cluster:
         name: psql-role-dante
 ```
 
-## [~] Create Database
+## [+] Create Database
 
 https://cloudnative-pg.io/documentation/1.26/declarative_database_management/#postgresql-database-management
+
+- [x] owner
+- [x] schema owner
+- [x] extentions
 
 ```bash
 cat <<EOF | kubectl apply -f -

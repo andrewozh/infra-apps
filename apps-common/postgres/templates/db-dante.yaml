@@ -1,0 +1,16 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  name: psql-db-postgres-cluster-dante
+spec:
+  databaseReclaimPolicy: delete
+  name: dante
+  owner: postgres
+  cluster:
+    name: postgres-cluster
+  schemas:
+  - name: public
+    owner: dante
+  extensions:
+  - name: bloom
+    ensure: present
