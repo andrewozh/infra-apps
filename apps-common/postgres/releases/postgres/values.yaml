@@ -1,4 +1,5 @@
 # https://github.com/cloudnative-pg/charts/blob/main/charts/cluster/examples/basic.yaml
+# https://cloudnative-pg.io/documentation/1.26/samples/cluster-example-with-roles.yaml
 cluster:
   type: postgresql
   mode: standalone
@@ -8,5 +9,16 @@ cluster:
     instances: 1
     storage:
       size: 2Gi
+    roles:
+      - name: dante
+        ensure: present
+        comment: Dante Alighieri
+        login: true
+        superuser: false
+        inRoles:
+          - pg_monitor
+          - pg_signal_backend
+        passwordSecret:
+          name: psql-role-dante
   backups:
     enabled: false
