@@ -1,7 +1,11 @@
 # mongodb
 
-## CRDs
+## TODO
 
-```bash
-curl https://raw.githubusercontent.com/mongodb/mongodb-kubernetes/1.1.0/public/crds.yaml -o templates/crds.yaml
-```
+- [ ] create a cluster
+- [ ] connect to cluster (host, creds)
+- [ ] create user
+- [ ] create a database
+- [ ] monitoring: note + grafana dashboards
+- [ ] _chart integration
+- [ ] backup/restore, scaling, upgrading
