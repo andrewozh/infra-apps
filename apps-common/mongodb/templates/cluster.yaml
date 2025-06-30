@@ -1,0 +1,34 @@
+apiVersion: mongodbcommunity.mongodb.com/v1
+kind: MongoDBCommunity
+metadata:
+  name: mongodb
+spec:
+  members: 1
+  type: ReplicaSet
+  version: "8.0.11"
+  security:
+    authentication:
+      modes:
+      - SCRAM
+  users:
+  - name: admin-user
+    db: admin
+    passwordSecretRef:
+      name: mongo-admin-user
+    roles:
+    - name: clusterAdmin
+      db: admin
+    - name: userAdminAnyDatabase
+      db: admin
+    scramCredentialsSecretName: my-scram
+  # security:
+  #   tls:
+  #     enabled: true
+  #     certificateKeySecretRef:
+  #       name: mongodb-key-pair
+  #     caCertificateSecretRef:
+  #       name: mongodb-key-pair
+  #     # optional: true
+  #   authentication:
+  #     modes:
+  #     - SCRAM
