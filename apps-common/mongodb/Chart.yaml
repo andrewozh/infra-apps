@@ -1,0 +1,10 @@
+apiVersion: v2
+name: mongodb
+description: A Helm chart with mongodb
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+dependencies:
+  - name: mongodb-kubernetes
+    version: 2.9.0
+    repository: https://mongodb.github.io/helm-charts
