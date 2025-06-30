@@ -56,7 +56,12 @@ make init
 - [ ] secrets -- configure external-secrets to common vault
 - [ ] service mesh -- istio
 - [ ] autoscaling -- cluster-autoscaling keda
-- [ ] databases -- postgres, kafka, redis, mongo, clickhouse
+- [~] databases
+    + postgres -- cloudnative-pg
+    ~ mongo -- mongodb-kubernetes-operator
+    ~ kafka -- strimzi
+    ~ clickhouse -- altinity
+    ? redis
 - [ ] tools -- reloader
 - [ ] crossplane -- creating non-common eks (managed cloud resources dbs etc)
 - [ ] demo-app
