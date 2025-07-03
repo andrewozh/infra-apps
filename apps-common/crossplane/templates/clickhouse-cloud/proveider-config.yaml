@@ -1,0 +1,49 @@
+---
+apiVersion: tf.upbound.io/v1beta1
+kind: ProviderConfig
+metadata:
+  name: crossplane-tf-clickhouse
+spec:
+  configuration: |
+    terraform {
+      backend "kubernetes" {
+        secret_suffix     = "crossplane-tf-clickhouse"
+        namespace         = "crossplane"
+        in_cluster_config = true
+      }
+      required_providers {
+        clickhouse = {
+          version = "3.3.3"
+          source  = "ClickHouse/clickhouse"
+        }
+        random = {
+          source  = "hashicorp/random"
+          version = "~> 3.6.0"
+        }
+      }
+      required_version = ">= 0.14.0"
+    }
+    variable "clickhouse_org" {
+      type      = string
+      sensitive = true
+    }
+    variable "clickhouse_key" {
+      type      = string
+      sensitive = true
+    }
+    variable "clickhouse_secret" {
+      type      = string
+      sensitive = true
+    }
+    provider "clickhouse" {
+      organization_id = var.clickhouse_org
+      token_key       = var.clickhouse_key
+      token_secret    = var.clickhouse_secret
+    }
+  credentials:
+    - filename: creds.auto.tfvars
+      secretRef:
+        key: creds.auto.tfvars
+        name: clickhouse-cloud-creds
+        namespace: crossplane
+      source: Secret
