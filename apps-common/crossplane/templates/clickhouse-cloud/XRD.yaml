@@ -94,7 +94,7 @@ spec:
                   variable "name" {
                     type    = string
                   }
-                  variable "provider" {
+                  variable "cloud_provider" {
                     type    = string
                   }
                   variable "region" {
@@ -109,7 +109,7 @@ spec:
                   }
                   resource "clickhouse_service" "service" {
                     name           = var.name
-                    cloud_provider = var.provider
+                    cloud_provider = var.cloud_provider
                     region         = var.region
                     idle_scaling         = true
                     idle_timeout_minutes = 5
@@ -145,7 +145,7 @@ spec:
                 vars:
                   - key: name
                     value: [[ $name ]]
-                  - key: provider
+                  - key: cloud_provider
                     value: [[ $provider ]]
                   - key: region
                     value: [[ $region ]]

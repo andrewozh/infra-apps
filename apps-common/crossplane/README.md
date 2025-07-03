@@ -1,6 +1,8 @@
 # Crossplane
 
-## Setup Clickhouse Cloud provider
+## Clickhouse Cloud
+
+## Setup terraform provider
 
 ```bash
 cat <<EOF | kubectl apply -f -
@@ -15,4 +17,15 @@ data:
   clickhouse_key: $(echo "xxxxxxxxxxxxxxxxxxxx" | base64)
   clickhouse_secret: $(echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" | base64)
 EOF
+```
+
+## Create service
+
+```yaml
+apiVersion: clickhousecloud.crossplane.io/v1alpha1
+kind: xService
+metadata:
+  name: clickhouse
+spec:
+  name: clickhouse
 ```

@@ -1,0 +1,7 @@
+---
+apiVersion: clickhousecloud.crossplane.io/v1alpha1
+kind: xService
+metadata:
+  name: clickhouse
+spec:
+  name: clickhouse

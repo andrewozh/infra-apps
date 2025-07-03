@@ -44,6 +44,6 @@ spec:
     - filename: creds.auto.tfvars
       secretRef:
         key: creds.auto.tfvars
-        name: clickhouse-cloud-creds
+        name: clickhouse-cloud-secret
         namespace: crossplane
       source: Secret
