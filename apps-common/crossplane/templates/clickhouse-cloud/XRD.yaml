@@ -1,0 +1,157 @@
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: xservices.clickhousecloud.crossplane.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  group: clickhousecloud.crossplane.io
+  names:
+    kind: xService
+    plural: xservices
+  versions:
+  - name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            x-kubernetes-validations:
+            - rule: "size(self.name) <= 50"
+              message: "Service name have to be less than 50 symbols"
+            - rule: "self.provider in ['aws', 'gcp', 'azure']"
+              message: "Cloud provider must be one of 'aws', 'gcp', 'azure'"
+            properties:
+              name:
+                description: Name of Clickhouse Cloud service
+                type: string
+              provider:
+                description: Cloud provider for Clickhouse Cloud service
+                type: string
+                default: 'aws'
+              region:
+                description: Cloud provider region for Clickhouse Cloud service
+                type: string
+                default: 'eu-central-1'
+            required:
+            - name
+          status:
+            description: A Status represents the observed state
+            properties:
+              share:
+                description: Freeform field containing status information
+                type: object
+                x-kubernetes-preserve-unknown-fields: true
+            type: object
+    served: true
+    referenceable: true
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: clickhousecloud-service
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  writeConnectionSecretsToNamespace: crossplane
+  compositeTypeRef:
+    apiVersion: clickhousecloud.crossplane.io/v1alpha1
+    kind: xService
+  mode: Pipeline
+  pipeline:
+    - step: render-resources
+      functionRef:
+        name: function-go-templating
+      input:
+        apiVersion: gotemplating.fn.crossplane.io/v1beta1
+        kind: GoTemplate
+        delims:
+          left: '[['
+          right: ']]'
+        source: Inline
+        inline:
+          template: |
+            [[ $xr  	   := .observed.composite.resource ]]
+            [[ $xrSpec   := .observed.composite.resource.spec ]]
+            [[ $name     := $xrSpec.name ]]
+            [[ $provider := $xrSpec.provider ]]
+            [[ $region   := $xrSpec.region ]]
+            ---
+            apiVersion: tf.upbound.io/v1beta1
+            kind: Workspace
+            metadata:
+              name: clickhousecloud-service-[[ $name ]]
+              annotations:
+                gotemplating.fn.crossplane.io/composition-resource-name: clickhousecloud-service-[[ $name ]]
+            spec:
+              providerConfigRef:
+                name: crossplane-tf-clickhouse
+              forProvider:
+                source: Inline
+                module: |
+                  variable "name" {
+                    type    = string
+                  }
+                  variable "provider" {
+                    type    = string
+                  }
+                  variable "region" {
+                    type    = string
+                  }
+                  resource "random_password" "admin_password" {
+                    length  = 16
+                    special = false
+                    lower   = true
+                    upper   = true
+                    numeric = true
+                  }
+                  resource "clickhouse_service" "service" {
+                    name           = var.name
+                    cloud_provider = var.provider
+                    region         = var.region
+                    idle_scaling         = true
+                    idle_timeout_minutes = 5
+                    ip_access = [{
+                        source      = "0.0.0.0/0"
+                        description = "All"
+                      }
+                    ]
+                    num_replicas           = 1
+                    min_replica_memory_gb  = 8
+                    max_replica_memory_gb  = 8
+                    password_hash = base64sha256(random_password.admin_password.result)
+                    lifecycle {
+                      ignore_changes = [ backup_configuration ]
+                    }
+                  }
+                  output "host" {
+                    value     = clickhouse_service.service.endpoints.nativesecure.host
+                    sensitive = true
+                  }
+                  output "port" {
+                    value     = clickhouse_service.service.endpoints.nativesecure.port
+                    sensitive = true
+                  }
+                  output "username" {
+                    value     = "default"
+                    sensitive = true
+                  }
+                  output "psaaword" {
+                    value     = random_password.admin_password.result
+                    sensitive = true
+                  }
+                vars:
+                  - key: name
+                    value: [[ $name ]]
+                  - key: provider
+                    value: [[ $provider ]]
+                  - key: region
+                    value: [[ $region ]]
+              writeConnectionSecretToRef:
+                name: [[ printf "clickhousecloud-%s-credentials" $name ]]
+                namespace: crossplane
+    - step: automatically-detect-resources-ready
+      functionRef:
+        name: function-auto-ready
