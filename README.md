@@ -63,7 +63,7 @@ make init
     ~ clickhouse -- altinity
     ? redis
 - [ ] tools -- reloader
-- [ ] crossplane -- creating non-common eks (managed cloud resources dbs etc)
+- [~] crossplane -- creating non-common eks (managed cloud resources dbs etc)
 - [ ] demo-app
 
 ## Argocd

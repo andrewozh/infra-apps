@@ -5,7 +5,7 @@
 - [+] create a cluster
 - [+] connect to cluster (host, creds)
 - [+] create roles
-- [~] create a database
+- [+] create a database
 - [ ] monitoring
 - [ ] external-secrets integrations (automation of password management)
 - [ ] _chart integration

@@ -7,7 +7,7 @@
 
 ## KNOWN ISSUES
 
-- On `Free Tier` with provider veriosn 3.3.3 can't update already created service
+- On `Free Tier` with provider versios 3.3.3 can't update already created service
 
   ```
   Error: Error setting service backup configuration
@@ -28,10 +28,10 @@
 ## Setup terraform provider
 
 ```bash
-cat <<EOF > .secret_clickhouse
-clickhouse_org: $(echo "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" | base64)
-clickhouse_key: $(echo "xxxxxxxxxxxxxxxxxxxx" | base64)
-clickhouse_secret: $(echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" | base64)
+cat <<EOF > .secret
+clickhouse_org: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+clickhouse_key: "xxxxxxxxxxxxxxxxxxxx"
+clickhouse_secret: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 EOF
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
@@ -41,7 +41,7 @@ metadata:
   namespace: crossplane
 type: Opaque
 data:
-  creds.auto.tfvars: $(cat .secret_clickhouse | base64)
+  creds.auto.tfvars: $(cat .secret | base64)
 EOF
 ```
 
