@@ -21,6 +21,14 @@ spec:
     - name: userAdminAnyDatabase
       db: admin
     scramCredentialsSecretName: my-scram
+  - name: test2-user
+    db: test2
+    passwordSecretRef:
+      name: mongo-admin-user
+    roles:
+    - name: dbOwner
+      db: test2
+    scramCredentialsSecretName: my-scram2
   # security:
   #   tls:
   #     enabled: true

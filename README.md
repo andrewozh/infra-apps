@@ -58,9 +58,9 @@ make init
 - [ ] autoscaling -- cluster-autoscaling keda
 - [~] databases
     + postgres -- cloudnative-pg
-    ~ mongo -- mongodb-kubernetes-operator
+    + mongo -- mongodb-kubernetes-operator
     ~ kafka -- strimzi
-    ~ clickhouse -- altinity
+    ~ clickhouse -- cloud, altinity
     ? redis
 - [ ] tools -- reloader
 - [~] crossplane -- creating non-common eks (managed cloud resources dbs etc)
