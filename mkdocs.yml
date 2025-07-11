@@ -1,0 +1,48 @@
+site_name: infra-platform
+docs_dir: docs
+theme:
+  name: readthedocs
+
+nav:
+  - Home:
+      - Intro: "index.md"
+      - Roadmap: "roadmap.md"
+      - Learning: "learning.md"
+  - Platform:
+      - Architecture: "platform.md"
+      - Tools: "tools.md"
+      - CI/CD: ""
+  - Networking:
+      - Ingress:
+          - ingress-nginx: ""
+          - cert-manager: ""
+          - external-dns: ""
+          - Kong: ""
+      - Service Mesh:
+          - istio: ""
+      - Gateway API:
+          - Kong Gateway: ""
+  - Security:
+      - Secrets:
+          - vault: ""
+          - external-secrets: ""
+  - Observability:
+      - Logging:
+          - elasticsearch: "logs/elastic.md"
+          - kibana: ""
+          - fluent-bit: ""
+      - Monitoring:
+          - prometheus: ""
+          - grafana: ""
+          - alertmanager: ""
+      - Tracing: ""
+  - Databases:
+      - PostgreSQL:
+          - CloudNativePG: "db/postgres.md"
+      - Kafka:
+          - Strimzi Operator: "db/kafka.md"
+      - MongoDB: "db/mongo.md"
+      - Redis: "db/redis.md"
+      - Clickhouse: "db/clickhouse.md"
+  - FinOps:
+      - Notes: ""
