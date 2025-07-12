@@ -44,15 +44,11 @@ recovery:
 
   ##
   # -- Backup Recovery Method
-  backupName: "" # Name of the backup to recover from. Required if method is `backup`.
+  backupName: ""  # Name of the backup to recover from. Required if method is `backup`.
 
   ##
   # -- The original cluster name when used in backups. Also known as serverName.
   clusterName: ""
-  # -- Name of the database used by the application. Default: `app`.
-  database: app
-  # -- Name of the owner of the database in the instance to be used by applications. Defaults to the value of the `database` key.
-  owner: ""
   # -- Overrides the provider specific default endpoint. Defaults to:
   # S3: https://s3.<region>.amazonaws.com"
   # Leave empty if using the default S3 endpoint
@@ -103,9 +99,9 @@ recovery:
   pgBaseBackup:
     # -- Name of the database used by the application. Default: `app`.
     database: app
-    # -- Name of the secret containing the initial credentials for the owner of the user database. If empty a new secret will be created from scratch
-    secret: ""
     # -- Name of the owner of the database in the instance to be used by applications. Defaults to the value of the `database` key.
+    secret: ""
+    # -- Name of the secret containing the initial credentials for the owner of the user database. If empty a new secret will be created from scratch
     owner: ""
     source:
       host: ""
@@ -179,17 +175,17 @@ recovery:
         name: ""
         key: ""
 
+
 cluster:
   # -- Number of instances
   instances: 3
 
   # -- Name of the container image, supporting both tags (<image>:<tag>) and digests for deterministic and repeatable deployments:
   # <image>:<tag>@sha256:<digestValue>
-  imageName: "" # Default value depends on type (postgresql/postgis/timescaledb)
+  imageName: ""  # Default value depends on type (postgresql/postgis/timescaledb)
 
   # -- Reference to `ImageCatalog` of `ClusterImageCatalog`, if specified takes precedence over `cluster.imageName`
-  imageCatalogRef:
-    {}
+  imageCatalogRef: {}
     # kind: ImageCatalog
     # name: postgresql
 
@@ -223,8 +219,7 @@ cluster:
   # Please refer to https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/ for more information.
   # We strongly advise you use the same setting for limits and requests so that your cluster pods are given a Guaranteed QoS.
   # See: https://kubernetes.io/docs/concepts/workloads/pods/pod-qos/
-  resources:
-    {}
+  resources: {}
     # limits:
     #   cpu: 2000m
     #   memory: 8Gi
@@ -268,8 +263,7 @@ cluster:
   # -- This feature enables declarative management of existing roles, as well as the creation of new roles if they are not
   # already present in the database.
   # See: https://cloudnative-pg.io/documentation/current/declarative_role_management/
-  roles:
-    []
+  roles: []
     # - name: dante
     #   ensure: present
     #   comment: Dante Alighieri
@@ -295,8 +289,7 @@ cluster:
       # -- Whether to enable the PrometheusRule automated alerts
       enabled: true
       # -- Exclude specified rules
-      excludeRules:
-        []
+      excludeRules: []
         # - CNPGClusterZoneSpreadWarning
     # -- Whether the default queries should be injected.
     # Set it to true if you don't want to inject default queries into the cluster.
@@ -306,8 +299,6 @@ cluster:
     customQueries: []
     #  - name: "pg_cache_hit_ratio"
     #    query: "SELECT current_database() as datname, sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) as ratio FROM pg_statio_user_tables;"
-    #    target_databases: ["*"]
-    #    predicate_query: "SELECT '{{ .Values.version.postgresql }}';"
     #    metrics:
     #      - datname:
     #          usage: "LABEL"
@@ -322,44 +313,38 @@ cluster:
 
   postgresql:
     # -- PostgreSQL configuration options (postgresql.conf)
-    parameters:
-      {}
+    parameters: {}
       # max_connections: 300
     # -- Quorum-based Synchronous Replication
-    synchronous:
-      {}
-      # method: any
-      # number: 1
+    synchronous: {}
+     # method: any
+     # number: 1
     # -- PostgreSQL Host Based Authentication rules (lines to be appended to the pg_hba.conf file)
-    pg_hba:
-      []
+    pg_hba: []
       # - host all all 10.244.0.0/16 md5
     # -- PostgreSQL User Name Maps rules (lines to be appended to the pg_ident.conf file)
-    pg_ident:
-      []
+    pg_ident: []
       # - mymap   /^(.*)@mydomain\.com$      \1
     # -- Lists of shared preload libraries to add to the default ones
-    shared_preload_libraries:
-      []
+    shared_preload_libraries: []
       # - pgaudit
     # -- PostgreSQL LDAP configuration (see https://cloudnative-pg.io/documentation/current/postgresql_conf/#ldap-configuration)
-    ldap:
-      {}
+    ldap: {}
       # https://cloudnative-pg.io/documentation/1.24/postgresql_conf/#ldap-configuration
       # server: 'openldap.default.svc.cluster.local'
       # bindSearchAuth:
-      # baseDN: 'ou=org,dc=example,dc=com'
-      # bindDN: 'cn=admin,dc=example,dc=com'
-      # bindPassword:
-      # name: 'ldapBindPassword'
-      # key: 'data'
-      # searchAttribute: 'uid'
+        # baseDN: 'ou=org,dc=example,dc=com'
+        # bindDN: 'cn=admin,dc=example,dc=com'
+        # bindPassword:
+          # name: 'ldapBindPassword'
+          # key: 'data'
+        # searchAttribute: 'uid'
+
 
   # -- BootstrapInitDB is the configuration of the bootstrap process when initdb is used.
   # See: https://cloudnative-pg.io/documentation/current/bootstrap/
   # See: https://cloudnative-pg.io/documentation/current/cloudnative-pg.v1/#postgresql-cnpg-io-v1-bootstrapinitdb
-  initdb:
-    {}
+  initdb: {}
     # database: app
     # owner: "" # Defaults to the database name
     # secret:
@@ -377,13 +362,14 @@ cluster:
   additionalLabels: {}
   annotations: {}
 
+
 backups:
   # -- You need to configure backups manually, so backups are disabled by default.
   enabled: false
 
   # -- Overrides the provider specific default endpoint. Defaults to:
   # S3: https://s3.<region>.amazonaws.com"
-  endpointURL: "" # Leave empty if using the default S3 endpoint
+  endpointURL: ""  # Leave empty if using the default S3 endpoint
   # -- Specifies a CA bundle to validate a privately signed certificate.
   endpointCA:
     # -- Creates a secret with the given value if true, otherwise uses an existing secret.
@@ -443,7 +429,8 @@ backups:
     jobs: 2
 
   scheduledBackups:
-    - # -- Scheduled backup name
+    -
+      # -- Scheduled backup name
       name: daily-backup
       # -- Schedule in cron format
       schedule: "0 0 0 * * *"
@@ -459,14 +446,12 @@ imageCatalog:
   # -- Whether to provision an image catalog. If imageCatalog.images is empty this option will be ignored.
   create: true
   # -- List of images to be provisioned in an image catalog.
-  images:
-    []
+  images: []
     # - image: ghcr.io/your_repo/your_image:your_tag
     #   major: 16
 
 # -- List of PgBouncer poolers
-poolers:
-  []
+poolers: []
   # -
   #   # -- Pooler name
   #   name: rw
@@ -511,3 +496,4 @@ poolers:
   #   # -- Custom PgBouncer deployment template.
   #   # Use to override image, specify resources, etc.
   #   template: {}
+
