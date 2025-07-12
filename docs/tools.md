@@ -11,10 +11,10 @@
 
 ## management
 
-setup and configuration: no clickops (ability to redeploy from scratch),
-usability: gitops by infra-platform tools (values.yaml)
-monitoring
-maintenance: backup/restore, upgrade, scaling
+* setup and configuration: no clickops (ability to redeploy from scratch),
+* usability: gitops by infra-platform tools (values.yaml)
+* monitoring
+* maintenance: backup/restore, upgrade, scaling
 
 ## crossplane
 
