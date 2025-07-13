@@ -13,9 +13,10 @@ nav:
       - Tools: "tools.md"
       - CI/CD: ""
   - Networking:
+      - TLS:
+          - cert-manager: "tls/cert-manager.md"
       - Ingress:
           - ingress-nginx: ""
-          - cert-manager: ""
           - external-dns: ""
           - Kong: ""
       - Service Mesh:
@@ -26,6 +27,8 @@ nav:
       - Secrets:
           - vault: ""
           - external-secrets: ""
+      - Tools:
+          - trivy: ""
   - Observability:
       - Logging:
           - elasticsearch: "logs/elastic.md"
