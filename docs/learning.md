@@ -1,15 +1,14 @@
 # Layer-based learning system
 
-# Tech
+# Tool
 
-| |Self-hosted|SaaS|
+||Self-hosted|SaaS|
 |-|-|-|
 |**Tool**|Altinity ClickHouse Operator|[ClickHouse Cloud](https://clickhouse.com/cloud)|
 |**Type**|kubernetes-operator|terrafrom-provider|
 |**Deploy**|helm-chart|crossplane|
 
-
-## Architectire
+## Architecture
 
 How it works
 Main terms
@@ -19,9 +18,15 @@ Main terms
 - what metrics to pay attention on
 - alerts
 
+## Patform integration
+
+- how this tool integrated into a platform
+- how to use it in a platform
+- how to debug
+
 ---
 
-# Tool
+# Dostribution
 
 |**Tool**|[ClickHouse Cloud](https://clickhouse.com/cloud)|
 |-|-|
@@ -46,12 +51,6 @@ Main terms
 - Backup / Restore
 - Scaling
 - Upgrade
-
-## Patform integration
-
-how this tool integrated into a platform
-how to use it in a platform
-how to debug
 
 ---
 

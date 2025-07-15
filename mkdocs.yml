@@ -41,7 +41,8 @@ nav:
       - Tracing: ""
   - Databases:
       - PostgreSQL:
-          - CloudNativePG: "db/postgres.md"
+          - PostgreSQL: "postgresql/postgresql.md"
+          - CloudNativePG: "postgresql/cloudnative-pg.md"
       - Kafka:
           - Strimzi Operator: "db/kafka.md"
       - MongoDB: "db/mongo.md"

@@ -1,4 +1,13 @@
-# postgres
+# CloudNativePG
+
+|**Tool**|[CloudNativePG](https://cloudnative-pg.io)|
+|-|-|
+|**Type**|kubernetes-operator|
+|**Deploy**|helm-chart|
+|**Backup**||
+|**Scaling**||
+|**CLI**||
+|**UI**||
 
 ## TODO
 
@@ -10,7 +19,15 @@
 - [ ] external-secrets integrations (automation of password management)
 - [ ] _chart integration
 
-## [+] Connect
+## Architectire
+
+- deployment explained
+
+## Usecases
+
+### Basic: create db, create role, connect, etc.
+
+- Connect
 
 ```bash
 # creds in secret `postgres-cluster-superuser`
@@ -21,7 +38,7 @@ kubectl port-forward svc/postgres-cluster-rw -n portgres 5432:5432
 psql -h localhost -p 5432 -U postgres -d postgres
 ```
 
-## [+] Create Roles
+- Create Roles
 
 https://cloudnative-pg.io/documentation/1.26/declarative_role_management/
 
@@ -67,13 +84,9 @@ cluster:
         name: psql-role-dante
 ```
 
-## [+] Create Database
+- Create Database
 
 https://cloudnative-pg.io/documentation/1.26/declarative_database_management/#postgresql-database-management
-
-- [x] owner
-- [x] schema owner
-- [x] extentions
 
 ```bash
 cat <<EOF | kubectl apply -f -
@@ -96,3 +109,27 @@ spec:
     ensure: present
 EOF
 ```
+
+### Common: write data, read data, replication, etc.
+
+## Maintenence
+
+- Backup / Restore
+- Scaling
+- Upgrade
+
+## Patform integration
+
+how this tool integrated into a platform
+how to use it in a platform
+how to debug
+
+---
+
+## Articles
+
+
+
+
+
+
