@@ -46,6 +46,9 @@ nav:
           - Strimzi Operator: "db/kafka.md"
       - MongoDB: "db/mongo.md"
       - Redis: "db/redis.md"
-      - Clickhouse: "db/clickhouse.md"
+      - Clickhouse:
+          - Clickhouse: "clickhouse/clickhouse.md"
+          - Altinity Clickhouse: "clickhouse/clickhouse-altinity.md"
+          - Clickhouse Cloud: "clickhouse/clickhouse-cloud.md"
   - FinOps:
       - Notes: ""
