@@ -39,9 +39,10 @@
 |**CLI**||
 |**UI**|web|
 
-## Deployment
+## Setup
 
 - deployment explained
+- how to setup
 
 ## Usecases
 

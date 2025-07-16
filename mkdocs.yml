@@ -25,8 +25,9 @@ nav:
           - Kong Gateway: ""
   - Security:
       - Secrets:
-          - vault: ""
-          - external-secrets: ""
+          - Secrets Management: "secrets/secrets-management.md"
+          - vault: "secrets/vault.md"
+          - external-secrets: "secrets/external-secrets.md"
       - Tools:
           - trivy: ""
   - Observability:
