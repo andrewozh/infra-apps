@@ -59,4 +59,4 @@ nav:
           - Altinity Clickhouse: "clickhouse/clickhouse-altinity.md"
           - Clickhouse Cloud: "clickhouse/clickhouse-cloud.md"
   - FinOps:
-      - Notes: ""
+      - Understanding FinOps: "finops.md"
