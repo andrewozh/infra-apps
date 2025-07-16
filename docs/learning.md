@@ -4,14 +4,15 @@
 
 ||Self-hosted|SaaS|
 |-|-|-|
-|**Tool**|Altinity ClickHouse Operator|[ClickHouse Cloud](https://clickhouse.com/cloud)|
+|**Tool**|[Example Operator](#)|[Example Cloud Provider](#)|
 |**Type**|kubernetes-operator|terrafrom-provider|
 |**Deploy**|helm-chart|crossplane|
 
 ## Architecture
 
-How it works
-Main terms
+- How it works
+- Main terms
+- Diff between self-hosted and SaaS
 
 ## Monitoring
 
@@ -28,23 +29,24 @@ Main terms
 
 # Dostribution
 
-|**Tool**|[ClickHouse Cloud](https://clickhouse.com/cloud)|
+|**Distro**|[Example](#)|
 |-|-|
-|**Type**|terrafrom-provider|
-|**Deploy**|crossplane|
-|**Backup**|manual|
-|**Scaling**|automated|
-|**CLI**|clickhouse-client|
+|**Type**|kubernetes-operator|
+|**Deploy**|helm-chart|
+|**Docs**|[link](#)|
+|**Backup**||
+|**Scaling**||
+|**CLI**||
 |**UI**|web|
 
-## Architectire
+## Deployment
 
 - deployment explained
 
 ## Usecases
 
-- Basic: create db, create user, connect, etc.
-- Common: write data, read data, replication, etc.
+### Basic: create db, create user, connect, etc.
+### Common: write data, read data, replication, etc.
 
 ## Maintenence
 
