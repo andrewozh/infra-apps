@@ -4,6 +4,7 @@
 
 - [+] use [MkDocs](https://www.mkdocs.org) for docs like https://cloudnative-pg.io/documentation/1.26/
 - [+] dedicated `roadmap` page
+- [~] fill docs with existing readmes
 - [ ] private container registry
 - [ ] talos linux local multicluster setup
 

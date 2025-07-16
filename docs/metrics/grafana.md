@@ -1,8 +1,8 @@
-# Monitoring stack
+# Grafana
 
-prometheus + grafana + alertmanager
+## TODO
 
-## Dashboards TODO
+Dashboards:
 
 - [x] prometheus-node-exporter
 - [x] kube-state-metrics

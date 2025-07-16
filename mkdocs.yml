@@ -32,13 +32,17 @@ nav:
           - trivy: ""
   - Observability:
       - Logging:
+          - Log Management: "logs/log-management.md"
           - elasticsearch: "logs/elastic.md"
+          - logstash: ""
           - kibana: ""
           - fluent-bit: ""
       - Monitoring:
-          - prometheus: ""
-          - grafana: ""
-          - alertmanager: ""
+          - Menitoring Setup: "metrics/monitoring-stack.md"
+          - prometheus: "metrics/prometheus.md"
+          - grafana: "metrics/grafana.md"
+          - alertmanager: "metrics/alert-manager.md"
+          - Datadog: "metrics/datadog.md"
       - Tracing: ""
   - Databases:
       - PostgreSQL:
