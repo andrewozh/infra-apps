@@ -45,7 +45,9 @@ nav:
           - CloudNativePG: "postgresql/cloudnative-pg.md"
       - Kafka:
           - Strimzi Operator: "db/kafka.md"
-      - MongoDB: "db/mongo.md"
+      - MongoDB:
+          - MongoDB: "mongodb/mongodb.md"
+          - MongoDB Community: "mongodb/mongodb-community.md"
       - Redis: "db/redis.md"
       - Clickhouse:
           - Clickhouse: "clickhouse/clickhouse.md"
