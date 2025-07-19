@@ -49,7 +49,8 @@ nav:
           - PostgreSQL: "postgresql/postgresql.md"
           - CloudNativePG: "postgresql/cloudnative-pg.md"
       - Kafka:
-          - Strimzi Operator: "db/kafka.md"
+          - Kafka: "kafka/kafka.md"
+          - Strimzi Kakfa Operator: "kafka/strimzi.md"
       - MongoDB:
           - MongoDB: "mongodb/mongodb.md"
           - MongoDB Community: "mongodb/mongodb-community.md"
