@@ -47,6 +47,12 @@ spec:
         tls: false
         authentication:
           type: scram-sha-512
+      - name: external
+        port: 9094
+        type: nodeport
+        tls: false
+        authentication:
+          type: scram-sha-512
       - name: tls
         port: 9093
         type: internal
