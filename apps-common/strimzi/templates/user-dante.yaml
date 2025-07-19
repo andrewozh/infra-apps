@@ -1,0 +1,32 @@
+---
+apiVersion: kafka.strimzi.io/v1beta1
+kind: KafkaUser
+metadata:
+  name: dante-kafka-user
+  namespace: kafka
+  labels:
+    strimzi.io/cluster: kafka-cluster
+spec:
+  authentication:
+    type: scram-sha-512
+  authorization:
+    type: simple
+    acls:
+    - resource:
+        type: topic
+        name: dante-topic
+      operations:
+        - Describe
+        - Read
+        - Write
+      host: "*"
+    - resource:
+        type: group
+        name: dante-group
+        patternType: prefix
+      operations:
+        - Describe
+        - Read
+      host: "*"
+
+

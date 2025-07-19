@@ -1,0 +1,17 @@
+---
+apiVersion: kafka.strimzi.io/v1beta1
+kind: KafkaTopic
+metadata:
+  name: dante-topic
+  namespace: kafka
+  labels:
+    strimzi.io/cluster: kafka-cluster
+spec:
+  partitions: 10
+  replicas: 1
+  # config:
+  #   retention.ms: 4320000000  # 50 days
+  #   cleanup.policy: compact
+  #   delete.retention.ms: 100
+  #   retention.ms: -1
+  #   retention.bytes: -1

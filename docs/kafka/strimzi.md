@@ -17,6 +17,8 @@
 
 **Kafka Bridge** provides a RESTful interface that allows HTTP-based clients to interact with a Kafka cluster.
 
+**Mirror Maker** is a tool for replicating data between Kafka clusters, which can be useful for disaster recovery or data migration.
+
 ## Usecases
 
 ### Basic: create cluster, create user, connect, create topic
