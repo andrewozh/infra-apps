@@ -21,8 +21,27 @@
 
 ## Usecases
 
-### Basic: create cluster, create user, connect, create topic
-### Common: write data, read data, replication, etc.
+### Basic: create cluster, create user, create topic, connect
+
+- [?] Connect
+
+port-forward 9092
+
+```bash
+kubectl get secret admin-kafka-user -n kafka -o jsonpath='{.data.password}' | base64 -d
+BzXay6RkjAbuTqIeCXXHAwNEpWmpHtQC
+
+kcat -b localhost:9092 \
+  -t dante-topic \
+  -X security.protocol=SASL_PLAINTEXT \
+  -X sasl.mechanism=SCRAM-SHA-256 \
+  -X sasl.username=admin-kafka-user \
+  -X sasl.password='BzXay6RkjAbuTqIeCXXHAwNEpWmpHtQC'
+```
+
+### Common: produce message to topic, consume from topic, consumer group
+
+### Advanced: replication, etc.
 
 ## Maintenence
 
@@ -34,5 +53,5 @@
 
 ## Articles
 
-* [Example article link](#)
+* [Zookeeper](#)
 
