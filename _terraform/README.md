@@ -1,4 +1,4 @@
-# infra-base
+# terraform
 
 Using `Terragrunt` to provision infra
 
@@ -79,33 +79,3 @@ kubectl port-forward svc/argocd-server -n argocd 8080:80
 # password:
 kubectl get secrets argocd-initial-admin-secret -o yaml -n argocd | yq .data.password | base64 --decode
 ```
-
-* vertical-pod-autoscaler vs `keda` (same ot not?)
-* external-secrets
-* external-dns
-* terraform operator
-* alertnamager
-* Operator Lifecycle Manager (OLM)
-
-## secrets
-
-* vault
-
-## metrics
-
-* victoria metrics
-* prometheus-
-* grafana
-
-## logs
-
-* loki
-* elasticsearch
-
-## databases
-
-* kafka (managed - Amazon MSK, operator - strimzi)
-* postgres
-* redis
-* mongo
-* clickhouse
