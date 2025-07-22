@@ -1,18 +1,20 @@
-# infra-apps
+# devops-sandbox
 
-## prerequisits
+## Prerequisits
 
-* deploy `eks-common` using terragrunt in `[infra-base](https://github.com/andrewozh/infra-base)`
+Kubernetes cluster:
+
+* deploy `eks-common` using terragrunt
 * or deploy local homelab using `$ make homelab`
 * update-kubeconfig and use appropriate context
 
 ## Bootstrap
 
-- [+] argocd chart (better)
-- [+] olm + argocd
-
 ```bash
-make init
+# simple: argocd via helm chart (recommended)
+make argocd
+# advanced: argocd via OLM
+make argocd-olm
 ```
 
 ## Docs
