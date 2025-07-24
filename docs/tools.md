@@ -21,3 +21,7 @@
 ## keda
 
 ## reloader
+
+## sandbox
+
+kubectl run dev-sandbox --image=ubuntu --restart=Always --command -- sleep infinity

@@ -6,7 +6,13 @@
 - [+] dedicated `roadmap` page
 - [~] fill docs with existing readmes
 - [ ] private container registry
+- [ ] github actions and reusable workflows markdown documentation generator
+
+## Cluster
+
 - [ ] talos linux local multicluster setup
+- [ ] aws eks
+- [ ] azure aks
 
 ## Platform
 
@@ -65,6 +71,7 @@
 - [x] universal applicationset
 - [ ] add clusters
 - [ ] investigate argo teams and projects
+- [ ] investigate `KCL`
 
 ## Ingress + cert-manager
 

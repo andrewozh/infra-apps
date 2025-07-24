@@ -3,7 +3,7 @@
 - cost data for Saas (MongoDB Atlas.. etc)
 - cost data for Crossplane provisioned resource (Clickhouse Cloud.. etc)
 
-## kubecost
+## kubecost / opencost
 
 To collect cost estimates for of deployed applications
 

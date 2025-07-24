@@ -1,11 +1,14 @@
 # devops-sandbox
 
+## TODO
+
+- [ ] github actions and reusable workflows markdown documentation generator
+
 ## Prerequisits
 
 Kubernetes cluster:
-
 * deploy `eks-common` using terragrunt
-* or deploy local homelab using `$ make homelab`
+* or deploy local homelab using `make homelab`
 * update-kubeconfig and use appropriate context
 
 ## Bootstrap
