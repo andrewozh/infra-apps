@@ -41,11 +41,11 @@ spec:
     #   limits:
     #     memory: "500Mi"
     listeners:
-      - name: plain
+      - name: plain # need to stay without auth to proper broker communication
         port: 9092
         type: internal
         tls: false
-      - name: internal
+      - name: internal # will add port to main brokers service
         port: 9095
         type: internal
         tls: false

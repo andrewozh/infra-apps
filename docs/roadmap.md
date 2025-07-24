@@ -7,6 +7,7 @@
 - [~] fill docs with existing readmes
 - [ ] private container registry
 - [ ] github actions and reusable workflows markdown documentation generator
+- [ ] docs Docusaurus & Github Pages https://www.youtube.com/watch?v=9iVNf0T09dE
 
 ## Cluster
 
