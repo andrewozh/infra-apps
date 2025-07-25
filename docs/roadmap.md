@@ -2,106 +2,154 @@
 
 ## TODO
 
-- [+] use [MkDocs](https://www.mkdocs.org) for docs like https://cloudnative-pg.io/documentation/1.26/
-- [+] dedicated `roadmap` page
-- [~] fill docs with existing readmes
-- [ ] private container registry
-- [ ] github actions and reusable workflows markdown documentation generator
-- [ ] docs Docusaurus & Github Pages https://www.youtube.com/watch?v=9iVNf0T09dE
+- [~] improved roadmap
+  have list of all tools & technologies
+  each platform version:
+    infra meets global requirements
+    all the tools meet the global requirement
+  - [+] list infra global requirements
+  - [+] list of platform versions by global requirements
+  - [+] list of required technologies
+  - [~] fill roadmap
 
-## Cluster
+## Ideas
 
-- [ ] talos linux local multicluster setup
-- [ ] aws eks
-- [ ] azure aks
-
-## Platform
-
-### [~] common-cluster
-
-- [x] basic helm appchart
-- [x] ingress -- nginx
-- [x] cert-manager -- local self-signed
-- [x] secrets -- vault external-secrets
-- [x] observability -- prom grafana alertmanager
-- [~] logs -- fluent-bit elasticsearch kibana
-  [!] (es & kibana restarts, fluentbit retries warns)
-- [~] intercluster monitoring
-  * [x] k8s:
-      + nodes
-      + dp
-      + ds -- can't choose pod
-      + sts
-      ! pv -- kind do not support it
-  * [x] elastic stack:
-      + es
-      ! kibana (broken subchart -- enabling metrics no result)
-  * [x] fluentbit
-  * [~] prometheus stack: prom, alertmanager, grafana
-      + prom
-      - grafana -- disabled
-      - alertmanager -- disabled
-  * [ ] ingress
-  * [ ] vault + external-secrets + cert-manager
-  * [ ] argocd
-
-### [ ] staging cluster
-
-- [!] kind
-- [ ] argocd -- add cluster, appsets
-- [ ] ingress -- nginx external-dns
-- [ ] cert-manager -- vault-pki or letsencrypt
-- [ ] observability -- configure prom & alertmanager to common grafana
-- [ ] logs -- configure fluent-bit to common elastic
-- [ ] secrets -- configure external-secrets to common vault
-- [ ] service mesh -- istio
-- [ ] autoscaling -- cluster-autoscaling keda
-- [~] databases
-    + postgres -- cloudnative-pg
-    + mongo -- mongodb-kubernetes-operator
-    ~ kafka -- strimzi
-    ~ clickhouse -- cloud, altinity
-    ? redis
-- [ ] tools -- reloader
-- [~] crossplane -- creating non-common eks (managed cloud resources dbs etc)
-- [ ] demo-app
-
-## Argocd
-
-- [x] chart cloud-dc-env
-- [x] universal applicationset
-- [ ] add clusters
-- [ ] investigate argo teams and projects
-- [ ] investigate `KCL`
-
-## Ingress + cert-manager
-
-- [x] ingress-nginx
-- [~] TLS via cert-manager (self-signed, letsencrypt, aws)
-- [ ] external-dns
-- [ ] istio as ingress
-- [ ] kong
-
-## Secrets
-
-- [x] vault
-- [x] external-secrets
-- [ ] monitoring dash
-
-## Monitoring
-
-- [x] prometheus
-- [x] grafana
-- [~] grafana dashboards
-- [ ] alertmanager
+- [ ] devcontainers
+- [ ] investigate `KCL` for app-library
+- [ ] kong as GatewayAPI
+- [ ] loki
 - [ ] victoriametrics
 - [ ] tempo
 - [ ] jaeger
 
-## Loging
+---
 
-- [x] elasicseach
-- [x] kibana
-- [~] fluent-bit -- lightweight daemonset (pods stdout logs)
-- [ ] officieal operator: https://github.com/elastic/cloud-on-k8s
-- [ ] loki
+## 1.0.0 platform app-library
+
+Infra requirements:
+
+Tools requirements:
+- platform integration
+
+## 0.4.0 staging eks cluster
+
+Infra requirements:
+- [ ] cluster-autoscaling: karpenter
+- [ ] crossplane:
+  vpc, subnets, security groups, routes, vpc-peering
+  eks, addons
+
+Tools requirements:
+- advanced usage
+
+## 0.3.0 common eks cluster
+
+Infra requirements:
+- [~] aws eks: terrafrom, addons
+
+Tools requirements:
+- saas
+
+## 0.2.0 self-hosted multi-cluster setup
+
+Infra requirements:
+- [ ] talos linux local multicluster setup
+
+Platform & App-library requirements:
+- [ ] argocd -- add cluster, appsets
+- [ ] investigate argo teams and projects
+
+Tools requirements:
+- common usage
+- maintenance: scaling/backup/restore/upgrade
+
+Progress tools:
+- [ ] cert-manager -- vault-pki or letsencrypt
+- [ ] observability -- configure prom & alertmanager to common grafana
+- [ ] ingress -- nginx external-dns
+- [ ] logs -- configure fluent-bit to common elastic
+- [ ] secrets -- configure external-secrets to common vault
+- [ ] service mesh -- istio
+- [ ] autoscaling -- keda
+- [ ] tools -- reloader
+- [ ] demo-app
+  probes: startup, liveness, readiness
+  databases: psql, kafka, mongo, clickhouse, redis
+  logs, metrics, traces
+  web-ui
+
+## 0.1.0 self-hosted kubernetes cluster
+
+Infra requirements:
+- [~] localhosted cluster kind (need doc..)
+- [+] kubernetes monitoring: node, dp, ds, sts, pv- (kind do not support)
+
+Platform & App-library requirements:
+- [+] common applicationset
+- [+] basic helm appchart (cloud-dc-env)
+
+Tools requirements:
+- 1. deployed
+- 2. basic usage
+- 3. architecture
+- 4. monitoring
+
+Progress tools:
+- [~] logging: elasticsearch, kibana, fluent-bit
+- [~] metrics: prometheus, grafana, alertmanager
+- [ ] tracing
+- [~] postgresql: cloudnative-pg
+- [~] kafka: strimzi
+- [ ] redis
+- [~] mongodb: community-operator
+- [ ] clickhouse: altinity
+- [~] ingress: nginx
+    Description: localhost tls dns
+    Status: 1 4~ ..
+    Docs: -
+- [ ] service mesh: istio
+- [~] certificates: cert-manager
+    Description: local self-signed
+    Status: 1 2 3~ ..
+    Docs: ~
+- [~] secret storage: vault + external-secrets
+- [~] crossplane
+
+## Docs
+
+- [+] use [MkDocs](https://www.mkdocs.org) for docs like https://cloudnative-pg.io/documentation/1.26/
+- [+] dedicated `roadmap` page
+- [~] fill docs with existing readmes
+- [ ] github actions and reusable workflows markdown documentation generator
+- [ ] docs Docusaurus & Github Pages https://www.youtube.com/watch?v=9iVNf0T09dE
+
+---
+
+## Goals
+
+List of most valuable platform components:
+
+* gitops and platform integration
+* Crossplane provisioning cloud infra
+* Cross-cluster observability, secrets management
+* Simple tool maintenance guides (configure, scale, backup/restore, upgrade)
+
+## Plans
+
+- finops
+- 3.0.0 organization
+- 2.0.0 cicd
+
+---
+
+## CI/CD
+
+- [ ] private container registry
+- [ ] a lib that can be reused by any cicd system: dagger
+- [ ] jenkins / github actions / argo workflows
+
+## Organization
+
+- [ ] github org
+- [ ] google org
+- [ ] atlassian stack

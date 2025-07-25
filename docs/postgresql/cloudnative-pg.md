@@ -7,7 +7,7 @@
 |**Backup**||
 |**Scaling**||
 |**CLI**||
-|**UI**||
+|**UI**|[pgadmin](https://www.pgadmin.org)|
 
 ## TODO
 
