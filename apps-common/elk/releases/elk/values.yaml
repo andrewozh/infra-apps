@@ -1,0 +1,14 @@
+eck-stack:
+  eck-elasticsearch:
+    nodeSets:
+      - name: default
+        count: 1
+        podTemplate:
+          spec:
+            containers:
+              - name: elasticsearch
+                resources:
+                  limits:
+                    memory: 1Gi
+                  requests:
+                    memory: 1Gi
