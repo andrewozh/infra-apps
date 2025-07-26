@@ -9,9 +9,9 @@ nav:
       - Roadmap: "roadmap.md"
       - Learning: "learning.md"
   - Platform:
-      - Architecture: "platform.md"
-      - Tools: "tools.md"
-      - CI/CD: ""
+      - Architecture: "platform/platform.md"
+      - Tools: "platform/tools.md"
+      - CI/CD: "cicd.md"
   - Networking:
       - TLS:
           - cert-manager: "tls/cert-manager.md"
@@ -37,6 +37,7 @@ nav:
           - logstash: ""
           - kibana: ""
           - fluent-bit: ""
+          - fluentd: ""
       - Monitoring:
           - Menitoring Setup: "metrics/monitoring-stack.md"
           - prometheus: "metrics/prometheus.md"
@@ -48,13 +49,17 @@ nav:
       - PostgreSQL:
           - PostgreSQL: "postgresql/postgresql.md"
           - CloudNativePG: "postgresql/cloudnative-pg.md"
+          - AWS RDS: ""
       - Kafka:
           - Kafka: "kafka/kafka.md"
           - Strimzi Kakfa Operator: "kafka/strimzi.md"
       - MongoDB:
           - MongoDB: "mongodb/mongodb.md"
           - MongoDB Community: "mongodb/mongodb-community.md"
-      - Redis: "db/redis.md"
+          - MongoDB Atlas: ""
+      - Redis:
+          - Redis: "redis/redis.md"
+          - AWS Elasticache: ""
       - Clickhouse:
           - Clickhouse: "clickhouse/clickhouse.md"
           - Altinity Clickhouse: "clickhouse/clickhouse-altinity.md"

@@ -24,31 +24,45 @@
 
 ---
 
-## 1.0.0 platform app-library
+## 0.1.0 self-hosted kubernetes cluster
 
 Infra requirements:
+- [~] localhosted cluster kind (need doc..)
+- [+] kubernetes monitoring: node, dp, ds, sts, pv- (kind do not support)
+
+Platform & App-library requirements:
+- [+] common applicationset
+- [+] basic helm appchart (cloud-dc-env)
 
 Tools requirements:
-- platform integration
+- 1. deployed
+- 2. basic usage
+- 3. architecture
+- 4. monitoring
 
-## 0.4.0 staging eks cluster
-
-Infra requirements:
-- [ ] cluster-autoscaling: karpenter
-- [ ] crossplane:
-  vpc, subnets, security groups, routes, vpc-peering
-  eks, addons
-
-Tools requirements:
-- advanced usage
-
-## 0.3.0 common eks cluster
-
-Infra requirements:
-- [~] aws eks: terrafrom, addons
-
-Tools requirements:
-- saas
+Progress tools:
+- [~] logging: elasticsearch, kibana, fluent-bit
+    Description: localhost tls dns
+    Status: 1 4~ ..
+    Docs: -
+- [~] metrics: prometheus, grafana, alertmanager
+- [ ] tracing
+- [~] postgresql: cloudnative-pg
+- [~] kafka: strimzi
+- [ ] redis
+- [~] mongodb: community-operator
+- [ ] clickhouse: altinity
+- [~] ingress: nginx
+    Description: localhost tls dns
+    Status: 1 4~ ..
+    Docs: -
+- [ ] service mesh: istio
+- [~] certificates: cert-manager
+    Description: local self-signed
+    Status: 1 2 3~ ..
+    Docs: ~
+- [~] secret storage: vault + external-secrets
+- [~] crossplane
 
 ## 0.2.0 self-hosted multi-cluster setup
 
@@ -78,42 +92,31 @@ Progress tools:
   logs, metrics, traces
   web-ui
 
-## 0.1.0 self-hosted kubernetes cluster
+## 0.3.0 common eks cluster
 
 Infra requirements:
-- [~] localhosted cluster kind (need doc..)
-- [+] kubernetes monitoring: node, dp, ds, sts, pv- (kind do not support)
-
-Platform & App-library requirements:
-- [+] common applicationset
-- [+] basic helm appchart (cloud-dc-env)
+- [~] aws eks: terrafrom, addons
 
 Tools requirements:
-- 1. deployed
-- 2. basic usage
-- 3. architecture
-- 4. monitoring
+- saas
 
-Progress tools:
-- [~] logging: elasticsearch, kibana, fluent-bit
-- [~] metrics: prometheus, grafana, alertmanager
-- [ ] tracing
-- [~] postgresql: cloudnative-pg
-- [~] kafka: strimzi
-- [ ] redis
-- [~] mongodb: community-operator
-- [ ] clickhouse: altinity
-- [~] ingress: nginx
-    Description: localhost tls dns
-    Status: 1 4~ ..
-    Docs: -
-- [ ] service mesh: istio
-- [~] certificates: cert-manager
-    Description: local self-signed
-    Status: 1 2 3~ ..
-    Docs: ~
-- [~] secret storage: vault + external-secrets
-- [~] crossplane
+## 0.4.0 staging eks cluster
+
+Infra requirements:
+- [ ] cluster-autoscaling: karpenter
+- [ ] crossplane:
+  vpc, subnets, security groups, routes, vpc-peering
+  eks, addons
+
+Tools requirements:
+- advanced usage
+
+## 1.0.0 platform app-library
+
+Infra requirements:
+
+Tools requirements:
+- platform integration
 
 ## Docs
 

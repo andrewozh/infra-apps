@@ -1,43 +1,10 @@
-# Platform
+# App-library Helm chart
 
-## Cloud
-
-- how to setup terragrunt
-
-## Kubernetes
-
-- picture of cluster arch
-- kubernetes bootstrap: local / managed, addons
-- how to cluster upgrade
-
-### Local Talos Setup
-
-- run 2 local clusters
-- configure ip routing between local clusters
-- local dns manager:
-  look for new services in cluster and add them to local dns
-  also add local services to another cluster dns (cross-cluster dns resolving)
-
-## GitOps
-
-### ArgoCD
-
-- argocd appset schema
-- how to setup argocd
-
-- [?] Split applications (charts) and releases
-  we have a single directory for apps (charts)
-  and we have a separate directory for releases
-  each release refers to a chart
-  also each release keep current values folder structure for sophisticated overrides
-
-### Helm library
+## Architecture
 
 - explanation of helm lib
 
-### Helm carts
-
-#### How to upgrade helm chart
+## How to upgrade helm chart
 
 ```bash
 $  cat apps-common/kube-prometheus-stack/Chart.yaml
