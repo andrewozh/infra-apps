@@ -1,3 +1,18 @@
+chart:
+  nameOverride: kibana
+  kind: None
+  serviceAccount:
+    create: false
+  ingress:
+    enabled: true
+    className: "nginx"
+    hosts:
+      - host: kibana.home.lab
+        paths:
+          - path: /
+            service: elk-eck-kibana-kb-http
+            port: 5601
+
 eck-stack:
   eck-elasticsearch:
     nodeSets:
