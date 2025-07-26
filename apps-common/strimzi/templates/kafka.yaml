@@ -40,6 +40,13 @@ spec:
     #     memory: "500Mi"
     #   limits:
     #     memory: "500Mi"
+    template:
+      clusterRoleBinding:
+        metadata:
+          annotations:
+            # https://github.com/strimzi/strimzi-kafka-operator/issues/5823
+            argocd.argoproj.io/sync-options: Prune=false
+            argocd.argoproj.io/compare-options: IgnoreExtraneous
     listeners:
       - name: plain # need to stay without auth to proper broker communication
         port: 9092
