@@ -18,6 +18,11 @@
 ## Usecases
 
 ### Basic: create db, create user, connect, etc.
+
+```bash
+kubectl get secret elasticsearch-es-elastic-user -n logging -o jsonpath='{.data.elastic}' | base64 -d
+```
+
 ### Common: write data, read data, replication, etc.
 
 ## Maintenence
