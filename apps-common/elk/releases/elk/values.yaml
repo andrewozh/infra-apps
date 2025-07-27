@@ -1,18 +1,3 @@
-chart:
-  nameOverride: kibana
-  kind: None
-  serviceAccount:
-    create: false
-  ingress:
-    enabled: true
-    className: "nginx"
-    hosts:
-      - host: kibana.home.lab
-        paths:
-          - path: /
-            service: elk-eck-kibana-kb-http
-            port: 5601
-
 eck-stack:
   eck-elasticsearch:
     nodeSets:
@@ -27,3 +12,15 @@ eck-stack:
                     memory: 1Gi
                   requests:
                     memory: 1Gi
+  eck-kibana:
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+      pathType: Prefix
+      hosts:
+        - host: kibana.home.lab
+          path: /
+      tls:
+        enabled: true
+        secretName: elk-kibana-tls-secret

@@ -7,6 +7,3 @@ dependencies:
   - name: eck-stack
     version: 0.15.0
     repository: https://helm.elastic.co
-  - name: chart
-    version: 0.1.0
-    repository: file://../../_chart

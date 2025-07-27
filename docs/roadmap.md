@@ -27,7 +27,7 @@
 ## 0.1.0 self-hosted kubernetes cluster
 
 Infra requirements:
-- [~] localhosted cluster kind (need doc..)
+- [+] localhosted cluster kind
 - [+] kubernetes monitoring: node, dp, ds, sts, pv- (kind do not support)
 
 Platform & App-library requirements:
@@ -41,10 +41,10 @@ Tools requirements:
 - 4. monitoring
 
 Progress tools:
-- [~] logging: elasticsearch, kibana, fluent-bit
+- [~] logging: elasticsearch, kibana, logstash/fluent-bit
     Description: localhost tls dns
-    Status: 1 4~ ..
-    Docs: -
+    Status: 1.. ..
+    Docs: ~
 - [~] metrics: prometheus, grafana, alertmanager
 - [ ] tracing
 - [~] postgresql: cloudnative-pg
