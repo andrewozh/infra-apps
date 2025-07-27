@@ -1,5 +1,8 @@
 eck-stack:
   eck-elasticsearch:
+    auth:
+      fileRealm:
+        - secretName: fluentbit-user-secret
     nodeSets:
       - name: default
         count: 1
