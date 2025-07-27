@@ -13,10 +13,13 @@ eck-stack:
                   requests:
                     memory: 1Gi
   eck-kibana:
+    config:
+      server.publicBaseUrl: https://kibana.home.lab
     ingress:
       enabled: true
       annotations:
         kubernetes.io/ingress.class: nginx
+        nginx.ingress.kubernetes.io/backend-protocol: HTTPS
       pathType: Prefix
       hosts:
         - host: kibana.home.lab
