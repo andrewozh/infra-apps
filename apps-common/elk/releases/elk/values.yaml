@@ -3,6 +3,8 @@ eck-stack:
     auth:
       fileRealm:
         - secretName: fluentbit-user-secret
+      roles:
+        - secretName: fluentbit-role
     nodeSets:
       - name: default
         count: 1

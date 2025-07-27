@@ -64,19 +64,27 @@ fluent-bit:
           Match kube.*
           Host {{ .Values.esHost }}
           Port {{ .Values.esPort }}
+          HTTP_User fluentbit
+          HTTP_Passwd fluentbit
           Logstash_Format On
           Retry_Limit False
           Suppress_Type_Name On
+          TLS On
+          TLS.Verify Off
 
       [OUTPUT]
           Name es
           Match host.*
           Host {{ .Values.esHost }}
           Port {{ .Values.esPort }}
+          HTTP_User fluentbit
+          HTTP_Passwd fluentbit
           Logstash_Format On
           Logstash_Prefix node
           Retry_Limit False
           Suppress_Type_Name On
+          TLS On
+          TLS.Verify Off
 
     ## https://docs.fluentbit.io/manual/pipeline/parsers
     customParsers: |

@@ -22,6 +22,21 @@
 - [ ] tempo
 - [ ] jaeger
 
+## Tools requirements
+
+- 1. deployed
+- 2. basic usage
+- 3. monitoring: dashboard
+- 4. common usage
+- 5. architecture
+- 6. monitoring: understand metrics
+- 7. maintenance: backup/restore
+- 8. saas
+- 9. maintenance: scaling/upgrade
+- 10. monitoring: alerts
+- 11. platform integration
+- 12. maintenance: configure for low resources
+
 ---
 
 ## 0.1.0 self-hosted kubernetes cluster
@@ -37,12 +52,11 @@ Platform & App-library requirements:
 Tools requirements:
 - 1. deployed
 - 2. basic usage
-- 3. architecture
-- 4. monitoring
+- 3. monitoring: (basic dashboard)
 
 Progress tools:
-- [~] logging: elasticsearch, kibana, logstash/fluent-bit
-    Description: localhost tls dns
+- [~] logging: elasticsearch, kibana, fluent-bit
+    Description:
     Status: 1.. ..
     Docs: ~
 - [~] metrics: prometheus, grafana, alertmanager
@@ -74,8 +88,10 @@ Platform & App-library requirements:
 - [ ] investigate argo teams and projects
 
 Tools requirements:
-- common usage
-- maintenance: scaling/backup/restore/upgrade
+- 4. common usage
+- 5. architecture
+- 6. monitoring: how to monitor
+- 7. maintenance: backup/restore
 
 Progress tools:
 - [ ] cert-manager -- vault-pki or letsencrypt
@@ -98,7 +114,9 @@ Infra requirements:
 - [~] aws eks: terrafrom, addons
 
 Tools requirements:
-- saas
+- 8. saas
+- 9. maintenance: scaling/upgrade
+- 10. monitoring: alerts
 
 ## 0.4.0 staging eks cluster
 
@@ -116,7 +134,7 @@ Tools requirements:
 Infra requirements:
 
 Tools requirements:
-- platform integration
+- 11. platform integration
 
 ## Docs
 
@@ -154,5 +172,5 @@ List of most valuable platform components:
 ## Organization
 
 - [ ] github org
-- [ ] google org
+- [ ] google org (sso: grafana, kibana)
 - [ ] atlassian stack
