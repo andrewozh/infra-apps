@@ -17,7 +17,7 @@
 
 ## Usecases
 
-### Basic: create user for fluentbit, configure log shipping, view logs in kibana
+### Basic: create user for fluentbit, configure log shipping, view logs in Kibana
 
 [Fluent-bit](fluentbit.md)
 
@@ -93,6 +93,29 @@ kubectl get secret elasticsearch-es-elastic-user -n logging -o jsonpath='{.data.
 ```
 
 ### Common: write data, read data, replication, etc.
+
+## Monitoring
+
+- deploy `prometheus-elasticsearch-exporter` and configure es endpoint
+
+```yaml
+prometheus-elasticsearch-exporter:
+  es:
+    uri: https://fluentbit:fluentbit@elasticsearch-es-http.logging.svc:9200
+    sslSkipVerify: true
+```
+
+- check metrics
+
+```bash
+curl elk-prometheus-elasticsearch-exporter.logging:9108/metrics
+```
+
+- create service monitor
+
+```yaml
+
+```
 
 ## Maintenence
 
