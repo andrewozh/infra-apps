@@ -4,32 +4,6 @@ theme:
   name: readthedocs
 
 nav:
-  - Home:
-      - Intro: "index.md"
-      - Roadmap: "roadmap.md"
-      - Learning: "learning.md"
-  - Platform:
-      - Architecture: "platform/platform.md"
-      - Tools: "platform/tools.md"
-      - CI/CD: "cicd.md"
-  - Networking:
-      - TLS:
-          - cert-manager: "tls/cert-manager.md"
-      - Ingress:
-          - ingress-nginx: ""
-          - external-dns: ""
-          - Kong: ""
-      - Service Mesh:
-          - istio: ""
-      - Gateway API:
-          - Kong Gateway: ""
-  - Security:
-      - Secrets:
-          - Secrets Management: "secrets/secrets-management.md"
-          - vault: "secrets/vault.md"
-          - external-secrets: "secrets/external-secrets.md"
-      - Tools:
-          - trivy: ""
   - Observability:
       - Logging:
           - Log Management: "logs/log-management.md"
