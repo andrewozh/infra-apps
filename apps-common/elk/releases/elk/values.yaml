@@ -32,3 +32,8 @@ eck-stack:
       tls:
         enabled: true
         secretName: elk-kibana-tls-secret
+
+prometheus-elasticsearch-exporter:
+  es:
+    uri: https://fluentbit:fluentbit@elasticsearch-es-http.logging.svc:9200
+    sslSkipVerify: true
