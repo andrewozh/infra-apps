@@ -17,9 +17,10 @@
 
 ## Usecases
 
-### Basic: create user for fluentbit, configure log shipping, view logs in Kibana
+### :white_check_mark: Basic: create user for fluentbit, configure log shipping, view logs in Kibana
 
-[Fluent-bit](fluentbit.md)
+[Setup Fluent-bit for log shipping](fluentbit.md#basic-send-kubernetes-pods-logs-to-elasticsearch)
+[View logs in Kibana](kibana.md#basic-discover-all-logs)
 
 - create secret `role` for fluentbit
 
@@ -86,15 +87,19 @@ root@dev-sandbox:/# curl -k -u fluentbit:fluentbit https://elasticsearch-es-inte
 {"cluster_name":"elasticsearch","status":"green","timed_out":false,"number_of_nodes":1,"number_of_data_nodes":1,"active_primary_shards":35,"active_shards":35,"relocating_shards":0,"initializing_shards":0,"unassigned_shards":0,"unassigned_primary_shards":0,"delayed_unassigned_shards":0,"number_of_pending_tasks":0,"number_of_in_flight_fetch":0,"task_max_waiting_in_queue_millis":0,"active_shards_percent_as_number":100.0}
 ```
 
-- access kibana with admin `elastic` user
-
-```bash
-kubectl get secret elasticsearch-es-elastic-user -n logging -o jsonpath='{.data.elastic}' | base64 -d
-```
-
 ### Common: write data, read data, replication, etc.
 
-## Monitoring
+## :white_check_mark: Monitoring
+
+### :arrows_counterclockwise: Operator metrics
+
+https://www.elastic.co/docs/deploy-manage/monitor/orchestrators/k8s-enabling-metrics-endpoint
+
+### :white_check_mark: Elasticsearch
+
+:::note Grafana Dashboard
+https://grafana.com/grafana/dashboards/2322-elasticsearch/
+:::
 
 - deploy `prometheus-elasticsearch-exporter` and configure es endpoint
 
@@ -114,7 +119,11 @@ curl elk-prometheus-elasticsearch-exporter.logging:9108/metrics
 - create service monitor
 
 ```yaml
-
+prometheus-elasticsearch-exporter:
+  serviceMonitor:
+    enabled: true
+    namespace: "monitoring"
+    jobLabel: "app.kubernetes.io/name"
 ```
 
 ## Maintenence
