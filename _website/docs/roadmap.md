@@ -2,151 +2,127 @@
 sidebar_position: 2
 ---
 
+import ProgressBar from '@site/src/components/ProgressBar';
+
 # Roadmap
-
-## TODO
-
-- [~] improved roadmap
-  have list of all tools & technologies
-  each platform version:
-    infra meets global requirements
-    all the tools meet the global requirement
-  - [+] list infra global requirements
-  - [+] list of platform versions by global requirements
-  - [+] list of required technologies
-  - [~] fill roadmap
-
-## Ideas
-
-- [ ] devcontainers
-- [ ] investigate `KCL` for app-library
-- [ ] kong as GatewayAPI
-- [ ] loki
-- [ ] victoriametrics
-- [ ] tempo
-- [ ] jaeger
 
 ## Tools requirements
 
-- 1. deployed
-- 2. basic usage
-- 3. monitoring: dashboard
-- 4. common usage
-- 5. architecture
-- 6. monitoring: understand metrics
-- 7. maintenance: backup/restore
-- 8. saas
-- 9. maintenance: scaling/upgrade
-- 10. monitoring: alerts
-- 11. platform integration
-- 12. maintenance: configure for low resources
+1. deployed
+2. basic usage
+3. monitoring: dashboard
+4. common usage
+5. architecture
+6. monitoring: understand metrics
+7. maintenance: backup/restore
+8. saas
+9. maintenance: scaling/upgrade
+10. monitoring: alerts
+11. advanced usage
+12. platform integration
+13. maintenance: configure for low resources
 
 ---
 
 ## 0.1.0 self-hosted kubernetes cluster
 
-Infra requirements:
-- [+] localhosted cluster kind
-- [+] kubernetes monitoring: node, dp, ds, sts, pv- (kind do not support)
+**Infra requirements:**
 
-Platform & App-library requirements:
-- [+] common applicationset
-- [+] basic helm appchart (cloud-dc-env)
+- [x] localhosted cluster kind
+- [x] kubernetes monitoring: node, dp, ds, sts, pv- (kind do not support)
 
-Tools requirements:
-- 1. deployed
-- 2. basic usage
-- 3. monitoring: (basic dashboard)
+**Platform & App-library requirements:**
 
-Progress tools:
-- [~] logging: elasticsearch, kibana, fluent-bit
-    Description:
-    Status: 1.. ..
-    Docs: ~
-- [~] metrics: prometheus, grafana, alertmanager
+- [x] common applicationset
+- [x] basic helm appchart (cloud-dc-env)
+
+**Tools requirements:**
+
+1. deployed
+2. basic usage
+3. monitoring: (basic dashboard)
+
+**Progress tools:**
+
+- [ ] **logging:** elasticsearch, kibana, fluent-bit
+    <ProgressBar steps={[
+      { label: 'deploy', status: 'done' },
+      { label: 'docs', status: 'started' },
+      { label: 'monitoring', status: 'not-started' }
+    ]}/>
+- [ ] metrics: prometheus, grafana, alertmanager
 - [ ] tracing
-- [~] postgresql: cloudnative-pg
-- [~] kafka: strimzi
+- [ ] postgresql: cloudnative-pg
+- [ ] kafka: strimzi
 - [ ] redis
-- [~] mongodb: community-operator
+- [ ] mongodb: community-operator
 - [ ] clickhouse: altinity
-- [~] ingress: nginx
-    Description: localhost tls dns
-    Status: 1 4~ ..
-    Docs: -
+- [ ] ingress: nginx
 - [ ] service mesh: istio
-- [~] certificates: cert-manager
-    Description: local self-signed
-    Status: 1 2 3~ ..
-    Docs: ~
-- [~] secret storage: vault + external-secrets
-- [~] crossplane
+- [ ] certificates: cert-manager
+- [ ] secret storage: vault + external-secrets
+- [ ] crossplane
 
 ## 0.2.0 self-hosted multi-cluster setup
 
-Infra requirements:
+**Infra requirements:**
+
 - [ ] talos linux local multicluster setup
 
-Platform & App-library requirements:
+**Platform & App-library requirements:**
+
 - [ ] argocd -- add cluster, appsets
 - [ ] investigate argo teams and projects
 
-Tools requirements:
-- 4. common usage
-- 5. architecture
-- 6. monitoring: how to monitor
-- 7. maintenance: backup/restore
+**Tools requirements:**
 
-Progress tools:
-- [ ] cert-manager -- vault-pki or letsencrypt
-- [ ] observability -- configure prom & alertmanager to common grafana
-- [ ] ingress -- nginx external-dns
-- [ ] logs -- configure fluent-bit to common elastic
-- [ ] secrets -- configure external-secrets to common vault
-- [ ] service mesh -- istio
-- [ ] autoscaling -- keda
-- [ ] tools -- reloader
+4. common usage
+5. architecture
+6. monitoring: how to monitor
+7. maintenance: backup/restore
+
+**Progress tools:**
+
+- [ ] cert-manager: vault-pki or letsencrypt
+- [ ] observability: configure prom & alertmanager to common grafana
+- [ ] ingress: nginx external-dns
+- [ ] logs: configure fluent-bit to common elastic
+- [ ] secrets: configure external-secrets to common vault
+- [ ] service mesh: istio
+- [ ] autoscaling: keda
+- [ ] tools: reloader
 - [ ] demo-app
-  probes: startup, liveness, readiness
-  databases: psql, kafka, mongo, clickhouse, redis
-  logs, metrics, traces
-  web-ui
 
 ## 0.3.0 common eks cluster
 
-Infra requirements:
-- [~] aws eks: terrafrom, addons
+**Infra requirements:**
 
-Tools requirements:
-- 8. saas
-- 9. maintenance: scaling/upgrade
-- 10. monitoring: alerts
+- [ ] aws eks: terrafrom, addons
+
+**Tools requirements:**
+
+8. saas
+9. maintenance: scaling/upgrade
+10. monitoring: alerts
 
 ## 0.4.0 staging eks cluster
 
-Infra requirements:
-- [ ] cluster-autoscaling: karpenter
-- [ ] crossplane:
-  vpc, subnets, security groups, routes, vpc-peering
-  eks, addons
+**Infra requirements:**
 
-Tools requirements:
-- advanced usage
+- [ ] cluster-autoscaling: karpenter
+- [ ] crossplane: eks provisioning
+
+**Tools requirements:**
+
+11. advanced usage
 
 ## 1.0.0 platform app-library
 
-Infra requirements:
+**Infra requirements:**
 
-Tools requirements:
-- 11. platform integration
+**Tools requirements:**
 
-## Docs
-
-- [+] use [MkDocs](https://www.mkdocs.org) for docs like https://cloudnative-pg.io/documentation/1.26/
-- [+] dedicated `roadmap` page
-- [~] fill docs with existing readmes
-- [ ] github actions and reusable workflows markdown documentation generator
-- [ ] docs Docusaurus & Github Pages https://www.youtube.com/watch?v=9iVNf0T09dE
+12. platform integration
 
 ---
 
@@ -164,6 +140,16 @@ List of most valuable platform components:
 - finops
 - 3.0.0 organization
 - 2.0.0 cicd
+
+## Ideas
+
+- [ ] devcontainers
+- [ ] investigate `KCL` for app-library
+- [ ] kong as GatewayAPI
+- [ ] loki
+- [ ] victoriametrics
+- [ ] tempo
+- [ ] jaeger
 
 ---
 
