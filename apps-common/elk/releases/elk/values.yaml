@@ -8,6 +8,30 @@ eck-stack:
     nodeSets:
       - name: default
         count: 1
+        config:
+          # Disable memory mapping for container environments
+          node.store.allow_mmap: false
+          # Reduce refresh interval to save CPU
+          index.refresh_interval: "30s"
+          # Disable replicas for single node
+          index.number_of_replicas: 0
+          # Reduce number of shards
+          index.number_of_shards: 1
+          # Disable some expensive features
+          xpack.ml.enabled: false
+          xpack.graph.enabled: false
+          xpack.watcher.enabled: false
+          # Reduce monitoring overhead
+          xpack.monitoring.collection.enabled: false
+          # Optimize for small heap
+          indices.queries.cache.size: "5%"
+          indices.fielddata.cache.size: "5%"
+          indices.breaker.fielddata.limit: "40%"
+          # Reduce thread pools
+          thread_pool.search.size: 2
+          thread_pool.search.queue_size: 100
+          thread_pool.write.size: 2
+          thread_pool.write.queue_size: 100
         podTemplate:
           spec:
             containers:
@@ -20,6 +44,11 @@ eck-stack:
   eck-kibana:
     config:
       server.publicBaseUrl: https://kibana.home.lab
+      monitoring.ui.enabled: false
+      xpack.reporting.enabled: false
+      server.maxPayload: 1048576
+      xpack.fleet.enabled: false
+      xpack.apm.ui.enabled: false
     ingress:
       enabled: true
       annotations:
