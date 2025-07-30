@@ -1,10 +1,10 @@
-# Prometheus
+# Template: Distribution
 
-|**Distro**|[Prometheus](https://prometheus.io)|
+|**Distro**|[Example](#)|
 |-|-|
 |**Type**|kubernetes-operator|
 |**Deploy**|helm-chart|
-|**Docs**|[link](https://prometheus.io/docs/introduction/overview/)|
+|**Docs**|[link](#)|
 |**Backup**||
 |**Scaling**||
 |**CLI**||
@@ -32,4 +32,4 @@
 
 ## Articles
 
-* [Prometheus Stack Architecture](prometheus-stack-architecture.md#prometheus-server)
+* [Example article link](#)

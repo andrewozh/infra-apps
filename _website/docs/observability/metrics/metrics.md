@@ -10,15 +10,13 @@
 
 ||Engine|Dashboards|Alerts|
 |-|-|-|-|
-|**Tool**|[Prometheus](prometheus.md)|[Grafana](grafana.md)|[Alert Manager](alert-manager.md)|
+|**Tool**|[Prometheus](prometheus.md)|[Grafana](grafana.md)|[Alert Manager](alertmanager.md)|
 |**Type**|kubernetes-operator|||
 |**Deploy**|helm-chart|||
 
 ## Architecture
 
-- How it works
-- Main terms
-- cross-cluster monitoring setup
+[Prometheus Stack Architecture](prometheus-stack-architecture.md)
 
 ## Monitoring
 
