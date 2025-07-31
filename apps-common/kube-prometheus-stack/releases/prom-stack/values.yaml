@@ -41,7 +41,18 @@ kube-prometheus-stack:
       selfMonitor: true
 
   defaultRules:
-    create: false
+    create: true
+    rules:
+      etcd: false
+      kubeApiserverAvailability: false
+      kubeApiserverBurnrate: false
+      kubeApiserverHistogram: false
+      kubeApiserverSlos: false
+      kubeControllerManager: false
+      kubeProxy: false
+      kubeSchedulerAlerting: false
+      kubeSchedulerRecording: false
+
   # kubernetesServiceMonitors:
   #   enabled: false
   kubeApiServer:
