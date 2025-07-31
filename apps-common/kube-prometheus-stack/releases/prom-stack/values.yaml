@@ -25,10 +25,18 @@ kube-prometheus-stack:
       podMonitorSelectorNilUsesHelmValues: false
       probeSelectorNilUsesHelmValues: false
 
+  grafana:
+    defaultDashboardsEnabled: false
+    serviceMonitor:
+      enabled: false
+
+  alertmanager:
+    enabled: true
+    serviceMonitor:
+      selfMonitor: true
+
   defaultRules:
     create: false
-  alertmanager:
-    enabled: false
   # kubernetesServiceMonitors:
   #   enabled: false
   kubeApiServer:
@@ -45,11 +53,6 @@ kube-prometheus-stack:
     enabled: false
   kubeProxy:
     enabled: false
-
-  grafana:
-    defaultDashboardsEnabled: false
-    serviceMonitor:
-      enabled: false
 
   kube-state-metrics:
     fullnameOverride: "kube-state-metrics"
