@@ -1,5 +1,7 @@
 # Prometheus Stack Architecture
 
+[Source: Learn Prometheus Architecture: A Complete Guide](https://devopscube.com/prometheus-architecture/)
+
 Prometheus is an open-source monitoring and alerting system written in Go that collects and processes metrics from various targets using a pull model.
 
 ![arch](.img/prometheus-architecture.gif)

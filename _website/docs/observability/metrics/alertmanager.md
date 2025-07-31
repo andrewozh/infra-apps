@@ -12,12 +12,38 @@
 
 ## Setup
 
-- deployment explained
-- how to setup
+```yaml
+
+
+kube-prometheus-stack:
+  defaultRules:
+    create: false
+  alertmanager:
+    enabled: false
+  # kubernetesServiceMonitors:
+  #   enabled: false
+  kubeApiServer:
+    enabled: false
+  # kubelet:
+  #   enabled: false
+  kubeControllerManager:
+    enabled: false
+  coreDns:
+    enabled: false
+  kubeEtcd:
+    enabled: false
+  kubeScheduler:
+    enabled: false
+  kubeProxy:
+    enabled: false
+```
 
 ## Usecases
 
-### Basic: createa aler
+### Basic: create alert
+
+
+
 ### Common: 
 
 ## Monitoring
