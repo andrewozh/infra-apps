@@ -13,13 +13,26 @@
 ## Setup
 
 ```yaml
-
-
 kube-prometheus-stack:
-  defaultRules:
-    create: false
+
   alertmanager:
-    enabled: false
+    enabled: true
+    serviceMonitor:
+      selfMonitor: true
+
+  defaultRules:
+    create: true
+    rules:
+      etcd: false
+      kubeApiserverAvailability: false
+      kubeApiserverBurnrate: false
+      kubeApiserverHistogram: false
+      kubeApiserverSlos: false
+      kubeControllerManager: false
+      kubeProxy: false
+      kubeSchedulerAlerting: false
+      kubeSchedulerRecording: false
+
   # kubernetesServiceMonitors:
   #   enabled: false
   kubeApiServer:
@@ -40,13 +53,11 @@ kube-prometheus-stack:
 
 ## Usecases
 
-### Basic: create alert
-
-
+### Basic: create own PrometheusRule, receive an Alert
 
 ### Common: 
 
-## Monitoring
+## :arrows_counterclockwise: Monitoring
 
 ## Maintenence
 

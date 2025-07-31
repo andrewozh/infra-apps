@@ -22,32 +22,11 @@ kube-prometheus-stack:
       serviceMonitorSelectorNilUsesHelmValues: false
       podMonitorSelectorNilUsesHelmValues: false
       probeSelectorNilUsesHelmValues: false
-
-  defaultRules:
-    create: false
-  alertmanager:
-    enabled: false
-  # kubernetesServiceMonitors:
-  #   enabled: false
-  kubeApiServer:
-    enabled: false
-  # kubelet:
-  #   enabled: false
-  kubeControllerManager:
-    enabled: false
-  coreDns:
-    enabled: false
-  kubeEtcd:
-    enabled: false
-  kubeScheduler:
-    enabled: false
-  kubeProxy:
-    enabled: false
 ```
 
 ## Usecases
 
-### Basic: kube-state-metrics, node-exporter
+### :white_check_mark: Basic: kube-state-metrics, node-exporter
 
 * kube-state-metrics
 
@@ -125,7 +104,7 @@ kube-prometheus-stack:
 
 ### Common:
 
-## Monitoring
+## :arrows_counterclockwise: Monitoring
 
 ## Maintenence
 

@@ -51,18 +51,17 @@ import ProgressBar from '@site/src/components/ProgressBar';
       { label: 'docs', status: 'not-started' },
       { label: 'monitoring', status: 'not-started' }
     ]}/>
-    - [ ] manage grafana dashboards
 - [ ] tracing
-- [ ] postgresql: cloudnative-pg
-- [ ] kafka: strimzi
+- [ ] :arrows_counterclockwise: postgresql: cloudnative-pg
+- [ ] :arrows_counterclockwise: kafka: strimzi
 - [ ] redis
-- [ ] mongodb: community-operator
+- [ ] :arrows_counterclockwise: mongodb: community-operator
 - [ ] clickhouse: altinity
-- [ ] ingress: nginx
+- [ ] :arrows_counterclockwise: ingress: nginx
 - [ ] service mesh: istio
-- [ ] certificates: cert-manager
-- [ ] secret storage: vault + external-secrets
-- [ ] crossplane
+- [ ] :arrows_counterclockwise: certificates: cert-manager
+- [ ] :arrows_counterclockwise: secret storage: vault + external-secrets
+- [ ] :arrows_counterclockwise: crossplane
 
 ## 0.2.0 self-hosted multi-cluster setup
 

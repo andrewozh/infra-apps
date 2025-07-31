@@ -21,11 +21,13 @@
 
 ## Usecases
 
-### Basic: add dashboards
+### :white_check_mark: Basic: add dashboards
 
-- not so good way to keep dashboards under git
+- search dashboard https://grafana.com/grafana/dashboards/
 
-configmaps with special label `grafana_dashboard: "1"`
+- download JSON and put it into `kube-prometheus-stack/dashboards/` directory
+
+- template automatically put it in grafana as configmap with special label `grafana_dashboard: "1"`
 
 ```yaml
 {{ range $path, $_ :=  .Files.Glob  "dashboards/**.json" }}
@@ -48,7 +50,7 @@ data:
 
 ### Common: manage dashboards
 
-## Monitoring
+## :arrows_counterclockwise: Monitoring
 
 ## Maintenence
 
