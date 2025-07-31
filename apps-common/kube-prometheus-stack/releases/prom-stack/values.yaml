@@ -16,6 +16,11 @@ chart:
           - path: /
             service: "prom-stack-grafana"
             port: 80
+      - host: alertmanager.home.lab
+        paths:
+          - path: /
+            service: "prom-stack-kube-prometheus-alertmanager"
+            port: 9093
 
 kube-prometheus-stack:
   prometheus:
