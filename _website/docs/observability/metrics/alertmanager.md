@@ -59,6 +59,11 @@ kube-prometheus-stack:
 
 ## :arrows_counterclockwise: Monitoring
 
+:::note Grafana Dashboard
+https://grafana.com/grafana/dashboards/9578-alertmanager/
+(uses deprecated Angular, need to be patched)
+:::
+
 ## Maintenence
 
 - Backup / Restore
