@@ -126,6 +126,7 @@ EOF
 
 :::note Grafana Dashboard (operator + cluster)
 https://grafana.com/grafana/dashboards/20417-cloudnativepg/
+https://github.com/cloudnative-pg/grafana-dashboards
 :::
 
 ```yaml

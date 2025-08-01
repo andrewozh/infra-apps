@@ -8,9 +8,11 @@
 
 ## Architecture
 
-- How it works
-- Main terms
 - Diff between self-hosted and SaaS
+
+https://medium.com/@emredalc/elasticsearch-architecture-1-91a145a5108b
+https://medium.com/@emredalc/elasticsearch-architecture-2-9c278efbe627
+
 
 ## Monitoring
 
