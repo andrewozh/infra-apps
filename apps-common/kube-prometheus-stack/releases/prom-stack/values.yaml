@@ -33,7 +33,7 @@ kube-prometheus-stack:
   grafana:
     defaultDashboardsEnabled: false
     serviceMonitor:
-      enabled: false
+      enabled: true
 
   alertmanager:
     enabled: true

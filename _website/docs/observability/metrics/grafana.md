@@ -52,6 +52,10 @@ data:
 
 ## :arrows_counterclockwise: Monitoring
 
+:::note Grafana Dashboard
+https://grafana.com/grafana/dashboards/22064-internal-grafana-stats/
+:::
+
 ## Maintenence
 
 - Backup / Restore
