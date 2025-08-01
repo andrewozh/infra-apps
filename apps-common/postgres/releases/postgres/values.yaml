@@ -20,5 +20,7 @@ cluster:
           - pg_signal_backend
         passwordSecret:
           name: psql-role-dante
+    monitoring:
+      enabled: true
   backups:
     enabled: false

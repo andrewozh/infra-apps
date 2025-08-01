@@ -9,23 +9,31 @@
 |**CLI**||
 |**UI**|[pgadmin](https://www.pgadmin.org)|
 
-## TODO
+## :white_check_mark: Setup
 
-- [+] create a cluster
-- [+] connect to cluster (host, creds)
-- [+] create roles
-- [+] create a database
-- [ ] monitoring
-- [ ] external-secrets integrations (automation of password management)
-- [ ] _chart integration
+:::note Original cluster helm-chart
+https://github.com/cloudnative-pg/charts/tree/main/charts/cluster
+:::
 
-## Architectire
-
-- deployment explained
+```yaml
+# https://github.com/cloudnative-pg/charts/blob/main/charts/cluster/examples/basic.yaml
+# https://cloudnative-pg.io/documentation/1.26/samples/cluster-example-with-roles.yaml
+cluster:
+  type: postgresql
+  mode: standalone
+  version:
+    postgresql: "16"
+  cluster:
+    instances: 1
+    storage:
+      size: 2Gi
+  backups:
+    enabled: false
+```
 
 ## Usecases
 
-### Basic: create db, create role, connect, etc.
+### :white_check_mark: Basic: create db, create role, connect, etc.
 
 - Connect
 
@@ -111,6 +119,24 @@ EOF
 ```
 
 ### Common: write data, read data, replication, etc.
+
+### Advanced: external-secrets integrations (automation of password management)
+
+## :white_check_mark: Monitoring
+
+:::note Grafana Dashboard (operator + cluster)
+https://grafana.com/grafana/dashboards/20417-cloudnativepg/
+:::
+
+```yaml
+cloudnative-pg:
+  monitoring:
+    podMonitorEnabled: true
+cluster:
+  cluster:
+    monitoring:
+      enabled: true
+```
 
 ## Maintenence
 
