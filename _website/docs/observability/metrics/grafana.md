@@ -50,7 +50,7 @@ data:
 
 ### Common: manage dashboards
 
-## :arrows_counterclockwise: Monitoring
+## :white_check_mark: Monitoring
 
 :::note Grafana Dashboard
 https://grafana.com/grafana/dashboards/22064-internal-grafana-stats/

@@ -104,7 +104,9 @@ kube-prometheus-stack:
 
 ### Common:
 
-## :arrows_counterclockwise: Monitoring
+## :white_check_mark: Monitoring
+
+Self-created grafana dashboard can be found in the [kube-prometheus-stack/dashboards](https://github.com/andrewozh/devops-sandbox/blob/main/apps-common/kube-prometheus-stack/dashboards/prometheus.json)
 
 ## Maintenence
 

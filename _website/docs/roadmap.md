@@ -45,14 +45,14 @@ import ProgressBar from '@site/src/components/ProgressBar';
 **Progress tools:**
 
 - [x] **logging:** elasticsearch, kibana, fluent-bit
-- [ ] :arrows_counterclockwise: **metrics:** prometheus, grafana, alertmanager
-    <ProgressBar steps={[
-      { label: 'deploy', status: 'done' },
-      { label: 'docs', status: 'not-started' },
-      { label: 'monitoring', status: 'not-started' }
-    ]}/>
+- [x] **metrics:** prometheus, grafana, alertmanager
 - [ ] tracing
 - [ ] :arrows_counterclockwise: postgresql: cloudnative-pg
+    <ProgressBar steps={[
+      { label: 'deploy', status: 'done' },
+      { label: 'docs', status: 'done' },
+      { label: 'monitoring', status: 'not-started' }
+    ]}/>
 - [ ] :arrows_counterclockwise: kafka: strimzi
 - [ ] redis
 - [ ] :arrows_counterclockwise: mongodb: community-operator
