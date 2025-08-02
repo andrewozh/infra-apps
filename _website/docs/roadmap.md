@@ -46,7 +46,6 @@ import ProgressBar from '@site/src/components/ProgressBar';
 
 - [x] **logging:** elasticsearch, kibana, fluent-bit
 - [x] **metrics:** prometheus, grafana, alertmanager
-- [ ] tracing
 - [x] **postgresql:** cloudnative-pg
 - [ ] :arrows_counterclockwise: **kafka:** strimzi
     <ProgressBar steps={[
@@ -58,10 +57,11 @@ import ProgressBar from '@site/src/components/ProgressBar';
 - [ ] :arrows_counterclockwise: mongodb: community-operator
 - [ ] clickhouse: altinity
 - [ ] :arrows_counterclockwise: ingress: nginx
-- [ ] service mesh: istio
 - [ ] :arrows_counterclockwise: certificates: cert-manager
 - [ ] :arrows_counterclockwise: secret storage: vault + external-secrets
 - [ ] :arrows_counterclockwise: crossplane
+- [ ] service mesh: istio
+- [ ] tracing
 
 ## 0.2.0 self-hosted multi-cluster setup
 
