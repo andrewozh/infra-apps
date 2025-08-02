@@ -2,7 +2,8 @@ strimzi-kafka-operator:
   dashboards:
     enabled: true
     namespace: kafka
-    label: grafana_dashboard # this is the default value from the grafana chart
-    labelValue: "1" # this is the default value from the grafana chart
-    annotations: {}
-    extraLabels: {}
+    label: grafana_dashboard
+    labelValue: "1"
+    annotations:
+      k8s-sidecar-target-directory: strimzi
+      argocd.argoproj.io/sync-options: ServerSideApply=true

@@ -309,7 +309,7 @@ Hello
 
 ### Advanced: replication, etc.
 
-## :arrows_counterclockwise: Monitoring
+## :white_check_mark: Monitoring
 
 :::note Official example 
 https://github.com/strimzi/strimzi-kafka-operator/blob/main/packaging/examples/metrics/kafka-metrics.yaml
@@ -317,6 +317,14 @@ https://github.com/strimzi/strimzi-kafka-operator/blob/main/packaging/examples/m
 
 :::note Grafana Dashboards
 https://github.com/strimzi/strimzi-kafka-operator/tree/main/packaging/examples/metrics/grafana-dashboards
+
+Can be enabled in values:
+```yaml
+strimzi-kafka-operator:
+  dashboards:
+    enabled: true
+    namespace: kafka
+```
 :::
 
 - add `ConfigMap` with metrics 
