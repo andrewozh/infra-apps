@@ -10,32 +10,15 @@
 |**CLI**||
 |**UI**||
 
-## TODO
+## :white_check_mark: Setup
 
-- [+] delpoy mongodb-kubernetes-operator
-- [+] create a cluster
-- [+] connect to cluster (host, creds)
-- [+] create user
-- [+] create a database
-- [ ] monitoring: note + grafana dashboards
-- [ ] _chart integration
-- [ ] backup/restore, scaling, upgrading
-
-## Deployment
-
-- deployment explained
+:::note All setup is done via the `MongoDBCommunity` custom resource
+[Community Operator Architecture](https://github.com/mongodb/mongodb-kubernetes/blob/master/docs/mongodbcommunity/architecture.md)
+:::
 
 ## Usecases
 
-### Basic: create db, create user, connect, etc.
-
-- Connect
-
-Port-forward service `mongodb-svc` to localhost
-
-```bash
-mongosh "mongodb://test2-user:admin123@127.0.0.1:27017/test2"
-```
+### :white_check_mark: Basic: create db, create user, connect, etc.
 
 - Databases
 
@@ -90,7 +73,25 @@ spec:
     scramCredentialsSecretName: test-scram
 ```
 
+- Connect
+
+Port-forward service `mongodb-svc` to localhost
+
+```bash
+mongosh "mongodb://test-user:admin123@127.0.0.1:27017/test"
+```
+
 ### Common: write data, read data, replication, etc.
+
+## :arrows_counterclockwise: Monitoring
+
+:::tip Monitoring setup example
+https://github.com/mongodb/mongodb-kubernetes/blob/master/docs/mongodbcommunity/prometheus/mongodb-prometheus-sample.yaml
+:::
+
+:::tip Grafana Dashboard
+https://github.com/mongodb/mongodb-kubernetes/blob/master/docs/mongodbcommunity/grafana/sample_dashboard.json
+:::
 
 ## Maintenence
 

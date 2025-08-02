@@ -8,8 +8,7 @@
 
 ## Architecture
 
-- How it works
-- Main terms
+* [MongoDB Architecture](mongodb-architecture.md)
 
 ## Monitoring
 

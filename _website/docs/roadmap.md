@@ -47,14 +47,14 @@ import ProgressBar from '@site/src/components/ProgressBar';
 - [x] **logging:** elasticsearch, kibana, fluent-bit
 - [x] **metrics:** prometheus, grafana, alertmanager
 - [x] **postgresql:** cloudnative-pg
-- [ ] :arrows_counterclockwise: **kafka:** strimzi
+- [x] **kafka:** strimzi
+- [ ] redis
+- [ ] :arrows_counterclockwise: **mongodb:** community-operator
     <ProgressBar steps={[
       { label: 'deploy', status: 'done' },
       { label: 'docs', status: 'done' },
       { label: 'monitoring', status: 'not-started' }
     ]}/>
-- [ ] redis
-- [ ] :arrows_counterclockwise: mongodb: community-operator
 - [ ] clickhouse: altinity
 - [ ] :arrows_counterclockwise: ingress: nginx
 - [ ] :arrows_counterclockwise: certificates: cert-manager
