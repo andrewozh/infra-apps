@@ -857,6 +857,14 @@ spec:
         description: 'Certificate of type {{ $labels.type }} in cluster {{ $labels.cluster }} in namespace {{ $labels.resource_namespace }} will expire in less than 30 days'
 ```
 
+- patch `PrometheusRules` annotations with escape brackets to avoid helm template conflicts
+
+```bash
+gsed -Ei 's/^([[:space:]]*description:[[:space:]]*)(["'\''])(.*)\2/\1"{{\` \3 \`}}"/' apps-common/strimzi/templates/prometheusrules.yaml
+gsed -Ei 's/^([[:space:]]*summary:[[:space:]]*)(["'\''])(.*)\2/\1"{{\` \3 \`}}"/' apps-common/strimzi/templates/prometheusrules.yaml
+# also manualy remove ` character from annotations
+```
+
 ## Maintenence
 
 - Backup / Restore
