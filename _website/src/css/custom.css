@@ -61,6 +61,34 @@
   top: 0;
   width: 100%;
   z-index: 1000;
+  height: 60px;
+}
+
+/* Add padding to body to account for fixed navbar */
+body {
+  padding-top: 60px;
+}
+
+/* Ensure main content doesn't overlap with navbar */
+.main-wrapper {
+  padding-top: 0;
+}
+
+/* Fix sidebar positioning */
+.theme-doc-sidebar-container {
+  top: 60px !important;
+  height: calc(100vh - 60px) !important;
+}
+
+/* Adjust docs content area */
+.docusaurus-wrapper {
+  padding-top: 0;
+}
+
+/* Fix table of contents positioning */
+.table-of-contents {
+  top: calc(60px + 1rem) !important;
+  max-height: calc(100vh - 60px - 2rem) !important;
 }
 
 .navbar__title {
