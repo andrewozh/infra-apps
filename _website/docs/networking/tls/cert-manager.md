@@ -97,7 +97,7 @@ https://www.f5.com/company/blog/nginx/automating-certificate-management-in-a-kub
 
 ### Advanced: secure Istio service mesh
 
-## :arrows_counterclockwise: Monitoring
+## :white_check_mark: Monitoring
 
 :::note Official docs
 https://cert-manager.io/docs/devops-tips/prometheus-metrics/

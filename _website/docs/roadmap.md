@@ -49,13 +49,13 @@ import ProgressBar from '@site/src/components/ProgressBar';
 - [x] **postgresql:** cloudnative-pg
 - [x] **kafka:** strimzi
 - [x] **mongodb:** community-operator
-- [ ] :arrows_counterclockwise: **certificates:** cert-manager
+- [x] **certificates:** cert-manager
+- [ ] :arrows_counterclockwise: **secret storage:** vault + external-secrets
     <ProgressBar steps={[
       { label: 'deploy', status: 'done' },
       { label: 'docs', status: 'done' },
       { label: 'monitoring', status: 'not-started' }
     ]}/>
-- [ ] :arrows_counterclockwise: secret storage: vault + external-secrets
 - [ ] :arrows_counterclockwise: ingress: nginx
 - [ ] :arrows_counterclockwise: crossplane
 - [ ] clickhouse: altinity
