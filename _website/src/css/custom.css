@@ -98,6 +98,10 @@ body {
   text-shadow: 0 1px 2px rgba(139, 92, 246, 0.1);
 }
 
+.navbar__logo img {
+  border-radius: 50% !important;
+}
+
 .navbar__link {
   color: #171515 !important;
   font-weight: 500;
