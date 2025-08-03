@@ -104,7 +104,7 @@ https://cert-manager.io/docs/devops-tips/prometheus-metrics/
 :::
 
 :::note Grafana Dashboard
-https://grafana.com/grafana/dashboards/22908-cert-manager-kubernetes/
+https://grafana.com/grafana/dashboards/20340-cert-manager/
 :::
 
 - enable metrics and `PodMonitor`
