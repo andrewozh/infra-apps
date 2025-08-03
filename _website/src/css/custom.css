@@ -322,3 +322,12 @@
 .footer a[aria-label]:hover svg {
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
+
+/* Dark mode social media icons */
+[data-theme='dark'] .footer a[aria-label="GitHub"],
+[data-theme='dark'] .footer a[aria-label="LinkedIn"],
+[data-theme='dark'] .footer a[aria-label="Email"],
+[data-theme='dark'] .footer a[aria-label="Instagram"],
+[data-theme='dark'] .footer a[aria-label="Telegram"] {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
