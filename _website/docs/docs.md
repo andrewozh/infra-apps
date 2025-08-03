@@ -11,8 +11,8 @@ sidebar_position: 99
 - [x] fill docs with existing readmes
 - [x] migrate docs to Docusaurus
 - [ ] Github Pages https://www.youtube.com/watch?v=9iVNf0T09dE
-- [ ] smart progressbars for roadmap
-- [ ] CV
+- [x] smart progressbars for roadmap
+- [x] CV
 
 ## Run
 
@@ -23,42 +23,21 @@ yarn start
 
 ## Header
 
-about header
-make it transparent and blurry
-the color a really light purple gradient (45 degrees), barely seen
-
-menu items font need to be bigger, color deep grey like github
-on hover shine purple
-
-
 - [ ] logo ( bold lowercase italic handwritten-like (not a font) letters ao )
 - [x] Andrew Ozhegov, CV/Resume, Devops Sandbox
 - [ ] sandbox github repo stats
 - [ ] searchbar centered
-- [ ] Day/Night Theme
+- [x] Day/Night Theme
 
 ## Main page
 
-Hi, I'm Andrew Ozhegov
-
-DevOps
-Cloud
-Platform
-          Engineer
-
-My stack:
+- My stack:
 Cloud: AWS Azure
 Terrafrom Kubernetes
 Helm ArgoCD Crossplane
 Prometheus Grafana Alertmanager Datadog
 ElasticSearch Fluentd Kibana
-PostgreSQL 
-
-
-Check out my CV
-
-Email Me
-
+PostgreSQL Kafka MongoDB Redis Clickhouse
 
 ## CV/Resume
 
@@ -69,4 +48,4 @@ Email Me
 
 ## Footer
 
-- [~] social media links (gh ln em ig tg)
+- [x] social media links (gh ln em ig tg)
