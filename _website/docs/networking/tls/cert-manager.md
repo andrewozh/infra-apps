@@ -1,6 +1,5 @@
 # cert-manager
 
-
 ||Self-hosted|SaaS|
 |-|-|-|
 |**Name**|[cert-manager](https://cert-manager.io)||
@@ -11,24 +10,27 @@
 |**CLI**|[cmctl](https://cert-manager.io/docs/reference/cmctl/)||
 |**UI**|||
 
-## TODO
-
-- [+] local self-signed
-- [ ] letsencrypt
-- [ ] cloudflare
-- [ ] aws/gcp/azure
-- [ ] vault-pki
-
-## Architectire
+## :white_check_mark: Architectire
 
 * creates TLS certificates for workloads in your Kubernetes or OpenShift cluster and renews the certificates before they expire.
 * can obtain certificates from a variety of certificate authorities, including: Let's Encrypt, HashiCorp Vault, Venafi and private PKI.
 * private key and certificate are stored in a Kubernetes Secret which is mounted by an application Pod or used by an Ingress controller
 * With csi-driver, csi-driver-spiffe, or istio-csr , the private key is generated on-demand, before the application starts up; the private key never leaves the node and it is not stored in a Kubernetes Secret.
 
+![cert manager workflow](.img/cert-manager-workflow.gif)
+
+1. The Ingress object will be created with the reference of the Cert Manager Issuers.
+2. The Ingress Controller will get the information from the Ingress object and request a certificate from the Cert Manager.
+3. The Cert Manager will request the Certificate Authority, for example, Let's Encrypt.
+4. After the verification, the CA will generate and provide the certificate to the Cert Manager.
+5. The generated certificate will be stored in Kubernetes as a TLS Secret.
+6. The Ingress Controller will encrypt the traffic using the stored certificate for the TLS termination.
+7. When a user tries to access the application, the external traffic is routed from the external Load Balancer to the Ingress Controller.
+8. The TLS termination will happen in the Ingress Controller with the TLS certificate and securely route the traffic to the application Pods.
+
 ## Usecases
 
-### Basic: TLS for local ingress-nginx (self-signed CA)
+### :white_check_mark: Basic: TLS for local ingress-nginx (self-signed CA)
 
 self-signe CA cert for local use
 
@@ -84,12 +86,36 @@ spec:
 
 ### Common: TLS for exposed ingress-nginx (Let's Encrypt)
 
+:::tip Let's Encrypt Example
+https://www.f5.com/company/blog/nginx/automating-certificate-management-in-a-kubernetes-environment
+:::
+
+- [ ] letsencrypt
+- [ ] cloudflare
+- [ ] aws/gcp/azure
+- [ ] vault-pki
+
 ### Advanced: secure Istio service mesh
 
-## Monitoring
+## :arrows_counterclockwise: Monitoring
 
-what metrics to pay attention on
-alerts
+:::note Official docs
+https://cert-manager.io/docs/devops-tips/prometheus-metrics/
+:::
+
+:::note Grafana Dashboard
+https://grafana.com/grafana/dashboards/22908-cert-manager-kubernetes/
+:::
+
+- enable metrics and `PodMonitor`
+
+```yaml
+cert-manager:
+  prometheus:
+    enabled: true
+    podmonitor:
+      enabled: true
+```
 
 ## Maintenence
 
