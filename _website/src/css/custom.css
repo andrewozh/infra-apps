@@ -267,6 +267,12 @@ body {
 }
 
 .menu__link--active {
+  background: rgba(139, 92, 246, 0.1) !important;
+  color: var(--ifm-color-primary-darkest) !important;
+}
+
+/* Dark mode keeps the original bright styling */
+[data-theme='dark'] .menu__link--active {
   background: var(--purple-gradient-secondary) !important;
   color: #ffffff !important;
 }
