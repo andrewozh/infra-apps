@@ -106,8 +106,8 @@ body {
 }
 
 .navbar__link:hover {
-  color: #8b5cf6 !important;
-  text-shadow: 0 0 8px rgba(139, 92, 246, 0.8);
+  color: #171515 !important;
+  text-shadow: 0 0 8px rgba(139, 92, 246, 1);
 }
 
 /* Dark mode navbar adjustments */
