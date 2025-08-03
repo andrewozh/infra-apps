@@ -46,8 +46,7 @@ spec:
 
 - example `ExternalSecret` to read secret from secret store
 
-```bash
-cat <<EOF | kubectl apply -f -
+```yaml
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
@@ -64,7 +63,6 @@ spec:
   dataFrom:
   - extract:
       key: "/test"
-EOF
 ```
 
 - example `PushSecret` from k8s to secret store
@@ -72,8 +70,7 @@ EOF
 Usecase: some resource created in k8s store its secret in k8s-secret,
 and we use PushSecret to save it in Vault and be accessible outside of k8s
 
-```bash
-cat <<EOF | kubectl apply -f -
+```yaml
 apiVersion: external-secrets.io/v1alpha1
 kind: PushSecret
 metadata:
@@ -109,8 +106,9 @@ spec:
         secretKey: best-pokemon # Source Kubernetes secret key to be pushed
         remoteRef:
           remoteKey: my-first-parameter # Remote reference (where the secret is going to be pushed)
-EOF
 ```
+
+### Common: generate secrets, update secrets, rotate secrets
 
 ## Maintenence
 

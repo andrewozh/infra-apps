@@ -10,16 +10,13 @@
 |**CLI**||
 |**UI**|web|
 
-## TODO
-
-- [ ] TLS
-- [ ] HA mode
-- [ ] configurable backend (local, aws ssm, etc)
-- [ ] auto unseal
-
 ## Setup
 
 Basic manual
+
+## Usecases
+
+### Basic: Manually unseal vault
 
 - init vault & temporary save unseal keys and root token
 
@@ -51,10 +48,15 @@ data:
 EOF
 ```
 
-## Usecases
+### Common: Vault injector
 
-### Basic:
-### Common:
+- [ ] TLS
+- [ ] HA mode
+
+### Advanced
+
+- [ ] configurable backend (local, aws ssm, etc)
+- [ ] auto unseal
 
 ## Maintenence
 

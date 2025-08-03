@@ -40,11 +40,6 @@ Simple setup with self-hosted HashiCorp Vault and External Secrets Operator (ESO
   +---------------------+
 ```
 
-## Monitoring
-
-- what metrics to pay attention on
-- alerts
-
 ## Patform integration
 
 - how this tool integrated into a platform
