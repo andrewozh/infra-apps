@@ -15,7 +15,7 @@ export default function CV(): ReactNode {
       }}>
         <Heading as="h1" style={{
           textAlign: 'center',
-          marginBottom: '2rem',
+          marginBottom: '1rem',
           color: 'var(--ifm-color-primary)'
         }}>
           Andrew Ozhegov
@@ -23,82 +23,109 @@ export default function CV(): ReactNode {
         
         <div style={{
           textAlign: 'center',
-          marginBottom: '3rem',
+          marginBottom: '1rem',
           fontSize: '1.2rem',
-          color: 'var(--ifm-color-primary-dark)'
+          color: 'var(--ifm-color-primary-dark)',
+          fontWeight: '600'
         }}>
-          DevOps | Cloud | Platform Engineer
+          DevOps Engineer at Intento, Inc.
+        </div>
+
+        <div style={{
+          textAlign: 'center',
+          marginBottom: '3rem',
+          fontSize: '1rem',
+          color: 'var(--ifm-color-emphasis-700)'
+        }}>
+          Istanbul, Türkiye
         </div>
 
         <section style={{ marginBottom: '2rem' }}>
           <Heading as="h2">Contact Information</Heading>
           <p>
-            <strong>Email:</strong> andrewozhegov@gmail.com<br/>
-            <strong>GitHub:</strong> <a href="https://github.com/andrewozh" target="_blank">github.com/andrewozh</a><br/>
-            <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/andrewozh" target="_blank">linkedin.com/in/andrewozh</a>
+            <strong>Email:</strong> <a href="mailto:andrew.ozhegov@gmail.com">andrew.ozhegov@gmail.com</a><br/>
+            <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/andrewozh" target="_blank">linkedin.com/in/andrewozh</a><br/>
+            <strong>GitHub:</strong> <a href="https://github.com/andrewozh" target="_blank">github.com/andrewozh</a>
           </p>
         </section>
 
         <section style={{ marginBottom: '2rem' }}>
-          <Heading as="h2">Professional Summary</Heading>
+          <Heading as="h2">Summary</Heading>
           <p>
-            Experienced DevOps, Cloud, and Platform Engineer with expertise in modern infrastructure,
-            automation, and cloud technologies. Passionate about building scalable, reliable systems
-            and improving development workflows.
+            I have 4+ years of Software and DevOps Engineering experience. In the beginning of my career, 
+            I took part in building Continuous Integration (CI) pipelines, creating build and runtime 
+            infrastructure for Linux software. Also worked on internal-needs Kubernetes cluster. Then I 
+            was busy developing software working with proprietary embedded platforms related to video 
+            processing with neural networks using C++. As a DevOps Engineer I'm working on AWS infrastructure 
+            using IaC tools (Terraform). I have done migration of local databases to SaaS, set up application 
+            Monitoring and Log management. Also automate configuration using Ansible and develop an application 
+            scaling mechanism.
           </p>
-        </section>
-
-        <section style={{ marginBottom: '2rem' }}>
-          <Heading as="h2">Technical Skills</Heading>
-          <ul>
-            <li><strong>Cloud Platforms:</strong> AWS, Azure, Google Cloud Platform</li>
-            <li><strong>Infrastructure as Code:</strong> Terraform, CloudFormation, Pulumi</li>
-            <li><strong>Container Technologies:</strong> Docker, Kubernetes, EKS, AKS, GKE</li>
-            <li><strong>CI/CD:</strong> Jenkins, GitLab CI, GitHub Actions, Azure DevOps</li>
-            <li><strong>Monitoring & Logging:</strong> Prometheus, Grafana, ELK Stack, DataDog</li>
-            <li><strong>Configuration Management:</strong> Ansible, Chef, Puppet</li>
-            <li><strong>Programming:</strong> Python, Bash, Go, JavaScript</li>
-          </ul>
         </section>
 
         <section style={{ marginBottom: '2rem' }}>
           <Heading as="h2">Experience</Heading>
-          <div style={{ marginBottom: '1.5rem' }}>
-            <h3>Senior DevOps Engineer</h3>
-            <p style={{ fontStyle: 'italic', marginBottom: '0.5rem' }}>Company Name • 2020 - Present</p>
+          
+          <div style={{ marginBottom: '2rem' }}>
+            <h3 style={{ marginBottom: '0.5rem', color: 'var(--ifm-color-primary-dark)' }}>DevOps Engineer</h3>
+            <p style={{ fontStyle: 'italic', marginBottom: '0.5rem', fontWeight: '600' }}>
+              Intento, Inc. • December 2022 - Present (2 years 9 months)
+            </p>
+          </div>
+
+          <div style={{ marginBottom: '2rem' }}>
+            <h3 style={{ marginBottom: '0.5rem', color: 'var(--ifm-color-primary-dark)' }}>DevOps Engineer</h3>
+            <p style={{ fontStyle: 'italic', marginBottom: '0.5rem', fontWeight: '600' }}>
+              DRCT • November 2021 - September 2022 (11 months)
+            </p>
             <ul>
-              <li>Led infrastructure automation initiatives reducing deployment time by 70%</li>
-              <li>Designed and implemented CI/CD pipelines for 50+ microservices</li>
-              <li>Managed Kubernetes clusters serving 1M+ daily active users</li>
-              <li>Implemented monitoring and alerting systems improving MTTR by 60%</li>
+              <li>Built a network infrastructure (VPC, VPN) on AWS using Terraform</li>
+              <li>Migrated local databases (Redis, MongoDB, PostgreSQL) to SaaS (ElastiCache, Atlas, RDS)</li>
+              <li>Set up application monitoring with Datadog and log management with Elastic Stack</li>
+              <li>Implemented managing Configuration as Code using Ansible</li>
+              <li>Developed application scaling mechanisms on AWS using Terraform</li>
             </ul>
           </div>
-          
-          <div style={{ marginBottom: '1.5rem' }}>
-            <h3>Cloud Platform Engineer</h3>
-            <p style={{ fontStyle: 'italic', marginBottom: '0.5rem' }}>Previous Company • 2018 - 2020</p>
+
+          <div style={{ marginBottom: '2rem' }}>
+            <h3 style={{ marginBottom: '0.5rem', color: 'var(--ifm-color-primary-dark)' }}>Software Engineer</h3>
+            <p style={{ fontStyle: 'italic', marginBottom: '0.5rem', fontWeight: '600' }}>
+              AxxonSoft • July 2018 - November 2020 (2 years 5 months)
+            </p>
             <ul>
-              <li>Migrated legacy applications to cloud-native architecture</li>
-              <li>Built self-service platform reducing developer onboarding time by 80%</li>
-              <li>Implemented Infrastructure as Code practices across the organization</li>
+              <li>Created Build and Continuous Integration pipelines</li>
+              <li>Developed Docker images with complex applications for CI and external needs</li>
+              <li>Software development on C++ for Linux and embedded Linux-based platforms</li>
+              <li>Unix Shell/Bash scripting</li>
             </ul>
           </div>
         </section>
 
         <section style={{ marginBottom: '2rem' }}>
           <Heading as="h2">Education</Heading>
-          <p>
-            <strong>Bachelor's Degree in Computer Science</strong><br/>
-            University Name • Year
-          </p>
+          <div>
+            <h3 style={{ marginBottom: '0.5rem', color: 'var(--ifm-color-primary-dark)' }}>Bachelor's degree, Information Technology</h3>
+            <p style={{ fontStyle: 'italic', marginBottom: '0.5rem' }}>
+              Sevastopol State Technical University • 2014 - 2018
+            </p>
+          </div>
         </section>
 
         <section style={{ marginBottom: '2rem' }}>
-          <Heading as="h2">Certifications</Heading>
+          <Heading as="h2">Top Skills</Heading>
           <ul>
-            <li>AWS Certified Solutions Architect</li>
-            <li>Certified Kubernetes Administrator (CKA)</li>
-            <li>HashiCorp Certified: Terraform Associate</li>
+            <li><strong>Amazon Web Services (AWS)</strong></li>
+            <li><strong>Kubernetes</strong></li>
+            <li><strong>Continuous Integration and Continuous Delivery (CI/CD)</strong></li>
+          </ul>
+        </section>
+
+        <section style={{ marginBottom: '2rem' }}>
+          <Heading as="h2">Languages</Heading>
+          <ul>
+            <li><strong>Ukrainian:</strong> Native or Bilingual</li>
+            <li><strong>English:</strong> Professional Working</li>
+            <li><strong>Russian:</strong> Native or Bilingual</li>
           </ul>
         </section>
       </div>
