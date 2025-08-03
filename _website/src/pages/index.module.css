@@ -4,16 +4,13 @@
  */
 
 .heroBanner {
-  padding: 6rem 0;
-  text-align: center;
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #8b5cf6 100%);
-  min-height: 70vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  padding: 0;
 }
 
 .heroBanner::before {
@@ -42,38 +39,141 @@
   }
 }
 
-.heroBanner > * {
+.heroContent {
   position: relative;
   z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 80vh;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 4rem 2rem;
-    min-height: 60vh;
+.heroText {
+  margin-bottom: 3rem;
+}
+
+.heroTitle {
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin: 0 0 1rem 0;
+  line-height: 1.1;
+  background: linear-gradient(45deg, #ffffff, #f1f5f9, #e2e8f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.roleContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  line-height: 1.1;
+}
+
+.roleCarousel {
+  position: relative;
+  height: 1.2em;
+  overflow: hidden;
+  min-width: 300px;
+}
+
+.roleText {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(45deg, #a78bfa, #c4b5fd, #ddd6fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: slideIn 2s ease-in-out infinite;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  20% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
   }
 }
 
-.buttons {
+.engineerText {
+  background: linear-gradient(45deg, #ffffff, #f1f5f9, #e2e8f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroButtons {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 2rem;
   flex-wrap: wrap;
 }
 
-.buttons .button {
-  margin: 0.5rem;
-  padding: 0.75rem 2rem;
-  font-size: 1.1rem;
-  border-radius: 50px;
-  transition: all 0.3s ease;
+.cvButton,
+.emailButton {
+  padding: 1rem 2.5rem !important;
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  border-radius: 50px !important;
+  transition: all 0.3s ease !important;
   position: relative;
   overflow: hidden;
+  min-width: 200px;
+  text-align: center;
 }
 
-.buttons .button::before {
+.cvButton {
+  background: var(--purple-gradient-secondary) !important;
+  border: none !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4) !important;
+}
+
+.cvButton:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.6) !important;
+  color: #ffffff !important;
+}
+
+.emailButton {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 2px solid rgba(255, 255, 255, 0.4) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.emailButton:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  color: #ffffff !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2) !important;
+}
+
+.cvButton::before,
+.emailButton::before {
   content: '';
   position: absolute;
   top: 0;
@@ -84,47 +184,66 @@
   transition: left 0.5s;
 }
 
-.buttons .button:hover::before {
+.cvButton:hover::before,
+.emailButton:hover::before {
   left: 100%;
 }
 
-/* Floating animation for hero elements */
-@keyframes float {
-  0% {
-    transform: translateY(0px);
+/* Responsive design */
+@media screen and (max-width: 1024px) {
+  .heroTitle,
+  .roleContainer {
+    font-size: 3.5rem;
   }
-  50% {
-    transform: translateY(-10px);
+  
+  .roleCarousel {
+    min-width: 250px;
   }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.heroBanner h1 {
-  animation: float 6s ease-in-out infinite;
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
-}
-
-.heroBanner p {
-  animation: float 6s ease-in-out infinite 1s;
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-  opacity: 0.95;
 }
 
 @media screen and (max-width: 768px) {
-  .heroBanner h1 {
+  .heroContent {
+    padding: 0 1rem;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .heroTitle,
+  .roleContainer {
     font-size: 2.5rem;
   }
   
-  .heroBanner p {
-    font-size: 1.1rem;
+  .roleCarousel {
+    min-width: 200px;
   }
   
-  .buttons .button {
-    font-size: 1rem;
-    padding: 0.6rem 1.5rem;
+  .heroButtons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .cvButton,
+  .emailButton {
+    font-size: 1.1rem !important;
+    padding: 0.8rem 2rem !important;
+    min-width: 180px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .heroTitle,
+  .roleContainer {
+    font-size: 2rem;
+  }
+  
+  .roleContainer {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .roleCarousel {
+    min-width: 150px;
   }
 }
