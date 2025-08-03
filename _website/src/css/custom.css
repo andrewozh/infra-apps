@@ -202,6 +202,12 @@
   opacity: 0.8;
 }
 
+/* Dark mode footer adjustments */
+[data-theme='dark'] .footer {
+  background: linear-gradient(45deg, rgba(139, 92, 246, 0.08) 0%, rgba(168, 85, 247, 0.12) 50%, rgba(192, 132, 252, 0.08) 100%) !important;
+  border-top: 1px solid rgba(139, 92, 246, 0.15);
+}
+
 /* Dark mode footer text adjustments */
 [data-theme='dark'] .footer__title {
   color: rgba(255, 255, 255, 0.9) !important;
@@ -330,4 +336,24 @@
 [data-theme='dark'] .footer a[aria-label="Instagram"],
 [data-theme='dark'] .footer a[aria-label="Telegram"] {
   color: rgba(255, 255, 255, 0.8) !important;
+}
+
+[data-theme='dark'] .footer a[aria-label="GitHub"]:hover {
+  color: #ffffff !important;
+}
+
+[data-theme='dark'] .footer a[aria-label="LinkedIn"]:hover {
+  color: #ffffff !important;
+}
+
+[data-theme='dark'] .footer a[aria-label="Email"]:hover {
+  color: #ffffff !important;
+}
+
+[data-theme='dark'] .footer a[aria-label="Instagram"]:hover {
+  color: #ffffff !important;
+}
+
+[data-theme='dark'] .footer a[aria-label="Telegram"]:hover {
+  color: #ffffff !important;
 }
