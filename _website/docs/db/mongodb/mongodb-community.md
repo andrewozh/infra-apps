@@ -83,7 +83,7 @@ mongosh "mongodb://test-user:admin123@127.0.0.1:27017/test"
 
 ### Common: write data, read data, replication, etc.
 
-## :arrows_counterclockwise: Monitoring
+## :white_check_mark: Monitoring
 
 :::tip Monitoring setup example
 https://github.com/mongodb/mongodb-kubernetes/blob/master/docs/mongodbcommunity/prometheus/mongodb-prometheus-sample.yaml
