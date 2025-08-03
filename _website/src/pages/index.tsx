@@ -50,7 +50,7 @@ function HomepageHeader() {
           <Link
             className={clsx('button button--primary button--lg', styles.sandboxButton)}
             to="/docs/intro">
-            DevOps Sandbox
+            Demo project
           </Link>
           <Link
             className={clsx('button button--secondary button--lg', styles.emailButton)}
