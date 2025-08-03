@@ -35,11 +35,22 @@ function HomepageHeader() {
             <span className={styles.engineerText}>Engineer</span>
           </div>
         </div>
+        <div className={styles.heroDescription}>
+          <p className={styles.descriptionText}>
+            My goal here, is to combine the most useful devops practices and tools into a single project, 
+            that can be used as a demo for my skills and as a sandbox for learning new tools and practices.
+          </p>
+        </div>
         <div className={styles.heroButtons}>
           <Link
             className={clsx('button button--primary button--lg', styles.cvButton)}
             to="/cv">
             Check out my CV
+          </Link>
+          <Link
+            className={clsx('button button--primary button--lg', styles.sandboxButton)}
+            to="/docs/intro">
+            DevOps Sandbox
           </Link>
           <Link
             className={clsx('button button--secondary button--lg', styles.emailButton)}
