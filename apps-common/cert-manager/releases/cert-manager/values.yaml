@@ -1,6 +1,7 @@
 cert-manager:
   crds:
     enabled: true
-
   prometheus:
-    enabled: false
+    enabled: true
+    podmonitor:
+      enabled: true
