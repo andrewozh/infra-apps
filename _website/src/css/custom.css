@@ -234,3 +234,37 @@
   background: rgba(139, 92, 246, 0.2) !important;
   border-color: rgba(139, 92, 246, 0.3) !important;
 }
+
+/* Social media icons in footer */
+.footer a[aria-label="GitHub"]:hover {
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+.footer a[aria-label="LinkedIn"]:hover {
+  color: #0077b5 !important;
+  transform: translateY(-2px);
+}
+
+.footer a[aria-label="Email"]:hover {
+  color: #ea4335 !important;
+  transform: translateY(-2px);
+}
+
+.footer a[aria-label="Instagram"]:hover {
+  color: #e4405f !important;
+  transform: translateY(-2px);
+}
+
+.footer a[aria-label="Telegram"]:hover {
+  color: #0088cc !important;
+  transform: translateY(-2px);
+}
+
+.footer a[aria-label] svg {
+  transition: all 0.3s ease;
+}
+
+.footer a[aria-label]:hover svg {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
