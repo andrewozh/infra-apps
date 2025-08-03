@@ -130,6 +130,7 @@ import ProgressBar from '@site/src/components/ProgressBar';
 
 List of most valuable platform components:
 
+* multicloud aws & azure
 * gitops and platform integration
 * Crossplane provisioning cloud infra
 * Cross-cluster observability, secrets management
