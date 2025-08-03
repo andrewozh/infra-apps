@@ -107,7 +107,7 @@ body {
 
 .navbar__link:hover {
   color: #171515 !important;
-  text-shadow: none;
+  text-shadow: 0 0 8px rgba(139, 92, 246, 0.8);
 }
 
 /* Dark mode navbar adjustments */
