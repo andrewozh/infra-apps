@@ -6,7 +6,18 @@ spec:
   members: 1
   type: ReplicaSet
   version: "8.0.11"
+  prometheus:
+    username: prometheus
+    passwordSecretRef:
+      name: mongodb-prometheus-user
   security:
+  #   tls:
+  #     enabled: true
+  #     certificateKeySecretRef:
+  #       name: mongodb-key-pair
+  #     caCertificateSecretRef:
+  #       name: mongodb-key-pair
+  #     # optional: true
     authentication:
       modes:
       - SCRAM
@@ -29,14 +40,3 @@ spec:
     - name: dbOwner
       db: test2
     scramCredentialsSecretName: my-scram2
-  # security:
-  #   tls:
-  #     enabled: true
-  #     certificateKeySecretRef:
-  #       name: mongodb-key-pair
-  #     caCertificateSecretRef:
-  #       name: mongodb-key-pair
-  #     # optional: true
-  #   authentication:
-  #     modes:
-  #     - SCRAM
