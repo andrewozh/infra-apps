@@ -4,27 +4,233 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* Purple theme with gradients */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #8b5cf6;
+  --ifm-color-primary-dark: #7c3aed;
+  --ifm-color-primary-darker: #7c3aed;
+  --ifm-color-primary-darkest: #6d28d9;
+  --ifm-color-primary-light: #a78bfa;
+  --ifm-color-primary-lighter: #c4b5fd;
+  --ifm-color-primary-lightest: #ddd6fe;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(139, 92, 246, 0.1);
+  
+  /* Custom purple gradient variables */
+  --purple-gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --purple-gradient-secondary: linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #c084fc 100%);
+  --purple-gradient-accent: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+  --purple-gradient-subtle: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+  
+  /* Override navbar background */
+  --ifm-navbar-background-color: transparent;
+  --ifm-navbar-shadow: none;
+  
+  /* Override hero background */
+  --ifm-hero-background-color: transparent;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Dark mode purple theme */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #a78bfa;
+  --ifm-color-primary-dark: #8b5cf6;
+  --ifm-color-primary-darker: #7c3aed;
+  --ifm-color-primary-darkest: #6d28d9;
+  --ifm-color-primary-light: #c4b5fd;
+  --ifm-color-primary-lighter: #ddd6fe;
+  --ifm-color-primary-lightest: #ede9fe;
+  --docusaurus-highlighted-code-line-bg: rgba(167, 139, 250, 0.3);
+  
+  /* Dark mode gradients */
+  --purple-gradient-primary: linear-gradient(135deg, #4c1d95 0%, #581c87 100%);
+  --purple-gradient-secondary: linear-gradient(135deg, #6d28d9 0%, #7c3aed 50%, #8b5cf6 100%);
+  --purple-gradient-accent: linear-gradient(135deg, #4338ca 0%, #6d28d9 50%, #a21caf 100%);
+  --purple-gradient-subtle: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+  
+  --ifm-background-color: #0f0f23;
+  --ifm-background-surface-color: #1a1a2e;
+}
+
+/* Navbar with purple gradient */
+.navbar {
+  background: var(--purple-gradient-primary) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.navbar__title {
+  background: linear-gradient(45deg, #ffffff, #f8fafc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.navbar__link {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+}
+
+.navbar__link:hover {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Hero section with purple gradient background */
+.hero {
+  background: var(--purple-gradient-accent) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 58, 237, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(217, 70, 239, 0.2) 0%, transparent 50%);
+  z-index: 1;
+}
+
+.hero__title,
+.hero__subtitle {
+  position: relative;
+  z-index: 2;
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero__title {
+  background: linear-gradient(45deg, #ffffff, #f1f5f9, #e2e8f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+/* Buttons with purple gradient */
+.button--primary {
+  background: var(--purple-gradient-secondary) !important;
+  border: none !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+  transition: all 0.3s ease;
+}
+
+.button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.6);
+  color: #ffffff !important;
+}
+
+.button--secondary {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(10px);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.button--secondary:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+/* Footer with purple gradient */
+.footer {
+  background: var(--purple-gradient-primary) !important;
+  border-top: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.footer__title {
+  color: #ffffff !important;
+}
+
+.footer__item {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.footer__item:hover {
+  color: #ffffff !important;
+}
+
+.footer__copyright {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Sidebar and content area enhancements */
+.menu__link {
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.menu__link:hover {
+  background: var(--purple-gradient-subtle) !important;
+  color: var(--ifm-color-primary-darkest) !important;
+}
+
+.menu__link--active {
+  background: var(--purple-gradient-secondary) !important;
+  color: #ffffff !important;
+}
+
+/* Code blocks with purple theme */
+.prism-code {
+  border-radius: 12px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+/* Cards and content boxes */
+.card {
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Pagination */
+.pagination__item--active .pagination__link {
+  background: var(--purple-gradient-secondary) !important;
+  border-color: transparent !important;
+  color: #ffffff !important;
+}
+
+/* Table of contents */
+.table-of-contents__link--active {
+  color: var(--ifm-color-primary) !important;
+  border-left: 2px solid var(--ifm-color-primary);
+  padding-left: 14px;
+  margin-left: -16px;
+}
+
+/* Admonitions with purple theme */
+.admonition {
+  border-radius: 8px;
+  border-left: 4px solid var(--ifm-color-primary);
+}
+
+/* Search bar */
+.DocSearch-Button {
+  background: rgba(139, 92, 246, 0.1) !important;
+  border: 1px solid rgba(139, 92, 246, 0.2) !important;
+  border-radius: 8px;
+}
+
+.DocSearch-Button:hover {
+  background: rgba(139, 92, 246, 0.2) !important;
+  border-color: rgba(139, 92, 246, 0.3) !important;
 }
