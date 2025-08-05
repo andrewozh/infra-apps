@@ -10,17 +10,23 @@
 |**CLI**||
 |**UI**||
 
-## TODO
+## Architecture
 
-- [x] use ExternalSecret to get secret from vault
-- [~] PushSecret
-- [ ] automate generating secrets
+[Source](https://external-secrets.io/v0.8.1/guides/multi-tenancy/)
 
-## Setup
+**Shared ClusterSecretStore:** 
+![Shared ClusterSecretStore diagram](.img/external-secrets-shared-cluster-secret-store.png)
 
-### Hashicorp Vault
+## :white_check_mark: Setup
+
+### :white_check_mark: Hashicorp Vault
 
 See [Vault](vault.md) docs for more details.
+
+- Create a Vault engine path:
+  `Secret Engines` -> `Enable new engine +` -> `KV` -> Path: `common`
+
+- Createa `ClusterSecretStore` for Vault
 
 ```yaml
 apiVersion: external-secrets.io/v1beta1
@@ -42,7 +48,7 @@ spec:
 
 ## Usecases
 
-### Basic: get secret, add secret from secret store
+### :white_check_mark: Basic: get secret, add secret from secret store
 
 - example `ExternalSecret` to read secret from secret store
 
@@ -70,12 +76,16 @@ spec:
 Usecase: some resource created in k8s store its secret in k8s-secret,
 and we use PushSecret to save it in Vault and be accessible outside of k8s
 
+[Source](https://external-secrets.io/latest/guides/pushsecrets/)
+
 ```yaml
+cat <<EOF | kubectl apply -f -
+---
 apiVersion: external-secrets.io/v1alpha1
 kind: PushSecret
 metadata:
-  name: pushsecret-example # Customisable
-  namespace: default # Same of the SecretStores
+  name: argocd-secret # Customisable
+  namespace: argocd # Same of the SecretStores
 spec:
   updatePolicy: Replace # Policy to overwrite existing secrets in the provider on sync
   deletionPolicy: Delete # the provider' secret will be deleted if the PushSecret is deleted
@@ -85,30 +95,21 @@ spec:
       kind: ClusterSecretStore
   selector:
     secret:
-      name: test # Source Kubernetes secret to be pushed
-  template:
-    metadata:
-      annotations: { }
-      labels: { }
-    data:
-      best-pokemon: "{{ .best-pokemon | toString | upper }} is the really best!"
-    # Uses an existing template from configmap
-    # Secret is fetched, merged and templated within the referenced configMap data
-    # It does not update the configmap, it creates a secret with: data["alertmanager.yml"] = ...result...
-    templateFrom:
-      - configMap:
-          name: application-config-tmpl
-          items:
-            - key: config.yml
+      name: argocd-secret # Source Kubernetes secret to be pushed
   data:
     - conversionStrategy: None # Also supports the ReverseUnicode strategy
       match:
-        secretKey: best-pokemon # Source Kubernetes secret key to be pushed
+        # secretKey: best-pokemon # Source Kubernetes secret key to be pushed (comment out to push all keys)
         remoteRef:
-          remoteKey: my-first-parameter # Remote reference (where the secret is going to be pushed)
+          remoteKey: argocd/admin # Remote reference (where the secret is going to be pushed)
+EOF
 ```
 
 ### Common: generate secrets, update secrets, rotate secrets
+
+## :arrows_counterclockwise: Monitoring
+
+
 
 ## Maintenence
 

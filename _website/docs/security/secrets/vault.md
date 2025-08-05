@@ -12,11 +12,15 @@
 
 ## Setup
 
-Basic manual
+:::note
+Default configuration
+:::
 
-## Usecases
+## :white_check_mark: Usecases
 
-### Basic: Manually unseal vault
+[Why use Vault](https://developer.hashicorp.com/vault/tutorials/get-started/why-use-vault)
+
+### :white_check_mark: Basic: Manually unseal vault
 
 - init vault & temporary save unseal keys and root token
 
@@ -43,8 +47,8 @@ metadata:
   name: vault-token
   namespace: vault
 type: Opaque
-data:
-  token: $(cat .secret | base64)
+stringData:
+  token: $(cat .secret | grep "Initial Root Token" | awk -F': ' '{print $2}')
 EOF
 ```
 
@@ -57,6 +61,9 @@ EOF
 
 - [ ] configurable backend (local, aws ssm, etc)
 - [ ] auto unseal
+
+## :arrows_counterclockwise: Monitoring
+
 
 ## Maintenence
 
