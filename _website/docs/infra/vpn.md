@@ -105,6 +105,20 @@ module "terraform-aws-pritunl" {
     },
   )
 }
+
+resource "aws_route53_zone" "home_lab" {
+  name = "home.lab"
+  tags = var.tags
+}
+
+resource "aws_route53_record" "common_vpn" {
+  zone_id         = aws_route53_zone.home_lab.zone_id
+  name            = "common-vpn.home.lab"
+  type            = "A"
+  ttl             = "300"
+  records         = [module.terraform-aws-pritunl.elastic_ip]
+  allow_overwrite = true
+}
 ```
 
 ### Access
