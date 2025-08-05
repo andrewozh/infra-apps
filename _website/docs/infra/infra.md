@@ -1,6 +1,6 @@
 # Platform
 
-## Cloud infra
+## Cloud
 
 - how to setup terragrunt
 
