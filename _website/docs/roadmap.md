@@ -30,6 +30,7 @@ import ProgressBar from '@site/src/components/ProgressBar';
 
 - [x] localhosted cluster kind
 - [x] kubernetes monitoring: node, dp, ds, sts, pv- (kind do not support)
+- [x] pritunl vpn setup doc
 
 **Platform & App-library requirements:**
 
@@ -98,6 +99,7 @@ import ProgressBar from '@site/src/components/ProgressBar';
 **Infra requirements:**
 
 - [ ] aws eks: terrafrom, addons
+- [ ] setup pritunl vpn with terragrunt
 
 **Tools requirements:**
 
