@@ -21,6 +21,13 @@ cd _website
 yarn start
 ```
 
+## Deploy to GitHub Pages
+
+```bash
+yarn build
+DEPLOYMENT_BRANCH=main GIT_USER=andrewozh yarn deploy
+```
+
 ## Header
 
 - [ ] logo ( bold lowercase italic handwritten-like (not a font) letters ao )

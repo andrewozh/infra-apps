@@ -49,7 +49,7 @@ function HomepageHeader() {
           </Link>
           <Link
             className={clsx('button button--primary button--lg', styles.sandboxButton)}
-            to="/docs/intro">
+            to="/docs/">
             Demo project
           </Link>
           <Link

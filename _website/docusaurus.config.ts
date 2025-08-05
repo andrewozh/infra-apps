@@ -23,7 +23,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'andrewozh', // Usually your GitHub org/user name.
-  projectName: 'devops-sandbox', // Usually your repo name.
+  projectName: 'andrewozh.github.io', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
